@@ -1,6 +1,12 @@
 @font-face {
     font-family: Monoton;
-    src: url('Monoton/Monoton-Regular.ttf');
+    src: url('multimedia/Monoton/Monoton-Regular.ttf');
+}
+
+html {
+    background-image: url('multimedia/FondoLogIn.jpeg');    
+    background: cover no-repeat;
+    color: #FFF;
 }
 
 p>span.transit {
