@@ -12,11 +12,12 @@ import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component'
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
 import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
 import { AppComponent } from './app.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: AppComponent
+        component: LogInComponent
     },
     {
         path: 'administrativo',

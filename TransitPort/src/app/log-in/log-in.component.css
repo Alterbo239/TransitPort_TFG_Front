@@ -1,0 +1,40 @@
+@font-face {
+    font-family: Monoton;
+    src: url('multimedia/Monoton/Monoton-Regular.ttf');
+}
+
+html {
+    background-image: url('multimedia/FondoLogIn.jpeg');    
+    background: cover no-repeat;
+    color: #FFF;
+}
+
+p>span.transit {
+    color: var(--Cinder-200, #C0D2F7);
+    font-family: Monoton;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.88px;
+}
+
+p>span.guion {
+    color: var(--Cinder-950, #040813);
+    font-family: Monoton;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.88px;
+}
+
+p>span.port {
+    color: var(--Cinder-100, #E3E9FB);
+    font-family: Monoton;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.88px;
+}
