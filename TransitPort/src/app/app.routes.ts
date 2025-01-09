@@ -6,12 +6,18 @@ import { MonitorizarOrdenComponent } from './administrativo/monitorizar-orden/mo
 import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/buscar-contenedor.component';
 import { RealizarAuditoriaComponent } from './administrativo/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
+import { GestorComponent } from './gestor/gestor.component';
+import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
+import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
+import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
+import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
 import { AppComponent } from './app.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: AppComponent
+        component: LogInComponent
     },
     {
         path: 'administrativo',
@@ -40,6 +46,27 @@ export const routes: Routes = [
             {
                 path: 'incidencias',
                 component: IncidenciasComponent
+            },
+        ]        
+    },{
+        path: 'gestor',
+        component: GestorComponent,
+        children: [
+            {
+                path: 'crear-gruas',
+                component: CrearGruasComponent
+            },
+            {
+                path: 'crear-patio',
+                component: CrearPatioComponent
+            },
+            {
+                path: 'gestionar-gruas',
+                component: GestionarGruasComponent
+            },
+            {
+                path: 'usuarios',
+                component: UsuariosComponent
             },
         ]        
     }
