@@ -5,7 +5,8 @@
 
 html {
   background-image: url("multimedia/FondoLogIn.jpeg");
-  background: cover no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #fff;
 }
 
@@ -49,7 +50,7 @@ p > span.port {
   width: 1260px;
   height: 810px;
   flex-shrink: 0;
-
+  display: flex;
   background: var(--Cinder-900, #152d65);
   box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -60,4 +61,16 @@ p > span.port {
   flex-shrink: 0;
   box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 22px 36px 22px 38px;
+}
+
+#imagenInicio {
+  width: 586px;
+  height: 810px;
+  flex-shrink: 0;
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#imagenIni {
+  width: 100%;
+  height: 100%;
 }
