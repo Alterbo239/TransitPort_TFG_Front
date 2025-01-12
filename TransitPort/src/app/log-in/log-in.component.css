@@ -1,0 +1,76 @@
+@font-face {
+  font-family: Monoton;
+  src: url("multimedia/Monoton/Monoton-Regular.ttf");
+}
+
+html {
+  background-image: url("multimedia/FondoLogIn.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+p > span.transit {
+  color: var(--Cinder-200, #c0d2f7);
+  font-family: Monoton;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.88px;
+}
+
+p > span.guion {
+  color: var(--Cinder-950, #040813);
+  font-family: Monoton;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.88px;
+}
+
+p > span.port {
+  color: var(--Cinder-100, #e3e9fb);
+  font-family: Monoton;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.88px;
+}
+
+#logo {
+  width: 91.832px;
+  height: 102.869px;
+  flex-shrink: 0;
+}
+
+#bloqueInicio {
+  width: 1260px;
+  height: 810px;
+  flex-shrink: 0;
+  display: flex;
+  background: var(--Cinder-900, #152d65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#bloqueLogin {
+  width: 676px;
+  height: 810px;
+  flex-shrink: 0;
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 22px 36px 22px 38px;
+}
+
+#imagenInicio {
+  width: 586px;
+  height: 810px;
+  flex-shrink: 0;
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#imagenIni {
+  width: 100%;
+  height: 100%;
+}
