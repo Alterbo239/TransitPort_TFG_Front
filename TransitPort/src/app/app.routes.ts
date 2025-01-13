@@ -13,6 +13,10 @@ import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-grua
 import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { OperadorComponent } from './operador/operador.component';
+import { PerfilComponent } from './operador/perfil/perfil.component';
+import { OrdenesComponent } from './operador/ordenes/ordenes.component';
+import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 
 export const routes: Routes = [
     {
@@ -47,7 +51,7 @@ export const routes: Routes = [
                 path: 'incidencias',
                 component: IncidenciasComponent
             },
-        ]        
+        ]
     },{
         path: 'gestor',
         component: GestorComponent,
@@ -68,6 +72,23 @@ export const routes: Routes = [
                 path: 'usuarios',
                 component: UsuariosComponent
             },
-        ]        
-    }
+        ]
+    },{
+      path: 'operador',
+      component: OperadorComponent,
+      children: [
+          {
+              path: 'ordenes',
+              component: OrdenesComponent
+          },
+          {
+              path: 'notificaciones',
+              component: NotificacionesComponent
+          },
+          {
+              path: 'perfil',
+              component: PerfilComponent
+          },
+      ]
+  }
 ];
