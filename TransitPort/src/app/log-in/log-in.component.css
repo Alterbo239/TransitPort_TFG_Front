@@ -4,7 +4,7 @@
 }
 
 html {
-  background-image: url("multimedia/FondoLogIn.jpeg");
+  background-image: url("../assets/FondoLogIn.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
