@@ -22,7 +22,6 @@ flex-shrink: 0;
 height: 204px;
 flex-shrink: 0;
 border-radius: 97.5px;
-background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 }
 
 .input-perfil{
