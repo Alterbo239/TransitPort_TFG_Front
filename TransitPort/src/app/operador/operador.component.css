@@ -5,17 +5,18 @@
 
 }
 
-div{
+.navbar-nav{
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 313px;
   height: 1024px;
   flex-shrink: 0;
   background: var(--Cinder-800, #133379);
   padding: 0;
   margin: 0;
-  
+
 
 }
 
@@ -36,10 +37,56 @@ a{
 
 }
 
-a:focus{
+.enlace:focus{
 
-  color: #133379;
+  color: #040813;
   background-color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
 }
+
+svg > path{
+
+  width: 52.25px;
+height: 52.25px;
+flex-shrink: 0;
+stroke-width: 2px;
+stroke: var(--Cinder-50, #F1F5FE);
+
+}
+
+.enlace:focus svg > path{
+
+stroke: var(--Cinder-50, #040813);
+
+}
+
+.logout > svg > path{
+
+  stroke-width: 0.3;
+
+}
+
+.perfil{
+
+  color: var(--Cinder-50, #F1F5FE);
+font-family: Inter;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+display: flex;
+flex-direction: column;
+margin-top: 10px;
+
+}
+
+.perfil > img{
+
+  width: 114px;
+height: 114px;
+flex-shrink: 0;
+border-radius: 57px;
+
+}
+
