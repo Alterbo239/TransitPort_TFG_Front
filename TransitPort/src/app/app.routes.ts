@@ -11,7 +11,6 @@ import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component'
 import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
 import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
-import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { OperadorComponent } from './operador/operador.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
