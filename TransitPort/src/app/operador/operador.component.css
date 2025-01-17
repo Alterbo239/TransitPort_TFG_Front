@@ -30,3 +30,17 @@ a{
   font-weight: bolder;
 
 }
+
+a.active{
+
+  color: #133379;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+td.active{
+
+  background-color: #F1F5FE;
+  text-decoration: none;
+  font-weight: bolder;
+}
