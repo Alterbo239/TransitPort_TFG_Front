@@ -36,3 +36,20 @@ button.aceptar {
     justify-content: center;
     align-items: center;
 }
+button.cancelar {
+    border-radius: 4px;
+    border: 2px solid var(--Cinder-900, #152D65);
+    background: var(--Amarillo, #E59506);
+    box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    padding: 21px 72px 21px 73px;
+    justify-content: center;
+    align-items: center;
+}
+button.anyadir {
+    background: var(--Cinder-950, #040813);
+    display: inline-flex;
+    padding: 13px 56px 12px 57px;
+    justify-content: center;
+    align-items: center;
+}
