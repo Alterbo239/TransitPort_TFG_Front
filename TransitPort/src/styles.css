@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+div.input > select {
+  background: var(--Cinder-100, #e3e9fb);
+  display: flex;
+  width: 457px;
+  height: 49px;
+  padding: 17px 20px 17px 416px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+}
+div.input > h2 {
+  color: var(--Cinder-950, #040813);
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+div.input > p {
+  color: var(--Cinder-950, #040813);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+button.aceptar {
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152d65);
+  background: var(--Cinder-900, #152d65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  width: 498px;
+  padding: 21px 0px;
+  justify-content: center;
+  align-items: center;
+}
