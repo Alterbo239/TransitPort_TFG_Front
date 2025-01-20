@@ -1,25 +1,18 @@
 *{
 
   margin: 0;
+  padding: 0;
 
 
 }
 
 .navbar-nav{
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 313px;
-  height: 1024px;
-  flex-shrink: 0;
-  background: var(--Cinder-800, #133379);
   padding: 0;
   margin: 0;
-
+  height: 100%;
+  background: var(--Cinder-800, #133379);
 
 }
-
 
 a{
 
@@ -31,9 +24,27 @@ a{
   justify-content: left;
   align-items: center;
   gap: 16px;
+  width: 95%;
   border-radius: 0px 20px 20px 0px;
   background: #133379;
-  margin-right: 20px;
+  margin: 0;
+
+}
+
+a:hover{
+
+  color: #F1F5FE;
+  text-decoration: none;
+  font-weight: bolder;
+  display: inline-flex;
+  padding: 15px 33px 15px 52px;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  width: 95%;
+  border-radius: 0px 20px 20px 0px;
+  background: #133379;
+  margin: 0;
 
 }
 
@@ -43,19 +54,11 @@ a{
   background-color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
+  margin: 0;
 }
 
-svg > path{
 
-  width: 52.25px;
-height: 52.25px;
-flex-shrink: 0;
-stroke-width: 2px;
-stroke: var(--Cinder-50, #F1F5FE);
-
-}
-
-.enlace:focus svg > path{
+.enlace:focus > svg > path{
 
 stroke: var(--Cinder-50, #040813);
 
@@ -67,26 +70,36 @@ stroke: var(--Cinder-50, #040813);
 
 }
 
-.perfil{
+.perfil > a{
 
   color: var(--Cinder-50, #F1F5FE);
-font-family: Inter;
-font-size: 28px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-display: flex;
-flex-direction: column;
-margin-top: 10px;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 
 }
 
-.perfil > img{
+.perfil{
+
+  margin-bottom: 20px;
+
+}
+
+.perfil > a > img{
 
   width: 114px;
-height: 114px;
-flex-shrink: 0;
-border-radius: 57px;
+  height: 114px;
+  border-radius: 57px;
+  margin-top: 20px;
 
 }
 
+button{
+
+  position: absolute;
+  margin: 20px;
+  background: none;
+  border: none;
+}

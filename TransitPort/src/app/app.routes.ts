@@ -76,6 +76,11 @@ export const routes: Routes = [
       path: 'operador',
       component: OperadorComponent,
       children: [
+
+          {
+            path: '',
+            redirectTo: 'ordenes',
+            pathMatch: 'full' },
           {
               path: 'ordenes',
               component: OrdenesComponent

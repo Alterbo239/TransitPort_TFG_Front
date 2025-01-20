@@ -11,4 +11,17 @@ import { Router } from 'express';
 })
 export class OperadorComponent {
 
+  menuVisible: boolean = false;
+
+  mostrarMenu(): void{
+
+    this.menuVisible = !this.menuVisible;
+
+    if(this.menuVisible){
+      let boton = document.getElementById('botonMostrarMenu');
+      boton?.setAttribute('hidden', 'true');
+
+    }
+  }
+
 }
