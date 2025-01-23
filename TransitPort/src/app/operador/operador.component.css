@@ -1,26 +1,17 @@
-div{
+*{
 
-  display: flex;
-  flex-direction: column;
-  width: 313px;
-  height: 1024px;
-  flex-shrink: 0;
-  background: var(--Cinder-800, #133379);
-  padding: 0;
   margin: 0;
+  padding: 0;
+
 
 }
 
-td{
+.navbar-nav{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: var(--Cinder-800, #133379);
 
-  display: inline-flex;
-  padding: 15px 33px 15px 52px;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 16px;
-  border-radius: 0px 20px 20px 0px;
-  background: #133379;
-  margin-right: 20px;
 }
 
 a{
@@ -28,19 +19,87 @@ a{
   color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
+  display: inline-flex;
+  padding: 15px 33px 15px 52px;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  width: 95%;
+  border-radius: 0px 20px 20px 0px;
+  background: #133379;
+  margin: 0;
 
 }
 
-a.active{
+a:hover{
 
-  color: #133379;
+  color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
+  display: inline-flex;
+  padding: 15px 33px 15px 52px;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  width: 95%;
+  border-radius: 0px 20px 20px 0px;
+  background: #133379;
+  margin: 0;
+
 }
 
-td.active{
+.actual{
 
+  color: #040813;
   background-color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
+  margin: 0;
+}
+
+
+.enlace:focus > svg > path{
+
+stroke: var(--Cinder-50, #040813);
+
+}
+
+.logout > svg > path{
+
+  stroke-width: 0.3;
+
+}
+
+.perfil > a{
+
+  color: var(--Cinder-50, #F1F5FE);
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+.perfil{
+
+  margin-bottom: 20px;
+
+}
+
+.perfil > a > img{
+
+  width: 114px;
+  height: 114px;
+  border-radius: 57px;
+  margin-top: 20px;
+
+}
+
+button{
+
+  position: absolute;
+  margin: 20px;
+  background: none;
+  border: none;
 }
