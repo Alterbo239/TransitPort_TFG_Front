@@ -13,9 +13,9 @@ import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-grua
 import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { OperadorComponent } from './operador/operador.component';
-import { PerfilComponent } from './operador/perfil/perfil.component';
 import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
+import { PerfilComponent } from './operador/perfil/perfil.component';
 
 export const routes: Routes = [
     {
@@ -76,6 +76,11 @@ export const routes: Routes = [
       path: 'operador',
       component: OperadorComponent,
       children: [
+
+          {
+            path: '',
+            redirectTo: 'ordenes',
+            pathMatch: 'full' },
           {
               path: 'ordenes',
               component: OrdenesComponent
