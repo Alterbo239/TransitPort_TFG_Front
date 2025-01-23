@@ -1,6 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-usuarios',
@@ -9,7 +7,5 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrl: './usuarios.component.css'
 })
 export class UsuariosComponent {
-
-
 
 }
