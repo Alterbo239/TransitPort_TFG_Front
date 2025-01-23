@@ -3,8 +3,8 @@ table.dataTable {
   border-collapse: collapse;
 }
 
-table.dataTable thead {
-  background-color: #f8f9fa;
+th {
+  background-color: #152d65;
 }
 
 table.dataTable thead th {
