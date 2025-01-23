@@ -36,10 +36,3 @@ button.aceptar {
   justify-content: center;
   align-items: center;
 }
-
-body {
-  background-image: url("/../../assets/FondoLogIn.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-}

@@ -1,0 +1,25 @@
+table.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.dataTable thead {
+  background-color: #f8f9fa;
+}
+
+table.dataTable thead th {
+  border-bottom: 2px solid #dee2e6;
+  padding: 10px;
+}
+
+table.dataTable tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+table.dataTable tbody td {
+  padding: 10px;
+}
+
+table.dataTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
