@@ -1,3 +1,10 @@
+*{
+
+  margin: 0;
+
+
+}
+
 div{
 
   display: flex;
@@ -8,38 +15,30 @@ div{
   background: var(--Cinder-800, #133379);
   padding: 0;
   margin: 0;
+  
 
 }
 
-td{
-
-  display: inline-flex;
-  padding: 15px 33px 15px 52px;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 16px;
-  border-radius: 0px 20px 20px 0px;
-  background: #133379;
-  margin-right: 20px;
-}
 
 a{
 
   color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;
+  display: inline-flex;
+  padding: 15px 33px 15px 52px;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  border-radius: 0px 20px 20px 0px;
+  background: #133379;
+  margin-right: 20px;
 
 }
 
-a.active{
+a:focus{
 
   color: #133379;
-  text-decoration: none;
-  font-weight: bolder;
-}
-
-td.active{
-
   background-color: #F1F5FE;
   text-decoration: none;
   font-weight: bolder;

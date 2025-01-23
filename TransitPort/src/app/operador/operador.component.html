@@ -1,10 +1,15 @@
-<div>
-  <table>
-      <tr>
-          <td><a routerLink="ordenes">Ordenes</a></td>
-          <td><a routerLink="notificaciones">Notificaciones</a></td>
-          <td><a routerLink="perfil">Perfil</a></td>
-      </tr>
-  </table>
+<div class="d-flex">
+
+  <div class="sidebar bg-light">
+
+    <div class="navbar-nav flex-column">
+
+      <a class="nav-link" routerLink="ordenes">Ordenes</a>
+      <a class="nav-link" routerLink="notificaciones">Notificaciones</a>
+      <a class="nav-link" routerLink="perfil">Perfil</a>
+
+    </div>
+
+  </div>
+
 </div>
-<router-outlet />
