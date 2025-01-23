@@ -57,8 +57,17 @@ a:hover{
   margin: 0;
 }
 
+.actual:hover{
 
-.enlace:focus > svg > path{
+  color: #040813;
+  background-color: #F1F5FE;
+  text-decoration: none;
+  font-weight: bolder;
+  margin: 0;
+}
+
+
+.actual > svg > path{
 
 stroke: var(--Cinder-50, #040813);
 
