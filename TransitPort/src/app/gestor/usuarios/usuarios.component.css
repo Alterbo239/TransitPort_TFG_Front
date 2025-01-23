@@ -5,6 +5,7 @@ table.dataTable {
 
 th {
   background-color: #152d65;
+  color: white;
 }
 
 table.dataTable thead th {
