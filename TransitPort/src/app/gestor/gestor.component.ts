@@ -9,5 +9,5 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './gestor.component.css'
 })
 export class GestorComponent {
-
+  
 }
