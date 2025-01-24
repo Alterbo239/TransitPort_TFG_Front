@@ -11,7 +11,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-top: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .tituloSecc {
@@ -28,42 +28,6 @@
   margin-left: 10px;
   margin-top: 60px;
   margin-bottom: 80px;
-}
-
-.contenedor-busqueda {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.input-busqueda {
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.contenedor-botones {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.contenedor-botones p {
-  margin: 0 10px;
-}
-
-.boton {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #152d65;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.boton:hover {
-  background-color: #0d1f4a;
 }
 
 table {
