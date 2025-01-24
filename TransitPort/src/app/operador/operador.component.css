@@ -82,17 +82,18 @@ stroke: var(--Cinder-50, #040813);
 .perfil > a{
 
   color: var(--Cinder-50, #F1F5FE);
-  font-family: Inter;
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  text-align: center;
 
 }
 
 .perfil{
 
   margin-bottom: 20px;
+  
 
 }
 
