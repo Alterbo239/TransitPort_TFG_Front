@@ -23,3 +23,34 @@ div.seleccionado {
   font-weight: 700;
   line-height: normal;
 }
+
+.imgMenu {
+  width: 53px;
+  height: 53px;
+  flex-shrink: 0;
+  margin-left: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.primeraImg {
+  margin-top: 50px;
+}
+
+.home {
+  width: 56px;
+  height: 50px;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 300px;
+}
+
+.perfil {
+  border-radius: 51px;
+  width: 81px;
+  height: 86px;
+  flex-shrink: 0;
+  margin-left: 10px;
+  margin-top: 40px;
+}
