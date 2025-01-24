@@ -1,8 +1,37 @@
+.contenedor-tabla {
+  max-height: 792px;
+  overflow: auto;
+}
+
+.imgPag {
+  width: 49.074px;
+  height: 53.535px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tituloSecc {
+  width: 390px;
+  height: 58px;
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 table {
   width: 1387px;
-  height: 792px;
   background-color: var(--Cinder-50, #f1f5fe);
   margin-left: 250px;
+  overflow: auto;
 }
 
 th {
