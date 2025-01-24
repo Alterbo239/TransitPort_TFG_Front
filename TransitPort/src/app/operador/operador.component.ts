@@ -24,20 +24,29 @@ export class OperadorComponent {
     if(this.menuVisible){
       let boton = document.getElementById('botonMostrarMenu');
       boton?.setAttribute('hidden', 'true');
+
+      let enlaceOrdenes = document.getElementById('ordenes');
+      let enlaceNotificaciones = document.getElementById('notificaciones');
+
       switch(this.router.url){
 
         case '/operador/ordenes':
 
-        alert('operador')
+          enlaceOrdenes?.classList.add('actual');
 
-        let enlace = document.getElementById('ordenes');
+          enlaceNotificaciones?.classList.remove('actual');
 
-        // enlace?.classList.add('actual');
+          break;
 
-        break;
+        case '/operador/notificaciones':
+
+          enlaceNotificaciones?.classList.add('actual');
+
+          enlaceOrdenes?.classList.remove('actual');
+
+          break;
 
       }
-      console.log('Current URL:', this.router.url);
 
     } else{
 
