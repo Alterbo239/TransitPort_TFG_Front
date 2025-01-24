@@ -15,7 +15,6 @@ div.seleccionado {
   justify-content: flex-end;
   align-items: center;
   flex-shrink: 0;
-
   color: var(--Cinder-50, #f1f5fe);
   font-family: Inter;
   font-size: 32px;
