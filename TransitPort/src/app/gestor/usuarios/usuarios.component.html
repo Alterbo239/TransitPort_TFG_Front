@@ -1,25 +1,13 @@
 <img class="imgPag" src="./assets/Gestor/usuariosVer.svg" alt=""><p class="tituloSecc">Usuarios</p>
 
 
-<div class="contenedor-busqueda">
 
-  <input class="input-busqueda" type="text" placeholder="Búsqueda...">
-
-</div>
-
-<div class="contenedor-botones">
-
-  <input type="checkbox" name="" id="seleccionar">
-  <p>0 Seleccionados</p>
-  <button class="boton">Crear</button>
-  <button class="boton">Eliminar</button>
-</div>
 
 
 
 <div class="contenedor-tabla">
 
-  <table datatable class="table ">
+  <table datatable [dtOptions]="dtOptions" class="table ">
 
     <thead>
       <tr>
@@ -29,71 +17,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
 
-        <td><form action="post">
 
-          <input class="seleccionarTabla" type="checkbox" name=""  title="Select">
-        </form>Operador</td>
-        <td>Juan Sánchez</td>
-        <td>Activo</td>
-      </tr>
-      <tr>
-        <td><form action="post">
-
-          <input class="seleccionarTabla" type="checkbox" name="" >
-        </form>Administrativo</td>
-        <td>María Fuster</td>
-        <td>Inactivo</td>
-      </tr>
-      <tr>
-        <td><form action="post">
-          <input class="seleccionarTabla" type="checkbox" name="" id="">
-        </form>3</td>
-        <td>Alberto</td>
-        <td>Francés</td>
-      </tr>
-      <tr>
-        <td><form action="post">
-          <input class="seleccionarTabla" type="checkbox" name="" id="">
-        </form>4</td>
-        <td>Yoda</td>
-        <td>Skywalker</td>
-      </tr>
-      <tr>
-        <td><form action="post">
-          <input class="seleccionarTabla" type="checkbox" name="" id="">
-        </form>5</td>
-        <td>Marinette</td>
-        <td>Dupont</td>
-      </tr>
-      <tr>
-        <td><form action="post">
-          <input class="seleccionarTabla" type="checkbox" name="" id="">
-        </form>6</td>
-        <td>Barack</td>
-        <td>Obama</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>François</td>
-        <td>Holland</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Michel</td>
-        <td>Popo</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Chuck</td>
-        <td>Norris</td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Zelda</td>
-        <td>Link</td>
-      </tr>
     </tbody>
 
   </table>

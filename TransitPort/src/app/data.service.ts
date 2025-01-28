@@ -8,10 +8,14 @@ import { Observable, of } from "rxjs";
 export class SuppliersService {
 
     private suppliers : Suppliers[] = [
-        { id : 1, name : 'Susana', contactNumber : '22222'},
-        { id : 2, name : 'Supplier B', contactNumber : '9856535269'},
-        { id : 3, name : 'Supplier C', contactNumber : '9856447856'},
-        { id : 4, name : 'Supplier D', contactNumber : '9845687900'}
+        { cargo : 'Operador/a', name : 'Juan Sánchez', estado : 'Activo/a'},
+        { cargo : 'Administrador/a', name : 'María Fuster', estado : 'Inactivo/a'},
+        { cargo : 'Operador/a', name : 'Jordi Martínez', estado : 'Activo/a'},
+        { cargo : 'Operador/a', name : 'Ramón Cajal', estado : 'Inactivo/a'},
+        { cargo : 'Operador/a', name : 'Alberto Navarro', estado : 'Inactivo/a'},
+        { cargo : 'Administrativo/a', name : 'Lucas Potter', estado : 'Activo/a'},
+        { cargo : 'Operador/a', name : 'Eva María', estado : 'Activo/a'},
+        { cargo : 'Administrativo/a', name : 'Marina Dor', estado : 'Activo/a'},
     ]
 
     getSuppliersList(): Observable<Suppliers[]> {
@@ -20,7 +24,7 @@ export class SuppliersService {
 }
 
 export interface Suppliers{
-    id: number;
+    cargo: string;
     name : string;
-    contactNumber : string;
+    estado : string;
 }
