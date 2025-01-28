@@ -30,7 +30,7 @@ export class UsuariosComponent implements OnInit{
         });
       },
 
-      lengthMenu : [8],
+      lengthMenu : [4, 8, 12, 16],
       columns: [
         { title: 'Cargo', data: 'cargo' },
         { title: 'Nombre empleado', data: 'name' },
