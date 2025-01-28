@@ -3,6 +3,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
