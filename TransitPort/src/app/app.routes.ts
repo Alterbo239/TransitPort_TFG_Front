@@ -16,6 +16,7 @@ import { OperadorComponent } from './operador/operador.component';
 import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
+import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 
 export const routes: Routes = [
     {
@@ -84,6 +85,10 @@ export const routes: Routes = [
           {
               path: 'ordenes',
               component: OrdenesComponent
+          },
+          {
+              path: 'orden',
+              component: OrdenComponent
           },
           {
               path: 'notificaciones',

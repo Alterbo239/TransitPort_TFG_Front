@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="contenedor-tabla-ordenes">
   <div class="table-container">
     <table class="d-flex flex-column">
       <thead>
@@ -10,16 +10,18 @@
       </thead>
       <tbody>
 
-        <tr class="orden orden-carga actual d-flex justify-content-between">
-          <td><span>Hora de inicio:</span>12:00</td>
-          <td>Santa Maria</td>
-          <td>Carga</td>
-        </tr>
-        <tr class="orden orden-carga d-flex justify-content-between">
-          <td>X te asignó una orden</td>
-          <td>Santa Maria</td>
-          <td>Carga</td>
-        </tr>
+
+          <tr (click)="pulsarOrden()" class="orden orden-carga actual d-flex justify-content-between" >
+              <td><span>Hora de inicio:</span>12:00</td>
+              <td>Santa Maria</td>
+              <td>Carga</td>
+          </tr>
+
+          <tr class="orden orden-carga d-flex justify-content-between">
+            <td>X te asignó una orden</td>
+            <td>Santa Maria</td>
+            <td>Carga</td>
+          </tr>
 
         <tr class="orden orden-descarga d-flex justify-content-between">
           <td>X te asignó una orden</td>
