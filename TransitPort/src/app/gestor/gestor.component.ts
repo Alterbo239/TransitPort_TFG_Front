@@ -4,10 +4,10 @@ import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-gestor',
-  imports: [RouterOutlet, RouterLink, MenuComponent],
+  imports: [RouterOutlet, MenuComponent],
   templateUrl: './gestor.component.html',
   styleUrl: './gestor.component.css'
 })
 export class GestorComponent {
-  
+
 }
