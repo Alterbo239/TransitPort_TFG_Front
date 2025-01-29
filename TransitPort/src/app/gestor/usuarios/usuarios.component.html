@@ -94,29 +94,3 @@
     </tbody>
   </table>
 </div>
-
-<ng-container cdkColumnDef="username">
-  <cdk-table [dataSource]="dataSource">
-    <!-- User name Definition -->
-    <ng-container cdkColumnDef="username">
-      <cdk-header-cell *cdkHeaderCellDef> User name </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row"> {{row.username}} </cdk-cell>
-    </ng-container>
-  
-    <!-- Age Definition -->
-    <ng-container cdkColumnDef="age">
-      <cdk-header-cell *cdkHeaderCellDef> Age </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row"> {{row.age}} </cdk-cell>
-    </ng-container>
-  
-    <!-- Title Definition -->
-    <ng-container cdkColumnDef="title">
-      <cdk-header-cell *cdkHeaderCellDef> Title </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row"> {{row.title}} </cdk-cell>
-    </ng-container>
-  
-    <!-- Header and Row Declarations -->
-    <cdk-header-row *cdkHeaderRowDef="['username', 'age', 'title']"></cdk-header-row>
-    <cdk-row *cdkRowDef="let row; columns: ['username', 'age', 'title']"></cdk-row>
-  </cdk-table>
-</ng-container>
