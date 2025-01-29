@@ -3,10 +3,11 @@ import { DataTablesModule  } from 'angular-datatables';
 import { OrdenService } from '../../orden.service';
 import { Suppliers } from '../../orden.service';
 import { Config } from 'datatables.net';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-monitorizar-orden',
-  imports: [ DataTablesModule ],
+  imports: [ DataTablesModule, RouterLink, RouterOutlet ],
   templateUrl: './monitorizar-orden.component.html',
   styleUrl: './monitorizar-orden.component.css'
 })
@@ -29,9 +30,10 @@ export class MonitorizarOrdenComponent implements OnInit {
       },
 
       lengthMenu : [4, 8, 12, 16],
+      //Columnas de la tabla.
       columns: [
+        //En la fecha coge la "data" de la fecha y la devuelve como string en forma de "dd/mm/yyyy".
         { title: 'Fecha creacion', data: 'fecha', render: function(data, type, row) {
-          if (!data) return '';
           const date = new Date(data);
           return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric'});
         } },
