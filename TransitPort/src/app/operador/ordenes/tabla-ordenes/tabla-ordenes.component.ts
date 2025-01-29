@@ -15,8 +15,8 @@ export class TablaOrdenesComponent {
 
   constructor(private router: Router){}
 
-    pulsarOrden(): void {
-      this.router.navigate(['operador/orden']);
-    }
-
+  pulsarOrden(): void {
+    this.router.navigate(['operador/orden']);
   }
+
+}

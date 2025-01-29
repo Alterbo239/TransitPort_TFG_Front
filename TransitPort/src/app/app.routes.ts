@@ -17,6 +17,7 @@ import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
+import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 
 export const routes: Routes = [
     {
@@ -89,6 +90,10 @@ export const routes: Routes = [
           {
               path: 'orden',
               component: OrdenComponent
+          },
+          {
+              path: 'incidencia',
+              component: IncidenciaComponent
           },
           {
               path: 'notificaciones',
