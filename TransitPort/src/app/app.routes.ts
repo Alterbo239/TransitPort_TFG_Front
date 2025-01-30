@@ -25,11 +25,11 @@ export const routes: Routes = [
     {
         path: 'administrativo',
         component: AdministrativoComponent,
-        children: [
+        children: [         
             {
                 path: 'crear-orden',
                 component: CrearOrdenComponent
-            },
+            },   
             {
                 path: 'crear-turno',
                 component: CrearTurnoComponent

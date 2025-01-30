@@ -1,1 +1,20 @@
-<p>monitorizar-orden works!</p>
+<img src="./assets/Administrativo/monitorizarOrdenVer.svg"><p class="tituloSecc">Monitorizar Orden</p>
+
+<br> <!-- onclick para que te lleve a la ruta absoluta. Con routerLink te mandaria a "administrativo/monitorizar-orden/crear-orden" -->
+<img src="./assets/Administrativo/crearOrdenVer.svg" onclick="location.href = 'administrativo/crear-orden'">Crear Orden
+<img src="./assets/Administrativo/realizarAuditoriaVer.svg" onclick="location.href = 'administrativo/realizar-auditoria'">Realizar Auditoria
+
+<div class="contenedor-tabla">
+    <table datatable [dtOptions]="dtOptions" class="table table-hover">
+        <thead>
+          <tr>
+            <th>Fecha creación</th>
+            <th>Orden</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>    
+    
+        </tbody>
+    </table>
+</div>
