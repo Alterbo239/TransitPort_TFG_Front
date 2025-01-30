@@ -21,6 +21,7 @@ table {
   background-color: var(--Cinder-50, #f1f5fe);
   margin: 0 auto;
   overflow: auto;
+  border-collapse: collapse;
 }
 
 table td {
@@ -43,6 +44,7 @@ table th {
   font-weight: 700;
   line-height: normal;
   padding: 30px;
+  position: sticky;
 }
 
 table tr {
@@ -89,4 +91,12 @@ table tr {
   max-height: 600px;
   overflow-y: auto;
   margin: 0 auto;
+}
+
+.dataTables_scrollBody thead tr {
+  visibility: collapse;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
 }
