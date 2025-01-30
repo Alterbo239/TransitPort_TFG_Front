@@ -16,6 +16,9 @@ export class SuppliersService {
         { cargo : 'Administrativo/a', name : 'Lucas Potter', estado : 'Activo/a'},
         { cargo : 'Operador/a', name : 'Eva María', estado : 'Activo/a'},
         { cargo : 'Administrativo/a', name : 'Marina Dor', estado : 'Activo/a'},
+        { cargo : 'Administrativo/a', name : 'Federico García', estado : 'Activo/a'},
+        { cargo : 'Administrativo/a', name : 'Marina Dor', estado : 'Activo/a'},
+        { cargo : 'Administrativo/a', name : 'Marina Dor', estado : 'Activo/a'},
     ]
 
     getSuppliersList(): Observable<Suppliers[]> {

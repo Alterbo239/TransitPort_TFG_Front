@@ -34,7 +34,7 @@ export class UsuariosComponent implements OnInit{
       lengthMenu : [8],
 
       //cantidad máxima de datos que se muestran en la tabla
-      scrollY: '50vh',
+      scrollY: '600px',
       scrollCollapse:true,
       paging: false,
 
