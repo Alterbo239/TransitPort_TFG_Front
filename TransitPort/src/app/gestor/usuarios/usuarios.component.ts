@@ -31,32 +31,27 @@ export class UsuariosComponent implements OnInit{
       },
 
       //selección de cantidad de datos a mostrar en la tabla
-      lengthMenu : [4, 8, 12, 16],
+      lengthMenu : [8],
 
       //cantidad máxima de datos que se muestran en la tabla
-      scrollY: '600px',
-      scrollCollapse: true,
+      scrollY: '50vh',
+      scrollCollapse:true,
       paging: false,
-      autoWidth: false,
-      destroy: true,
-      retrieve: true,
-      scrollX: true,
 
 
-
-      //configuración de la tabla a español
-      language: {
-        search: 'Buscar:',
-        lengthMenu: 'Mostrar  _MENU_',
-        info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-        paginate: {
-          first: 'Primero',
-          last: 'Último',
-          next: 'Siguiente',
-          previous: 'Anterior'
-        },
-        emptyTable: 'No hay datos disponibles en la tabla'
-      },
+      // //configuración de la tabla a español
+      // language: {
+      //   search: 'Buscar:',
+      //   lengthMenu: 'Mostrar  _MENU_',
+      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
+      //   paginate: {
+      //     first: 'Primero',
+      //     last: 'Último',
+      //     next: 'Siguiente',
+      //     previous: 'Anterior'
+      //   },
+      //   emptyTable: 'No hay datos disponibles en la tabla'
+      // },
 
 
 
