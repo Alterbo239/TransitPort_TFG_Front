@@ -14,12 +14,4 @@ import { OrdenService } from './orden.service';
 export class AppComponent {
   title = 'TransitPort';
 
-  usuarios: any;
-
-  constructor(private ordenService: OrdenService) {
-
-    this.ordenService.obtenerDatos().subscribe(result => this.usuarios = result)
-
-  }
-
 }

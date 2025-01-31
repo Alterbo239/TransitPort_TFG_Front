@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
 import { SuppliersService } from '../../data.service';
-import { Suppliers } from '../../data.service';
+// import { Suppliers } from '../../data.service';
 import { Config } from 'datatables.net';
 
 @Component({
@@ -57,9 +57,9 @@ export class UsuariosComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { title: 'Cargo', data: 'cargo' },
-        { title: 'Nombre empleado', data: 'name' },
-        { title: 'Estado', data: 'estado' },
+        { title: 'Cargo', data: 'usuario' },
+        { title: 'Nombre', data: 'nombre', },
+        { title: 'Estado', data: 'password' },
 
       ],
       rowCallback: (row: Node, data: any, index: number) => {
