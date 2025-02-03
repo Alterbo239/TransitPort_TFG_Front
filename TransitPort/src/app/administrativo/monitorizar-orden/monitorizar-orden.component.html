@@ -4,7 +4,7 @@
 <img src="./assets/Administrativo/crearOrdenVer.svg" onclick="location.href = 'administrativo/crear-orden'">Crear Orden
 <img src="./assets/Administrativo/realizarAuditoriaVer.svg" onclick="location.href = 'administrativo/realizar-auditoria'">Realizar Auditoria
 
-<div class="contenedor-tabla">
+<!-- <div class="contenedor-tabla">
     <table datatable [dtOptions]="dtOptions" class="table table-hover">
         <thead>
           <tr>
@@ -13,8 +13,15 @@
             <th>Estado</th>
           </tr>
         </thead>
-        <tbody>    
-    
+        <tbody>
+
         </tbody>
     </table>
+</div> -->
+
+<div *ngIf="usuarios.length > 0">
+  <ul>
+    <li *ngFor="let dato of usuarios">{{ dato.nombre }}, {{ dato.usuario }}, {{ dato.password }}</li>
+  </ul>
 </div>
+

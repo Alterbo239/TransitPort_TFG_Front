@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
-
+import { OrdenService } from './orden.service';
 
 
 @Component({
@@ -13,4 +13,5 @@ import { DataTablesModule } from 'angular-datatables';
 })
 export class AppComponent {
   title = 'TransitPort';
+
 }
