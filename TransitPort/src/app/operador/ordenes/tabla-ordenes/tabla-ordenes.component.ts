@@ -3,7 +3,8 @@ import { Subject } from 'rxjs';
 import { DataTablesModule } from 'angular-datatables';
 import { Router, RouterModule} from '@angular/router';
 import { SuppliersService } from '../../../data.service';
-import { Suppliers } from '../../../data.service';
+import { OrdenesService } from '../../../ordenes.service';
+//import { Suppliers } from '../../../data.service';
 import { Config } from 'datatables.net';
 
 
@@ -20,17 +21,20 @@ export class TablaOrdenesComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private suppliersService: SuppliersService,
+    private ordenesService: OrdenesService,
     private renderer: Renderer2){}
 
     ngOnInit(): void {
       this.dtOptions = {
         ajax: (dataTablesParameters: any, callback) => {
-          this.suppliersService.getSuppliersList().subscribe(resp => {
-            callback({
-              data: resp
-            });
-          });
+          this.ordenesService.getOrdenes().subscribe(
+            resp => {
+              console.log('Datos recibidos:', resp);
+            },
+            error => {
+              console.error('Error al obtener los datos:', error);
+            }
+          );
         },
 
         //selección de cantidad de datos a mostrar en la tabla
@@ -65,9 +69,9 @@ export class TablaOrdenesComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { title: 'Cargo', data: 'cargo' },
-        { title: 'Nombre empleado', data: 'name' },
-        { title: 'Estado', data: 'estado' },
+        { title: 'Informacion', data: 'cargo' },
+        { title: 'Buque', data: 'id_buque' },
+        { title: 'Tipo de orden', data: 'tipo' },
 
       ],
       rowCallback: (row: Node, data: any, index: number) => {

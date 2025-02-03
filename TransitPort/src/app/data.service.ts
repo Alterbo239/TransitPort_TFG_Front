@@ -24,6 +24,7 @@ export class SuppliersService {
 
     private apiUrl = 'http://localhost/api/gestor';
 
+
     constructor(private http: HttpClient){}
 
     getSuppliersList(): Observable<any[]> {
