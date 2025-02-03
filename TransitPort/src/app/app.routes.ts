@@ -16,6 +16,7 @@ import { OperadorComponent } from './operador/operador.component';
 import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
+import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 
@@ -73,6 +74,10 @@ export const routes: Routes = [
                 path: 'usuarios',
                 component: UsuariosComponent
             },
+            {
+              path: 'crear-usuario',
+              component: CrearUsuarioComponent
+          },
         ]
     },{
       path: 'operador',
