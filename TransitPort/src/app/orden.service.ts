@@ -7,31 +7,13 @@ import { Observable, of } from 'rxjs';
 })
 
 export class OrdenService {
-  // private suppliers : Suppliers[] = [
-  //         { fecha : new Date(2024, 11, 3) , orden : 'Carga', estado : 'En curso'},
-  //         { fecha : new Date(2024, 11, 1) , orden : 'Carga', estado : 'Completada'},
-  //         { fecha : new Date(2024, 10, 21) , orden : 'Descarga', estado : 'Por empezar'},
-  //     ]
+  private apiUrl = 'http://localhost/api/orden';
 
-  //     getSuppliersList(): Observable<Suppliers[]> {
-  //         return of(this.suppliers);
-  //     }
+  constructor(private http: HttpClient){}
 
-  // private apiUrl= 'http://localhost:8080/api';
+  getSuppliersList(): Observable<any[]> {
 
-  constructor(private http: HttpClient) { }
-
-  obtenerDatos(){
-
-    return this.http.get("http://localhost/api/gestor");
+    return this.http.get<any[]>(this.apiUrl);
 
   }
-
 }
-
-
-// export interface Suppliers {
-//   fecha: Date;
-//   orden: string;
-//   estado: string;
-// }
