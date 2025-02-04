@@ -8,6 +8,15 @@ div.input > select {
   align-items: center;
   flex-shrink: 0;
 }
+div.input > h2.numero {
+  color: var(--Cinder-950, #040813);
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+}
 div.input > h2 {
   color: var(--Cinder-950, #040813);
   font-family: Inter;
@@ -26,13 +35,45 @@ div.input > p {
 }
 
 button.aceptar {
-  border-radius: 4px;
-  border: 2px solid var(--Cinder-900, #152d65);
-  background: var(--Cinder-900, #152d65);
-  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   width: 498px;
   padding: 21px 0px;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  right: 24%;
+  bottom: 2%;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152d65);
+  background: var(--Cinder-900, #152d65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  color: var(--Cinder-50, #F1F5FE);
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+button.cancelar {
+  display: inline-flex;
+  padding: 21px 72px 21px 73px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Amarillo, #E59506);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  color: var(--Cinder-800, #133379);
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
