@@ -30,3 +30,34 @@
   padding: 0;
 }
 
+.listadoNotificaciones{
+
+    justify-content: center;
+    gap: 27px;
+
+}
+
+.notificacion{
+  text-align: left;
+  width: 90%;
+  gap: 27px;
+  flex-shrink: 0;
+  border-radius: 4px 0px 0px 4px;
+  background: var(--Cinder-50, #F1F5FE);
+  list-style-type: none;
+  margin: 0 auto 10px auto;
+  padding-left: 27px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+}
+
+.notificacion-orden {
+
+  border-left: 10px solid #89ADF0;
+}
+
+.notificacion-incidencia {
+
+    border-left: 10px solid #040813;
+  }
