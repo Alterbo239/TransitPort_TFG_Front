@@ -57,7 +57,7 @@ export class BuscarContenedorComponent implements OnInit{
       //tipos de columnas y sus nombres
       columns: [
         { title: 'ID', data: 'id_contenedor' },
-        { title: 'Procedencia', data: 'ubicacion', },
+        { title: 'Ubicacion actual', data: 'ubicacion', },
         { title: 'Destino', data: 'destino' },
         { title: 'Estado', data: 'estado' },
 
