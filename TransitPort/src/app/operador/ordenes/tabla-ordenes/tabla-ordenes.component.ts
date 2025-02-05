@@ -8,6 +8,7 @@ import { OrdenesService } from '../../../ordenes.service';
 import { Config } from 'datatables.net';
 
 
+
 @Component({
   selector: 'app-tabla-ordenes',
   standalone: true,
