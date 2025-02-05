@@ -3,12 +3,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",<% if (strict) { %>
-    "strict": true,
+    "outDir": "./dist/out-tsc",
+    "strict": true,  // Activamos todas las verificaciones estrictas
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,<% } %>
+    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -19,9 +19,9 @@
     "module": "ES2022"
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false<% if (strict) { %>,
+    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true<% } %>
+    "strictTemplates": true
   }
 }
