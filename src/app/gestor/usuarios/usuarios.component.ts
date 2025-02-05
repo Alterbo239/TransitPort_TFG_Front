@@ -39,19 +39,19 @@ export class UsuariosComponent implements OnInit{
       paging: false,
 
 
-      // //configuración de la tabla a español
-      // language: {
-      //   search: 'Buscar:',
-      //   lengthMenu: 'Mostrar  _MENU_',
-      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-      //   paginate: {
-      //     first: 'Primero',
-      //     last: 'Último',
-      //     next: 'Siguiente',
-      //     previous: 'Anterior'
-      //   },
-      //   emptyTable: 'No hay datos disponibles en la tabla'
-      // },
+      //configuración de la tabla a español
+      language: {
+        search: 'Buscar:',
+        lengthMenu: 'Mostrar  _MENU_',
+        info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
+        paginate: {
+          first: 'Primero',
+          last: 'Último',
+          next: 'Siguiente',
+          previous: 'Anterior'
+        },
+        emptyTable: 'No hay datos disponibles en la tabla'
+      },
 
 
 
