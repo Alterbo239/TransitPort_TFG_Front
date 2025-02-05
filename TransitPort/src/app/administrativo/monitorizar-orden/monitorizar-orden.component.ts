@@ -58,9 +58,9 @@ export class MonitorizarOrdenComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { title: 'Fecha creación', data: 'id' },
-        { title: 'Orden', data: 'fecha_carga', },
-        { title: 'Estado', data: 'cantidad_contenedores' },
+        { title: 'Fecha creación', data: 'fecha_carga' },
+        { title: 'Orden', data: 'tipo', },
+        { title: 'Estado', data: 'estado' },
 
       ],
       rowCallback: (row: Node, data: any, index: number) => {
