@@ -1,0 +1,22 @@
+{
+  "routes": {
+    "/": {},
+    "/administrativo": {},
+    "/administrativo/buscar-contenedor": {},
+    "/administrativo/crear-orden": {},
+    "/administrativo/crear-turno": {},
+    "/administrativo/incidencias": {},
+    "/administrativo/monitorizar-orden": {},
+    "/administrativo/realizar-auditoria": {},
+    "/gestor": {},
+    "/gestor/crear-gruas": {},
+    "/gestor/crear-patio": {},
+    "/gestor/crear-usuario": {},
+    "/gestor/gestionar-gruas": {},
+    "/gestor/usuarios": {},
+    "/operador": {},
+    "/operador/notificaciones": {},
+    "/operador/ordenes": {},
+    "/operador/perfil": {}
+  }
+}
