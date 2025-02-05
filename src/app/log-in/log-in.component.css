@@ -1,16 +1,43 @@
 @font-face {
   font-family: Monoton;
-  src: url("/../../assets/Monoton/Monoton-Regular.ttf") format("truetype");
+  src: url("/assets/Monoton/Monoton-Regular.ttf") format("truetype");
 }
 
-/* .fondoLogin {
-  background-image: url("/../../assets/FondoLogIn.jpeg");
+#bloqueInicio {
+  background-image: url("/assets/Login/FondoLogIn.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
-  padding: 0;
-  margin: 0;
-} */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contenidoLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bloqueLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+#welcome,
+#welcome2 {
+  margin-left: 100px;
+  margin-top: 4px;
+}
+
+#welcome2 {
+  margin-top: -6px;
+  font-size: 22px;
+}
 
 .botonLogin {
   border-radius: 6px;
@@ -18,16 +45,24 @@
   padding: 15px;
   padding-left: 30px;
   padding-right: 30px;
+  font-size: 18px;
   color: var(--Cinder-50, #f1f5fe);
   background-color: var(--Cinder-950, #040813);
+}
+
+.form-check {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-check-input {
   width: 24px;
   height: 25px;
   margin-right: 10px;
-  background: var(--Cinder-900, #607dc0);
-  border-width: 2px;
+  background: none;
+  border-width: 3px;
   border-color: #ccc;
   border-style: solid;
   border-radius: 4px;
@@ -39,7 +74,8 @@
 .form-check-input:checked::before {
   content: "✓";
   color: white;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +83,7 @@
 }
 
 .recordarUser {
-  margin-top: 2px;
+  margin-top: 10px;
 }
 
 p > span.transit {
@@ -58,6 +94,7 @@ p > span.transit {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 2.88px;
+  margin-left: -40px;
 }
 
 p > span.guion {
@@ -83,23 +120,25 @@ p > span.port {
 #logo {
   width: 91.832px;
   height: 102.869px;
-  flex-shrink: 0;
-}
-
-#bloqueInicio {
-  width: 1260px;
-  height: 810px;
-  flex-shrink: 0;
-  display: flex;
-  background: var(--Cinder-900, #152d65);
-  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  float: left;
 }
 
 #bloqueLogin {
   width: 676px;
-  height: 766px;
+  height: 810px;
   flex-shrink: 0;
   padding: 22px 36px 22px 38px;
+  background: var(--Cinder-900, #152d65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 }
 
 #imagenInicio {
@@ -114,13 +153,13 @@ p > span.port {
 }
 
 p {
-  width: 493px;
-  height: 38px;
+  width: 498px;
   color: var(--Cinder-50, #f1f5fe);
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  margin-top: 37px;
 }
 
 .recordarUser {
@@ -131,4 +170,22 @@ p {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.form-control {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+hr {
+  height: 3px;
+  background-color: #f1f5fe;
+  border: none;
+  width: 85%;
+  margin: 40px auto;
+  margin-top: 20px;
+  margin-left: 94px;
 }
