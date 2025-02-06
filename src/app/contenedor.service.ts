@@ -5,9 +5,8 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
-export class OrdenService {
-  private apiUrl = 'http://localhost/api/orden';
+export class ContenedorService {
+  private apiUrl = 'http://localhost/api/tiene';
 
   constructor(private http: HttpClient){}
 
