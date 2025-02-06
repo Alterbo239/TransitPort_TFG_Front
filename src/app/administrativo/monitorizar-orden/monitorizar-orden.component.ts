@@ -1,10 +1,8 @@
-//VERSIÓN 2
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { OrdenService } from '../../orden.service';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
-import { SuppliersService } from '../../data.service';
 import { DataTablesModule  } from 'angular-datatables';
+import { OrdenService } from '../../services/orden.service';
 
 @Component({
   selector: 'app-monitorizar-orden',
@@ -58,7 +56,7 @@ export class MonitorizarOrdenComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { title: 'Fecha creación', data: 'fecha_carga' },
+        { title: 'Fecha creación', data: 'fecha_inicio' },
         { title: 'Orden', data: 'tipo', },
         { title: 'Estado', data: 'estado' },
 

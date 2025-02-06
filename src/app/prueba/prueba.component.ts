@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { SuppliersService } from '../data.service';
-import { Suppliers } from '../data.service';
+import { SuppliersService } from '../services/data.service';
+import { Suppliers } from '../services/data.service';
 import { Config } from 'datatables.net';
 
 
