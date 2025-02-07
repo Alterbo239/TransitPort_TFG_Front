@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
 import { OrdenesService } from '../../../ordenes.service'; // Asegúrate de importar el servicio
 import { NgModule } from '@angular/core';
@@ -9,7 +9,8 @@ import { Config } from 'datatables.net';
   selector: 'app-tabla-ordenes',
   imports: [DataTablesModule],
   templateUrl: './tabla-ordenes.component.html',
-  styleUrl: './tabla-ordenes.component.css'
+  styleUrl: './tabla-ordenes.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class TablaOrdenesComponent implements OnInit {
 
@@ -63,18 +64,11 @@ export class TablaOrdenesComponent implements OnInit {
           ],
           rowCallback: (row: Node, data: any, index: number) => {
 
+            let carga = '#040813';
+            let descarga = '#89ADF0';
+
             const rowElement = row as HTMLElement;
-
-            //estilo de la tabla
-
-            // const actionCell = rowElement.querySelector('table');
-            // if (actionCell) {
-            //   actionCell.setAttribute(
-            //     'style',
-            //     'display: flex; justify-content: center; '
-            //   );
-            // }
-
+            rowElement.style.borderLeft = data.tipo === 'Carga' ? `10px solid ${carga}` : `10px solid ${descarga}`;
 
           }
 
