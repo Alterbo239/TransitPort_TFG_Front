@@ -20,12 +20,22 @@
   align-items: flex-start;
 }
 
+.icono-ojo {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 128px;
+  margin-left: 410px;
+  width: 33px;
+  height: 30px;
+}
+
 .bloqueLogo {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-left: 100px;
   margin-bottom: 20px;
+  margin-top: -80px;
 }
 
 #welcome,
@@ -40,14 +50,18 @@
 }
 
 .botonLogin {
-  border-radius: 6px;
-  border-color: var(--Cinder-50, #f1f5fe);
-  padding: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
+  border-radius: 9px;
+  border: 1px solid var(--Cinder-200, #c0d2f7);
+  color: var(--Cinder-200, #c0d2f7);
+
+  padding: 17px;
+  padding-left: 35px;
+  padding-right: 35px;
   font-size: 18px;
   color: var(--Cinder-50, #f1f5fe);
   background-color: var(--Cinder-950, #040813);
+  margin-left: -290px;
+  font-weight: bolder;
 }
 
 .form-check {
@@ -58,8 +72,8 @@
 }
 
 .form-check-input {
-  width: 24px;
-  height: 25px;
+  width: 30px;
+  height: 31px;
   margin-right: 10px;
   background: none;
   border-width: 3px;
@@ -84,6 +98,7 @@
 
 .recordarUser {
   margin-top: 10px;
+  margin-left: 5px;
 }
 
 p > span.transit {
@@ -170,6 +185,15 @@ p {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.recordarForm {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-left: 230px;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 .form-control {
