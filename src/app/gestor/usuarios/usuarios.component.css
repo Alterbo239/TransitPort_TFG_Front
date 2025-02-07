@@ -1,5 +1,4 @@
 .usuarios-container {
-  margin: 20px auto;
   padding: 20px;
   max-width: 1200px;
   background-color: #f9f9f9;
@@ -17,7 +16,7 @@
 
 table {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   background-color: var(--Cinder-50, #f1f5fe);
   margin: 0 auto;
   overflow: auto;
@@ -86,12 +85,92 @@ table tr {
   max-height: 600px;
   overflow-y: auto;
   margin: 0 auto;
+  margin-left: 200px;
+  width: 1200px;
 }
 
 .dataTables_scrollBody thead tr {
   visibility: collapse;
 }
 
+.dt-search {
+  width: 300px !important;
+  padding: 8px !important;
+
+  border-radius: 4px !important;
+  font-size: 1em !important;
+}
+
+.dt-layout {
+  text-align: center;
+}
+
 .dataTables_scrollBody {
   margin-top: -10px;
+}
+
+.crearNuevo {
+  display: flex;
+  margin-left: 200px;
+  margin-bottom: -48px;
+}
+
+.botonCrear {
+  display: flex;
+  padding-left: 37px;
+  padding-right: 3px;
+  align-items: center;
+  width: 98px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid #000;
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.botonCrear:hover {
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.botonImagen {
+  width: 25px;
+  height: 30px;
+  margin-top: 2px;
+  margin-left: -90px;
+}
+
+/* .botonImagen:hover {
+  opacity: 20;
+} */
+
+.botonEliminar {
+  display: flex;
+  padding-left: 39px;
+  align-items: center;
+  width: 112px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid #000;
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  margin-left: 80px;
+}
+
+.botonEliminar:hover {
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.botonImagen2 {
+  width: 22px;
+  height: 30px;
+  margin-top: 2px;
+  margin-left: -100px;
 }

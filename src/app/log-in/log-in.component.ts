@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuariosComponent } from '../gestor/usuarios/usuarios.component';
 
 @Component({
   selector: 'app-log-in',
@@ -18,12 +19,12 @@ export class LogInComponent {
     if (this.mostrarContrasenya) {
 
       this.passwordTipo = 'password';
-      this.iconoMostrarContrasenya = '/assets/Login/eye.svg';//Ojo abierto
+      this.iconoMostrarContrasenya = '/assets/Login/eyeClosed.svg';//Ojo abierto
 
     } else {
 
       this.passwordTipo = 'text'; // Si está oculta, la mostramos
-      this.iconoMostrarContrasenya = '/assets/Login/eyeClosed.svg';//Ojo cerrado
+      this.iconoMostrarContrasenya = '/assets/Login/eye.svg';//Ojo cerrado
 
     }
 
