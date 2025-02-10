@@ -1,10 +1,12 @@
-import { TestBed } from '@angular/core/testing';
+<% if(experimentalZoneless) { %>import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+<% } %>import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent],<% if(experimentalZoneless) { %>
+      providers: [provideExperimentalZonelessChangeDetection()]<% } %>
     }).compileComponents();
   });
 
@@ -14,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'TransitPort' title`, () => {
+  it(`should have the '<%= name %>' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('TransitPort');
+    expect(app.title).toEqual('<%= name %>');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, TransitPort');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, <%= name %>');
   });
 });
