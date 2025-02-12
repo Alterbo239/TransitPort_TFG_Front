@@ -1,7 +1,6 @@
 import { Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenService } from '../../orden.service';
-// import { Suppliers } from '../../data.service';
+import { SuppliersService } from '../../data.service';
 import { Config } from 'datatables.net';
 
 @Component({
@@ -17,14 +16,14 @@ export class UsuariosComponent implements OnInit{
   dtOptions: Config = {};
 
   constructor(
-    private suppliersService: OrdenService,
+    private suppliersService: SuppliersService,
     private renderer: Renderer2
   ){}
 
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.obtenerDatos().subscribe(resp => {
+        this.suppliersService.getSuppliersList().subscribe(resp => {
           callback({
             data: resp
           });

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenesService } from '../../../ordenes.service'; // Asegúrate de importar el servicio
+import { OrdenesService } from '../../../ordenes.service';
 import { NgModule } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 // import { Suppliers } from '../../data.service';
 import { Config } from 'datatables.net';
 
@@ -17,7 +18,8 @@ export class TablaOrdenesComponent implements OnInit {
     dtOptions: Config = {};
 
       constructor(
-        private suppliersService: OrdenesService
+        private suppliersService: OrdenesService,
+        private router: Router
       ){}
 
       ngOnInit(): void {
@@ -31,10 +33,10 @@ export class TablaOrdenesComponent implements OnInit {
           },
 
           //selección de cantidad de datos a mostrar en la tabla
-          lengthMenu : [8],
+          lengthMenu : [7],
 
           //cantidad máxima de datos que se muestran en la tabla
-          scrollY: '600px',
+          scrollY: '450px',
           scrollCollapse:true,
           paging: false,
 
@@ -69,13 +71,20 @@ export class TablaOrdenesComponent implements OnInit {
 
             const rowElement = row as HTMLElement;
             rowElement.style.borderLeft = data.tipo === 'Carga' ? `10px solid ${carga}` : `10px solid ${descarga}`;
+            rowElement.style.borderLeft = data.tipo === 'carga' ? `10px solid ${carga}` : `10px solid ${descarga}`;
+              rowElement.addEventListener('click', () => {
+              setTimeout(() => {
+                this.router.navigate([`/ordenes/orden/${data.id}`]);
+              });
+            });
+
+
 
           }
 
         };
 
       }
-
 }
 
 
