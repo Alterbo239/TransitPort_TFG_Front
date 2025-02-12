@@ -4,8 +4,8 @@
 <img src="./assets/Administrativo/crearOrdenVer.svg" onclick="location.href = 'administrativo/crear-orden'">Crear Orden
 <img src="./assets/Administrativo/realizarAuditoriaVer.svg" onclick="location.href = 'administrativo/realizar-auditoria'">Realizar Auditoria
 
-<!-- <div class="contenedor-tabla">
-    <table datatable [dtOptions]="dtOptions" class="table table-hover">
+<div class="contenedor-tabla">
+    <table datatable [dtOptions]="dtOptions" class="table table-hover text-center" hidden>
         <thead>
           <tr>
             <th>Fecha creación</th>
@@ -17,11 +17,4 @@
 
         </tbody>
     </table>
-</div> -->
-
-<div *ngIf="usuarios.length > 0">
-  <ul>
-    <li *ngFor="let dato of usuarios">{{ dato.nombre }}, {{ dato.usuario }}, {{ dato.password }}</li>
-  </ul>
 </div>
-
