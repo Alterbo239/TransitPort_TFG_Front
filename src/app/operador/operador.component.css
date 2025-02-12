@@ -64,13 +64,15 @@ a:hover {
   stroke-width: 0.3;
 }
 
-.perfil > a {
+.perfil > a{
+
   color: var(--Cinder-50, #f1f5fe);
   font-family: Inter;
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  text-align: center;
 }
 
 .perfil {
