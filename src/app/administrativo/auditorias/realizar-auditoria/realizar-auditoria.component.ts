@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenService } from '../../services/orden.service';
+import { OrdenService } from '../../../services/orden.service';
 
 @Component({
   selector: 'app-realizar-auditoria',
@@ -10,6 +10,7 @@ import { OrdenService } from '../../services/orden.service';
   templateUrl: './realizar-auditoria.component.html',
   styleUrl: './realizar-auditoria.component.css'
 })
+
 export class RealizarAuditoriaComponent implements OnInit{
   dtOptions: Config = {};
 
@@ -36,23 +37,6 @@ export class RealizarAuditoriaComponent implements OnInit{
       scrollY: '600px',
       scrollCollapse:true,
       paging: false,
-
-
-      // //configuración de la tabla a español
-      // language: {
-      //   search: 'Buscar:',
-      //   lengthMenu: 'Mostrar  _MENU_',
-      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-      //   paginate: {
-      //     first: 'Primero',
-      //     last: 'Último',
-      //     next: 'Siguiente',
-      //     previous: 'Anterior'
-      //   },
-      //   emptyTable: 'No hay datos disponibles en la tabla'
-      // },
-
-
 
       //tipos de columnas y sus nombres
       columns: [

@@ -60,8 +60,8 @@ export class IncidenciasComponent implements OnInit{
         { title: 'Incidencia', data: 'tipo', },
         { title: 'Operador', data: 'id_operador' },
         { title: 'Orden asociada', data: 'id_orden' },
-
       ],
+      
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
