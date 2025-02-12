@@ -1,8 +1,20 @@
 <img class="imgPag" src="./assets/Gestor/usuariosVer.svg" alt=""><p class="tituloSecc">Usuarios</p>
 
-<img src="./assets/Gestor/usuariosCrear.svg" onclick="location.href = 'gestor/crear-usuario'">Crear
+<div class="crearNuevo">
+  <button type="submit" class="btn btn-info botonCrear" onclick="location.href = 'gestor/crear-usuario'">Crear</button>
+  <img src="./assets/Gestor/usuariosCrear.svg" class="botonImagen">
 
-<div class="contenedor-tabla">
+  <button type="submit" class="btn btn-info botonEliminar" onclick="location.href = 'gestor/eliminar-usuario'">Eliminar</button>
+  <img src="./assets/Gestor/binNegra.svg" class="botonImagen2">
+
+</div>
+
+<!-- <div class="eliminarUsuario">
+  <button type="submit" class="btn btn-info botonEliminar" onclick="location.href = 'gestor/eliminar-usuario'">Eliminar</button>
+  <img src="./assets/Gestor/bin.svg" class="botonImagen2">
+</div> -->
+
+<div class=" contenedor-tabla ">
 
   <table datatable [dtOptions]="dtOptions" class="table table-hover">
 
@@ -14,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-
+      <td><div id="prueba"></div></td>
     </tbody>
 
   </table>

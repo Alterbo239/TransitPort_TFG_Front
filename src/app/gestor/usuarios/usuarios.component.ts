@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
 import { SuppliersService } from '../../services/data.service';
 // import { Suppliers } from '../../data.service';
@@ -8,7 +8,8 @@ import { Config } from 'datatables.net';
   selector: 'app-usuarios',
   imports: [DataTablesModule],
   templateUrl: './usuarios.component.html',
-  styleUrl: './usuarios.component.css'
+  styleUrl: './usuarios.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 
 export class UsuariosComponent implements OnInit{
