@@ -32,3 +32,5 @@ export class LogInComponent {
   }
 
 }
+// Crear carpeta "helpers / http.interceptor.ts"
+// Componente de la aplicacion (Buscar para Menu lateral).

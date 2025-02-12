@@ -3,7 +3,6 @@ div.input > select {
   display: flex;
   width: 457px;
   height: 49px;
-  padding: 17px 20px 17px 416px;
   justify-content: flex-end;
   align-items: center;
   flex-shrink: 0;
