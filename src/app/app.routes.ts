@@ -18,6 +18,7 @@ import { NotificacionesComponent } from './operador/notificaciones/notificacione
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
 import { VisualizarAuditoriasComponent } from './administrativo/auditorias/visualizar-auditorias/visualizar-auditorias.component';
+import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 
 export const routes: Routes = [
     {
@@ -94,6 +95,10 @@ export const routes: Routes = [
           {
               path: 'ordenes',
               component: OrdenesComponent
+          },
+          {
+              path: 'ordenes/orden/:id',
+              component: OrdenComponent
           },
           {
               path: 'notificaciones',
