@@ -1,7 +1,11 @@
 import { Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
+<<<<<<< HEAD
 import { SuppliersService } from '../../services/data.service';
 // import { Suppliers } from '../../data.service';
+=======
+import { SuppliersService } from '../../data.service';
+>>>>>>> fe0327be2cae4caf4e453fd0dd4b51a25f32531e
 import { Config } from 'datatables.net';
 
 @Component({

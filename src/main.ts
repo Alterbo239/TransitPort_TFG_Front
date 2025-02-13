@@ -6,3 +6,4 @@ import { LogInComponent} from './app/log-in/log-in.component';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
+
