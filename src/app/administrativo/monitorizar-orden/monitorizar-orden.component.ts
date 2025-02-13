@@ -10,6 +10,7 @@ import { OrdenService } from '../../services/orden.service';
   styleUrl: './monitorizar-orden.component.css',
   imports: [CommonModule, DataTablesModule],
 })
+
 export class MonitorizarOrdenComponent implements OnInit{
   dtOptions: Config = {};
 
@@ -37,23 +38,6 @@ export class MonitorizarOrdenComponent implements OnInit{
       scrollCollapse:true,
       paging: false,
 
-
-      // //configuración de la tabla a español
-      // language: {
-      //   search: 'Buscar:',
-      //   lengthMenu: 'Mostrar  _MENU_',
-      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-      //   paginate: {
-      //     first: 'Primero',
-      //     last: 'Último',
-      //     next: 'Siguiente',
-      //     previous: 'Anterior'
-      //   },
-      //   emptyTable: 'No hay datos disponibles en la tabla'
-      // },
-
-
-
       //tipos de columnas y sus nombres
       columns: [
         { title: 'Fecha creación', data: 'fecha_inicio' },
@@ -64,16 +48,6 @@ export class MonitorizarOrdenComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-
-        //estilo de la tabla
-
-        // const actionCell = rowElement.querySelector('table');
-        // if (actionCell) {
-        //   actionCell.setAttribute(
-        //     'style',
-        //     'display: flex; justify-content: center; '
-        //   );
-        // }
 
         const actionButton = rowElement.querySelector('.action-btn');
         if (actionButton) {
