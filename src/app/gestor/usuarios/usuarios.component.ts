@@ -34,15 +34,15 @@ export class UsuariosComponent implements OnInit{
       lengthMenu : [8],
 
       //cantidad máxima de datos que se muestran en la tabla
-      scrollY: '600px',
+      scrollY: '400px',
       scrollCollapse:true,
       paging: false,
 
 
       //configuración de la tabla a español
       language: {
-        search: 'Buscar:',
-        lengthMenu: 'Mostrar  _MENU_',
+        search: '',
+        searchPlaceholder: 'Búsqueda...',
         info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
         paginate: {
           first: 'Primero',
@@ -57,9 +57,12 @@ export class UsuariosComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { title: 'Cargo', data: 'usuario' },
-        { title: 'Nombre', data: 'nombre', },
-        { title: 'Estado', data: 'password' },
+        { title: 'Cargo', data: 'cargo', render: function (data, type, row) {
+          return '<input type="checkbox" class="select-checkbox" ">' + data;
+        }
+      },
+        { title: 'Nombre', data: 'name', },
+        { title: 'Estado', data: 'estado' },
 
       ],
       rowCallback: (row: Node, data: any, index: number) => {
@@ -88,4 +91,7 @@ export class UsuariosComponent implements OnInit{
     };
 
   }
+
+
+
 }
