@@ -1,14 +1,22 @@
 import { Component } from '@angular/core';
-import { UsuariosComponent } from '../gestor/usuarios/usuarios.component';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
 
+  constructor(
+    private authService: AuthService,
+    private router: Router) {}
+
+  email: string = '';
+  password: string = '';
   mostrarContrasenya: boolean = false;
   passwordTipo: string = 'password';
   iconoMostrarContrasenya: string = '/assets/Login/eye.svg';
@@ -30,5 +38,34 @@ export class LogInComponent {
 
     this.mostrarContrasenya = !this.mostrarContrasenya;
   }
+
+  onLogin() {
+
+  const credentials = {
+
+    email: this.email,
+    password: this.password
+
+  }
+  console.log('Intentando iniciar sesión con:', this.email, this.password);
+
+    this.authService.login(credentials).subscribe({
+      next: (response) => {
+        console.log('Inicio de sesión exitoso:', response);
+        if(response.user.cargo == "operador"){
+          this.router.navigate(['/operador/ordenes']);
+        } else if(response.user.cargo == "administrativo"){
+          this.router.navigate(['/administrativo']);
+        } else {
+          this.router.navigate(['/gestor']);
+        }
+
+      },
+      error: (err) => {
+        console.error('Error al iniciar sesión:', err);
+      }
+    });
+  }
+
 
 }

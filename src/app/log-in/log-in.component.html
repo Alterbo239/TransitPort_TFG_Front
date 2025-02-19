@@ -21,10 +21,10 @@
             <hr class="">
           </div>
 
-            <form method="post" class="w-100 d-flex flex-column align-items-center">
+            <form (ngSubmit)="onLogin()" method="post" class="w-100 d-flex flex-column align-items-center">
 
-              <input class="form-control" type="email" name="" id="" placeholder="E-mail"><br><br>
-              <input class="form-control" [type]="passwordTipo" name="password" id="password" placeholder="Contraseña"><br><br>
+              <input class="form-control" [(ngModel)]="email" type="email" name="email" id="email" placeholder="E-mail"><br><br>
+              <input class="form-control" [(ngModel)]="password" [type]="passwordTipo" name="password" id="password" placeholder="Contraseña"><br><br>
               <img [src]="iconoMostrarContrasenya" (click)="ocultarContrasenya()" id="verContrasenya" class="icono-ojo" alt="Mostrar contraseña">
 
               <div class="form-check d-flex align-items-center recordarForm">
@@ -34,7 +34,7 @@
 
               </div>
 
-              <input class="btn btn-dark mt-3 botonLogin" type="submit" value="INICIAR SESIÓN" onclick="location.href = '../gestor/usuarios/usuarios.component'">
+              <input class="btn btn-dark mt-3 botonLogin" type="submit" value="INICIAR SESIÓN" >
 
             </form>
           </div>

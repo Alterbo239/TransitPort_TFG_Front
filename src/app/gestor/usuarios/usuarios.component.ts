@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenService } from '../../orden.service';
-import { SuppliersService } from '../../data.service';
+import { OrdenService } from '../../services/orden.service';
+import { SuppliersService } from '../../services/data.service';
 import { Config } from 'datatables.net';
 
 @Component({

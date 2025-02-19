@@ -1,9 +1,9 @@
 //VERSIÓN 2
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { OrdenService } from '../../orden.service';
+import { OrdenService } from '../../services/orden.service';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
-import { SuppliersService } from '../../data.service';
+import { SuppliersService } from '../../services/data.service';
 import { DataTablesModule  } from 'angular-datatables';
 
 @Component({

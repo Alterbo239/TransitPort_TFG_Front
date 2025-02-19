@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
-import { ContenedorService } from '../../contenedor.service';
+import { ContenedorService } from '../../services/contenedor.service';
 import { DataTablesModule  } from 'angular-datatables';
 
 @Component({
