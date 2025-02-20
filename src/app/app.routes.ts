@@ -4,7 +4,7 @@ import { AdministrativoComponent } from './administrativo/administrativo.compone
 import { CrearTurnoComponent } from './administrativo/crear-turno/crear-turno.component';
 import { MonitorizarOrdenComponent } from './administrativo/monitorizar-orden/monitorizar-orden.component';
 import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/buscar-contenedor.component';
-import { RealizarAuditoriaComponent } from './administrativo/realizar-auditoria/realizar-auditoria.component';
+import { RealizarAuditoriaComponent } from './administrativo/auditorias/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
 import { GestorComponent } from './gestor/gestor.component';
 import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
@@ -17,6 +17,7 @@ import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
+import { VisualizarAuditoriasComponent } from './administrativo/auditorias/visualizar-auditorias/visualizar-auditorias.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 
 export const routes: Routes = [
@@ -47,6 +48,10 @@ export const routes: Routes = [
             {
                 path: 'realizar-auditoria',
                 component: RealizarAuditoriaComponent
+            },
+            {
+                path: 'visualizar-auditoria',
+                component: VisualizarAuditoriasComponent
             },
             {
                 path: 'incidencias',
