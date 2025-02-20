@@ -17,8 +17,11 @@ import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
+<<<<<<< HEAD
 import { VisualizarAuditoriasComponent } from './administrativo/auditorias/visualizar-auditorias/visualizar-auditorias.component';
+=======
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
+>>>>>>> fe0327be2cae4caf4e453fd0dd4b51a25f32531e
 
 export const routes: Routes = [
     {
