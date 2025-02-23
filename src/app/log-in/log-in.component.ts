@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-log-in',
@@ -13,8 +14,10 @@ export class LogInComponent {
 
   constructor(
     private authService: AuthService,
+    private usuarioService: UsuarioService,
     private router: Router) {}
 
+  usuarioId: string = '';
   email: string = '';
   password: string = '';
   mostrarContrasenya: boolean = false;
@@ -52,6 +55,9 @@ export class LogInComponent {
     this.authService.login(credentials).subscribe({
       next: (response) => {
         console.log('Inicio de sesión exitoso:', response);
+        this.usuarioService.setUsuario(response.user);
+        console.log('Usuario recibido en login:', response.user);
+
         if(response.user.cargo == "operador"){
           this.router.navigate(['/operador/ordenes']);
         } else if(response.user.cargo == "administrativo"){
@@ -59,7 +65,6 @@ export class LogInComponent {
         } else {
           this.router.navigate(['/gestor']);
         }
-
       },
       error: (err) => {
         console.error('Error al iniciar sesión:', err);

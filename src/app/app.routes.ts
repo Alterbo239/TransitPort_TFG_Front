@@ -18,6 +18,9 @@ import { NotificacionesComponent } from './operador/notificaciones/notificacione
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
+import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
+import { isLoggedIn } from './auth/guards/is-logged-in.guard';
+import { hasRole } from './auth/guards/has-role.guard'
 
 export const routes: Routes = [
     {
@@ -26,6 +29,12 @@ export const routes: Routes = [
     },
     {
         path: 'administrativo',
+        canActivate:[hasRole],
+        data: {
+
+          allowedRoles: ['administrativo']
+
+        },
         component: AdministrativoComponent,
         children: [
             {
@@ -55,6 +64,12 @@ export const routes: Routes = [
         ]
     },{
         path: 'gestor',
+        canActivate:[hasRole],
+        data: {
+
+          allowedRoles: ['gestor']
+
+        },
         component: GestorComponent,
         children: [
             {
@@ -80,6 +95,12 @@ export const routes: Routes = [
         ]
     },{
       path: 'operador',
+      canActivate:[hasRole],
+      data: {
+
+        allowedRoles: ['Operador', 'operador']
+
+      },
       component: OperadorComponent,
       children: [
 
@@ -94,6 +115,10 @@ export const routes: Routes = [
           {
               path: 'ordenes/orden/:id',
               component: OrdenComponent
+          },
+          {
+            path: 'ordenes/incidencia/:id',
+            component: IncidenciaComponent
           },
           {
               path: 'notificaciones',

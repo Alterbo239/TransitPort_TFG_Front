@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -12,8 +14,13 @@ import { Router } from '@angular/router';
 export class OperadorComponent {
 
   menuVisible: boolean = false;
+  usuarioId:  string = '';
 
-  constructor(private router: Router){
+  constructor(
+    private router: Router,
+    private usuarioService: UsuarioService,
+    private authService: AuthService
+  ){
 
   }
 
@@ -24,6 +31,23 @@ export class OperadorComponent {
     if(this.menuVisible){
       let boton = document.getElementById('botonMostrarMenu');
       boton?.setAttribute('hidden', 'true');
+
+      const usuario = this.usuarioService.getUsuario();
+
+    if(usuario){
+
+    let textoNombre = document.getElementById('nombreUsuario');
+    if(textoNombre){
+
+      textoNombre.innerText = usuario.name;
+
+    }
+
+    } else{
+
+      console.log('No hay usuario');
+
+    }
 
       let enlaceOrdenes = document.getElementById('ordenes');
       let enlaceNotificaciones = document.getElementById('notificaciones');
@@ -55,6 +79,13 @@ export class OperadorComponent {
 
     }
 
+
+  }
+
+  logout(){
+
+    this.authService.logout()
+    this.router.navigate(['/']);
 
   }
 

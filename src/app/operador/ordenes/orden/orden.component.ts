@@ -229,6 +229,12 @@ export class OrdenComponent implements OnInit {
     }
   }
 
+  crearIncidencia():void{
+
+    this.router.navigate(['/operador/ordenes/incidencia/', this.ordenSeleccionada.id]);
+
+  }
+
   mostrarFondo():void{
 
     let fondo = document.getElementById('fondo');
