@@ -30,7 +30,4 @@ export class LogInComponent {
 
     this.mostrarContrasenya = !this.mostrarContrasenya;
   }
-
 }
-// Crear carpeta "helpers / http.interceptor.ts"
-// Componente de la aplicacion (Buscar para Menu lateral).
