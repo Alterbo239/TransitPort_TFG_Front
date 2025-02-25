@@ -6,6 +6,9 @@ import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 // import { Suppliers } from '../../data.service';
 import { Config } from 'datatables.net';
 import { OrdenComponent } from '../orden/orden.component';
+import { UsuarioService } from '../../../services/usuario.service';
+import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-tabla-ordenes',
@@ -16,22 +19,39 @@ import { OrdenComponent } from '../orden/orden.component';
 })
 export class TablaOrdenesComponent implements OnInit {
 
+    usuarioId: any;
+    usuario: any;
+
     dtOptions: Config = {};
 
       constructor(
         private suppliersService: OrdenesService,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private userService: UsuarioService
       ){}
 
       ngOnInit(): void {
+
+        this.usuario = this.userService.getUsuario();
+
+        console.log(this.usuario);
+
+        this.usuarioId = this.usuario.id;
+
+        console.log('Hola: ' + this.usuarioId);
+
         this.dtOptions = {
           ajax: (dataTablesParameters: any, callback) => {
-            this.suppliersService.getSuppliersList().subscribe(resp => {
-              callback({
-                data: resp
+            this.suppliersService.getSuppliersList(this.usuarioId).subscribe(
+              resp => {
+                callback({
+                  data: resp
+                });
+              },
+              error => {
+                console.error('Error:', error);
               });
-            });
           },
 
           //selección de cantidad de datos a mostrar en la tabla
@@ -41,23 +61,6 @@ export class TablaOrdenesComponent implements OnInit {
           scrollY: '450px',
           scrollCollapse:true,
           paging: false,
-
-
-          // //configuración de la tabla a español
-          // language: {
-          //   search: 'Buscar:',
-          //   lengthMenu: 'Mostrar  _MENU_',
-          //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-          //   paginate: {
-          //     first: 'Primero',
-          //     last: 'Último',
-          //     next: 'Siguiente',
-          //     previous: 'Anterior'
-          //   },
-          //   emptyTable: 'No hay datos disponibles en la tabla'
-          // },
-
-
 
           //tipos de columnas y sus nombres
           columns: [
@@ -72,8 +75,15 @@ export class TablaOrdenesComponent implements OnInit {
             let descarga = '#89ADF0';
 
             const rowElement = row as HTMLElement;
+
+            if(data.estado == 'En curso'){
+
+              rowElement.style.borderLeft = '10px solid #FACD84';
+
+            } else if(data.estado == 'Por empezar'){
             rowElement.style.borderLeft = data.tipo === 'Carga' ? `10px solid ${carga}` : `10px solid ${descarga}`;
             rowElement.style.borderLeft = data.tipo === 'carga' ? `10px solid ${carga}` : `10px solid ${descarga}`;
+            }
 
             if(data.id){
                 rowElement.addEventListener('click', () => {
