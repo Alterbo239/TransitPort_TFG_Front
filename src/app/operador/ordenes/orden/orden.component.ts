@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrdenesService } from '../../../services/ordenes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { style } from '@angular/animations';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-orden',
@@ -13,11 +14,14 @@ export class OrdenComponent implements OnInit {
   datos: any;
   ordenId: string = '';
   ordenSeleccionada: any;
+  usuario: any;
+  usuarioId: any;
 
   constructor(
     private suppliersService: OrdenesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UsuarioService
   ) {}
 
   volver(): void {
@@ -36,8 +40,16 @@ export class OrdenComponent implements OnInit {
 
   cargarOrden(): void {
 
-    this.suppliersService.getSuppliersList().subscribe(resp => {
+    this.usuario = this.userService.getUsuario();
+
+        console.log(this.usuario);
+
+        this.usuarioId = this.usuario.id;
+
+    this.suppliersService.getSuppliersList(this.usuarioId).subscribe(resp => {
       this.datos = resp;
+
+      console.log('Entra: ', this.datos)
 
       this.ordenSeleccionada = this.datos.find((orden: any) => orden.id == this.ordenId);
       let titulo = document.getElementById('titulo_rellenar');
