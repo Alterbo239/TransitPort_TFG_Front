@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api';
+  private apiUrl = 'http://localhost/api';
 
   public logIn = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.logIn.asObservable();
@@ -30,7 +30,7 @@ export class AuthService {
     return localStorage.getItem('cargo') || '';
   }
 
-  logout(){
+  logout() {
     this.logIn.next(false);
   }
 }

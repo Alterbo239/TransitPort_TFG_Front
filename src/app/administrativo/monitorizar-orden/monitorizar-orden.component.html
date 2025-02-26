@@ -1,8 +1,17 @@
 <img src="./assets/Administrativo/monitorizarOrdenVer.svg"><p class="tituloSecc">Monitorizar Orden</p>
 
-<br> <!-- onclick para que te lleve a la ruta absoluta. Con routerLink te mandaria a "administrativo/monitorizar-orden/crear-orden" -->
-<img src="./assets/Administrativo/crearOrdenVer.svg" onclick="location.href = 'administrativo/crear-orden'">Crear Orden
-<img src="./assets/Administrativo/realizarAuditoriaVer.svg" onclick="location.href = 'administrativo/realizar-auditoria'">Realizar Auditoria
+<div class="crearNuevo">
+  <button type="submit" class="btn btn-info botonCrear" onclick="location.href = 'administrativo/crear-orden'">Crear</button>
+  <img src="./assets/Administrativo/crearOrdenVer.svg" class="botonImagen">
+
+  <button type="submit" class="btn btn-info botonEliminar" onclick="location.href = 'administrativo/eliminar-orden'">Eliminar</button>
+  <img src="./assets/Gestor/binNegra.svg" class="botonImagen2">
+
+
+  <button type="submit" class="btn btn-info botonAuditoria" onclick="location.href = ''">Auditoria</button>
+  <img src="./assets/Administrativo/realizarAuditoriaVer.svg" class="botonImagen3">
+
+</div>
 
 <div class="contenedor-tabla">
   <table datatable [dtOptions]="dtOptions" class="table table-hover text-center">

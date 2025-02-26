@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class IncidenciaService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api/incidencia';
-  private apiOrden = 'http://127.0.0.1:8000/api/orden';
+  private apiUrl = 'http://localhost/api/incidencia';
+  private apiOrden = 'http://localhost/api/orden';
 
   constructor(
 
