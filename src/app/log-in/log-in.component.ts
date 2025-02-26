@@ -30,12 +30,12 @@ export class LogInComponent {
     if (this.mostrarContrasenya) {
 
       this.passwordTipo = 'password';
-      this.iconoMostrarContrasenya = '/assets/Login/eyeClosed.svg';//Ojo abierto
+      this.iconoMostrarContrasenya = '/assets/Login/eyeClosed.svg'; //Ojo abierto
 
     } else {
 
       this.passwordTipo = 'text'; // Si está oculta, la mostramos
-      this.iconoMostrarContrasenya = '/assets/Login/eye.svg';//Ojo cerrado
+      this.iconoMostrarContrasenya = '/assets/Login/eye.svg'; //Ojo cerrado
 
     }
 
@@ -57,6 +57,11 @@ export class LogInComponent {
         console.log('Inicio de sesión exitoso:', response);
         this.usuarioService.setUsuario(response.user);
         console.log('Usuario recibido en login:', response.user);
+
+        //Guardamos el rol del usuario en AuthService.
+        const rol = response.cargo;
+        this.authService.setRol(rol);
+        this.authService.logIn.next(true); //Actualizamos el "logIn".
 
         if(response.user.cargo == "operador"){
           this.router.navigate(['/operador/ordenes']);

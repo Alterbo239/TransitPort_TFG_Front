@@ -37,23 +37,6 @@ export class BuscarContenedorComponent implements OnInit{
       scrollCollapse:true,
       paging: false,
 
-
-      // //configuración de la tabla a español
-      // language: {
-      //   search: 'Buscar:',
-      //   lengthMenu: 'Mostrar  _MENU_',
-      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-      //   paginate: {
-      //     first: 'Primero',
-      //     last: 'Último',
-      //     next: 'Siguiente',
-      //     previous: 'Anterior'
-      //   },
-      //   emptyTable: 'No hay datos disponibles en la tabla'
-      // },
-
-
-
       //tipos de columnas y sus nombres
       columns: [
         { title: 'ID', data: 'id_contenedor' },
@@ -65,17 +48,6 @@ export class BuscarContenedorComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-
-        //estilo de la tabla
-
-        // const actionCell = rowElement.querySelector('table');
-        // if (actionCell) {
-        //   actionCell.setAttribute(
-        //     'style',
-        //     'display: flex; justify-content: center; '
-        //   );
-        // }
-
         const actionButton = rowElement.querySelector('.action-btn');
         if (actionButton) {
           this.renderer.listen(actionButton, 'click', () => {

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
 import { SuppliersService } from '../../services/data.service';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenService } from '../../services/orden.service';
 
 @Component({
   selector: 'app-monitorizar-orden',
