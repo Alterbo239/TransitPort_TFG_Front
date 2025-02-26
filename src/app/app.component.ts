@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet} from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 import { OrdenService } from './services/orden.service';
 
@@ -7,7 +7,7 @@ import { OrdenService } from './services/orden.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, DataTablesModule],
+  imports: [RouterOutlet, DataTablesModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 

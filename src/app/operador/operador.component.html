@@ -5,8 +5,9 @@
     <div class="navbar-nav flex-column justify-content-between">
       <div class="superior">
         <div class="perfil">
-          <a (click)="mostrarMenu()"  class="nav-link d-flex flex-column" routerLink="perfil">
-            <img src="./assets/Operador/operador.jpg" alt="imagenPerfil" /> Juan Rodriguez
+          <a (click)="mostrarMenu()" class="nav-link d-flex flex-column" id="perfilNombre" routerLink="perfil">
+            <img src="./assets/Operador/operador.jpg" alt="imagenPerfil"/>
+            <p id="nombreUsuario"></p>
           </a>
         </div>
 
@@ -43,7 +44,7 @@
 
       </div>
 
-      <a class="nav-link logout" routerLink="">
+      <a (click)="logout()" class="nav-link logout">
         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
           <path
             d="M12.168 43.3333C11.1699 43.3333 10.3372 42.9996 9.66985 42.3323C9.00252 41.665 8.66813 40.8315 8.66669 39.832V12.168C8.66669 11.1698 9.00108 10.3371 9.66985 9.66979C10.3386 9.00246 11.1714 8.66807 12.168 8.66663H26.0412V10.8333H12.168C11.8344 10.8333 11.5281 10.972 11.2494 11.2493C10.9706 11.5266 10.8319 11.8328 10.8334 12.168V39.8341C10.8334 40.1663 10.972 40.4718 11.2494 40.7506C11.5267 41.0294 11.8322 41.1681 12.1659 41.1666H26.0412V43.3333H12.168ZM35.6677 33.6678L34.1467 32.1078L39.1712 27.0833H19.916V24.9166H39.1712L34.1445 19.89L35.6655 18.3343L43.3334 26L35.6677 33.6678Z"
