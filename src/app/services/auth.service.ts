@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api';
+  private apiUrl = 'http://localhost:8000/api';
 
   private logIn = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.logIn.asObservable();
