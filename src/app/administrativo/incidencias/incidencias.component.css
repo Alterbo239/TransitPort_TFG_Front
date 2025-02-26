@@ -84,8 +84,10 @@ table tr {
 
 .contenedor-tabla {
   max-height: 600px;
-  overflow-y: auto;
   margin: 0 auto;
+  margin-left: 200px;
+  width: 1200px;
+  margin-top: 6%;
 }
 
 .dataTables_scrollBody thead tr {
@@ -94,4 +96,65 @@ table tr {
 
 .dataTables_scrollBody {
   margin-top: -10px;
+}
+
+.dt-search {
+  width: 300px !important;
+  padding: 8px !important;
+
+  border-radius: 4px !important;
+  font-size: 1em !important;
+}
+
+.dt-layout {
+  text-align: center;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+.dt-scroll-head > .dt-scroll-headInner > table > thead > tr > th {
+  background-color: #152d65;
+  width: 1477px;
+  height: 80px;
+  color: var(--Cinder-50, #f1f5fe);
+  text-align: center;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 20px;
+  position: sticky;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td {
+  text-align: center;
+  font-size: 20px;
+  border-bottom: solid 10px var(--Cinder-50, #f1f5fe);
+  padding: 25px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
+  text-align: left;
+  padding: 25px;
+  margin-left: -200px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(2) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+  padding-right: 56px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(3) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {
+  margin-left: 25px;
+  margin-right: 65px;
 }

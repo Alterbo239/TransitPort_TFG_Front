@@ -30,7 +30,7 @@ export class AuthService {
     return localStorage.getItem('cargo') || '';
   }
 
-  logout(){
+  logout() {
     this.logIn.next(false);
   }
 }

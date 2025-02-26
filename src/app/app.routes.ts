@@ -17,7 +17,6 @@ import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
-import { VisualizarAuditoriasComponent } from './administrativo/auditorias/visualizar-auditorias/visualizar-auditorias.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 import { isLoggedIn } from './auth/guards/is-logged-in.guard';
@@ -53,14 +52,6 @@ export const routes: Routes = [
             {
                 path: 'buscar-contenedor',
                 component: BuscarContenedorComponent
-            },
-            {
-                path: 'realizar-auditoria',
-                component: RealizarAuditoriaComponent
-            },
-            {
-                path: 'visualizar-auditoria',
-                component: VisualizarAuditoriasComponent
             },
             {
                 path: 'incidencias',
