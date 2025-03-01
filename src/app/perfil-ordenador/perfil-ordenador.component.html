@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>👤 Ver perfil</h2>
+    <div class="profile-card">
+      <img [src]="'https://via.placeholder.com/100'" class="avatar" />
+      <div class="info">
+        <p><strong>Nombre:</strong> {{ user.name }}</p>
+        <p><strong>Apellidos:</strong> {{ user.last_name }}</p>
+        <p><strong>Usuario:</strong> {{ user.username }}</p>
+        <p><strong>Teléfono:</strong> {{ user.phone }}</p>
+        <p><strong>Ciudad:</strong> {{ user.city }}</p>
+        <p><strong>Código Postal:</strong> {{ user.postal_code }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Cargo:</strong> {{ user.role }}</p>
+      </div>
+      <button class="logout-btn">Cerrar Sesión</button>
+    </div>
+  </div>
