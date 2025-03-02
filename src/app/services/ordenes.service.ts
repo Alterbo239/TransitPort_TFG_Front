@@ -10,13 +10,17 @@ export class OrdenesService {
 
   private apiUrl = 'http://localhost:8000/api/operador/ordenes';
 
-  private urlPut = 'http://localhost:8000/api/operador/ordenes/orden'
+  private urlPut = 'http://localhost:8000/api/operador/ordenes/orden';
 
-    constructor(private http: HttpClient){}
+  usuarioId: any;
 
-    getSuppliersList(): Observable<any[]> {
+    constructor(
+      private http: HttpClient,
+    ){}
 
-      return this.http.get<any[]>(this.apiUrl);
+    getSuppliersList(id?: any): Observable<any[]> {
+
+      return this.http.get<any[]>(`${this.apiUrl}?id_user=${id}`)
 
     }
     actualizarEstado(orden: Orden): Observable<Orden> {
