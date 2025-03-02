@@ -1,70 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GruaService } from '../../services/grua.service'; // Importa el servicio
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { GruaService } from '../../services/grua.service';
 
 @Component({
   selector: 'app-gestionar-gruas',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule], // Importa ReactiveFormsModule y HttpClientModule
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './gestionar-gruas.component.html',
   styleUrls: ['./gestionar-gruas.component.css'],
 })
 export class GestionarGruasComponent implements OnInit {
-  gruaForm: FormGroup; // Formulario reactivo
-
-  availableGruas: any[] = []; // Lista de grúas disponibles
-  availableZonas: any[] = []; // Lista de zonas disponibles
+  form: FormGroup; 
+  gruas: any[] = []; //array para guardar las gruas
+  zonas: any[] = []; //para guardar las zonas
 
   constructor(
-    private fb: FormBuilder, // FormBuilder para crear el formulario
-    private gruaService: GruaService // Servicio para obtener grúas y zonas
+    private fb: FormBuilder,
+    private gruaService: GruaService
   ) {
-    // Inicializa el formulario reactivo
-    this.gruaForm = this.fb.group({
-      selectedZona: ['', Validators.required], // Zona seleccionada (requerida)
-      selectedGrua: ['', Validators.required], // Grúa seleccionada (requerida)
+    //inicializo el form group
+    this.form = this.fb.group({
+      //le paso los nombres de los form controls y les paso un valor por defecto y la validación
+      zonaId: ['', Validators.required], 
+      gruaId: ['', Validators.required], 
     });
   }
 
   ngOnInit(): void {
-    // Obtener grúas y zonas disponibles al inicializar el componente
+    this.cargarDatos();
+  }
+
+  //llamo a los metodos del servicio para cargar los datos
+  cargarDatos(): void {
     this.gruaService.getGruas().subscribe({
-      next: (data) => (this.availableGruas = data), // Asignar grúas disponibles
-      error: (err) => console.error('Error al obtener grúas:', err), // Manejar errores
+      next: (gruas) => (this.gruas = gruas),
+      error: (err) => console.error('Error cargando grúas:', err),
     });
 
     this.gruaService.getZonas().subscribe({
-      next: (data) => (this.availableZonas = data), // Asignar zonas disponibles
-      error: (err) => console.error('Error al obtener zonas:', err), // Manejar errores
+      next: (zonas) => (this.zonas = zonas),
+      error: (err) => console.error('Error cargando zonas:', err),
     });
   }
 
-  // Enviar el formulario
-  onSubmit(): void {
-    if (this.gruaForm.invalid) {
-      alert('Por favor, completa todos los campos requeridos.');
-      return;
-    }
-  
-    // Crear el payload con la zona y la grúa seleccionada
-    const payload = {
-      id_zona: this.gruaForm.value.selectedZona,
-      id_grua: this.gruaForm.value.selectedGrua,
+  //se envia el formulario
+  enviar(): void {
+
+    const datos = {
+      id_zona: this.form.value.zonaId,
+      id_grua: this.form.value.gruaId,
     };
-  
-    console.log('Payload enviado:', payload); // Depuración: Ver el payload
-  
-    // Enviar el payload al backend usando el servicio
-    this.gruaService.asignarGruas(payload).subscribe({
+
+    console.log('Datos enviados:', datos);
+
+    this.gruaService.asignarGruas(datos).subscribe({
       next: () => {
         alert('Grúa asignada correctamente.');
-        this.gruaForm.reset();
+        this.form.reset(); //si la grua se asigna bien, se hace reset del formulario
       },
       error: (err) => {
-        console.error('Error al asignar grúa:', err); // Manejar errores
-        alert('Hubo un error al asignar la grúa. Por favor, inténtalo de nuevo.');
+        alert('Error al asignar la grúa');
       },
     });
   }

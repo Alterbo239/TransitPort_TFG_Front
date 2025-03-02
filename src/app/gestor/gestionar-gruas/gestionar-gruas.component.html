@@ -1,26 +1,28 @@
-<form [formGroup]="gruaForm" (ngSubmit)="onSubmit()">
-    <!-- Seleccionar Zona -->
+<form [formGroup]="form" (ngSubmit)="enviar()">
+
     <div>
-      <label for="selectedZona">Zona:</label>
-      <select id="selectedZona" formControlName="selectedZona">
+      <label for="zonaId">Zona:</label>
+      <select id="zonaId" formControlName="zonaId">
+
         <option value="" disabled>Selecciona una zona</option>
-        <option *ngFor="let zona of availableZonas" [value]="zona.id">
+        <option *ngFor="let zona of zonas" [value]="zona.id">
           {{ zona.nombre }}
         </option>
+        
       </select>
     </div>
   
-    <!-- Seleccionar Grúa -->
     <div>
-      <label for="selectedGrua">Grúa:</label>
-      <select id="selectedGrua" formControlName="selectedGrua">
+      <label for="gruaId">Grúa:</label>
+      <select id="gruaId" formControlName="gruaId">
+
         <option value="" disabled>Selecciona una grúa</option>
-        <option *ngFor="let grua of availableGruas" [value]="grua.id">
+        <option *ngFor="let grua of gruas" [value]="grua.id">
           {{ grua.nombre }} ({{ grua.tipo }})
         </option>
+
       </select>
     </div>
   
-    <!-- Botón para enviar el formulario -->
-    <button type="submit">Asignar Grúa</button>
+    <button type="submit">Asignar</button>
   </form>

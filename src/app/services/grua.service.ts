@@ -10,6 +10,7 @@ export class GruaService {
 
   constructor(private http: HttpClient) {}
 
+  //con any, podemos devolver cuqluier tipo de dato
   getGruas(): Observable<any> {
     return this.http.get(`${this.apiUrl}/grua`);
   }

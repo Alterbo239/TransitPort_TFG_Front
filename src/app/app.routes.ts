@@ -7,6 +7,8 @@ import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/bu
 import { RealizarAuditoriaComponent } from './administrativo/auditorias/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
+import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
 import { UsuariosComponent } from './gestor/usuarios/usuarios.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -14,6 +16,7 @@ import { OperadorComponent } from './operador/operador.component';
 import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
+import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 import { isLoggedIn } from './auth/guards/is-logged-in.guard';
@@ -65,8 +68,14 @@ export const routes: Routes = [
         },
         component: GestorComponent,
         children: [
-            
-            
+            {
+                path: 'crear-gruas',
+                component: CrearGruasComponent
+            },
+            {
+                path: 'crear-patio',
+                component: CrearPatioComponent
+            },
             {
                 path: 'gestionar-gruas',
                 component: GestionarGruasComponent
@@ -75,7 +84,10 @@ export const routes: Routes = [
                 path: 'usuarios',
                 component: UsuariosComponent
             },
-            
+            {
+              path: 'crear-usuario',
+              component: CrearUsuarioComponent
+          },
         ]
     },{
       path: 'operador',
