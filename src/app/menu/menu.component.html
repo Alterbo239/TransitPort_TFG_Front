@@ -1,6 +1,8 @@
 @if (rol == 'gestor') {
   <div class="col-12 menu">
+    <a routerLink="perfil-ordenador">
     <img class="perfil" src="./assets/Gestor/gestor.png" alt="">
+    </a>
     <a class="nav-link d-flex flex-column" routerLink="usuarios"><img class="primeraImg imgMenu" src="./assets/Gestor/usuarios.svg" alt=""></a><br>
     <a class="nav-link d-flex flex-column" routerLink="crear-gruas"><img class="imgMenu" src="./assets/Gestor/crearGruas.svg" alt=""></a><br>
     <a class="nav-link d-flex flex-column" routerLink="crear-patio"><img class="imgMenu" src="./assets/Gestor/crearPatio.png" alt=""></a><br>
@@ -9,7 +11,9 @@
 }
 @if (rol == 'administrativo') {
   <div class="menu">
+    <a routerLink="perfil-ordenador">
     <img class="perfil" src="./assets/Administrativo/perfil.svg" alt="">
+    </a>
     <a class="nav-link d-flex flex-column" routerLink="crear-orden"><img class="primeraImg imgMenu" src="./assets/Administrativo/crearOrden.svg" alt=""></a><br>
     <a class="nav-link d-flex flex-column" routerLink="crear-turno"><img class="imgMenu" src="./assets/Administrativo/crearTurno.svg" alt=""></a><br>
     <a class="nav-link d-flex flex-column" routerLink="monitorizar-orden"><img class="imgMenu" src="./assets/Administrativo/monitorizarOrden.svg" alt=""></a><br>

@@ -28,12 +28,14 @@ export class UsuarioService {
     return this.usuario;
   }
 
+  //recoge los datos del usuario
   getUsuarioPerfil():Observable<any>{
     
     return this.http.get<any>(`${this.apiUrl}/user`);
 
   }
 
+  //recoge los datos de los usuarios en la base de datos
   getPersonal(): Observable<any[]> {
 
     return this.http.get<any[]>(`${this.apiUrl}/gestor`);

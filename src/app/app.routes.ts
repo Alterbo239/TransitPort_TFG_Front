@@ -7,6 +7,7 @@ import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/bu
 import { RealizarAuditoriaComponent } from './administrativo/auditorias/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { PerfilOrdenadorComponent } from './perfil-ordenador/perfil-ordenador.component';
 import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
 import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
@@ -24,9 +25,14 @@ import { hasRole } from './auth/guards/has-role.guard'
 
 export const routes: Routes = [
     {
+        path: 'perfil-ordenador',
+        component: PerfilOrdenadorComponent
+    },
+    {
         path: '',
         component: LogInComponent
     },
+    
     {
         path: 'administrativo',
         canActivate:[hasRole],

@@ -1,17 +1,33 @@
-<!-- <div class="container">
-    <h2>👤 Ver perfil</h2>
-    <div class="profile-card">
-      <img [src]="'https://via.placeholder.com/100'" class="avatar" />
-      <div class="info">
-        <p><strong>Nombre:</strong> {{ user.name }}</p>
-        <p><strong>Apellidos:</strong> {{ user.last_name }}</p>
-        <p><strong>Usuario:</strong> {{ user.username }}</p>
-        <p><strong>Teléfono:</strong> {{ user.phone }}</p>
-        <p><strong>Ciudad:</strong> {{ user.city }}</p>
-        <p><strong>Código Postal:</strong> {{ user.postal_code }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Cargo:</strong> {{ user.role }}</p>
-      </div>
-      <button class="logout-btn">Cerrar Sesión</button>
-    </div>
-  </div> -->
+<h2>Perfil</h2>
+
+<div>
+
+  <h2>Perfil de Usuario</h2>
+  
+  <div>
+    <label for="nombre"><strong>Nombre:</strong></label>
+    <input id="nombre" type="text" [value]="usuario.nombre" readonly>
+    <!-- readonly hace que sean inputs de solo lectura -->
+  </div>
+
+  <div>
+    <label for="email"><strong>Email:</strong></label>
+    <input id="email" type="email" [value]="usuario.email" readonly>
+  </div>
+
+  <div>
+    <label for="rol"><strong>Rol:</strong></label>
+    <input id="rol" type="text" [value]="usuario.rol" readonly>
+  </div>
+
+  <div>
+    <label for="telefono"><strong>Teléfono:</strong></label>
+    <input id="telefono" type="text" [value]="usuario.telefono" readonly>
+  </div>
+
+  <div>
+    <label for="direccion"><strong>Dirección:</strong></label>
+    <input id="direccion" type="text" [value]="usuario.direccion" readonly>
+  </div>
+
+</div>
