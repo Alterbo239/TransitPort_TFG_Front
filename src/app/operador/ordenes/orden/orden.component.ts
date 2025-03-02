@@ -46,12 +46,32 @@ export class OrdenComponent implements OnInit {
 
         this.usuarioId = this.usuario.id;
 
+
+
     this.suppliersService.getSuppliersList(this.usuarioId).subscribe(resp => {
       this.datos = resp;
 
       console.log('Entra: ', this.datos)
 
       this.ordenSeleccionada = this.datos.find((orden: any) => orden.id == this.ordenId);
+
+      this.ordenSeleccionada.visto = true;
+
+      if (this.ordenSeleccionada) {
+        this.suppliersService.actualizarEstado(this.ordenSeleccionada).subscribe({
+          next: (response) => {
+            console.log('Estado actualizado correctamente:', response);
+
+          },
+          error: (error) => {
+            console.error('Error al actualizar el estado:', error);
+          }
+        });
+
+      } else {
+        console.error('ID de la orden no encontrado.');
+      }
+
       let titulo = document.getElementById('titulo_rellenar');
       console.log(this.ordenSeleccionada);
 
@@ -65,6 +85,8 @@ export class OrdenComponent implements OnInit {
 
       this.configurarBotonesEstado();
     });
+
+
   }
 
   actualizarInformacionDestino() {
@@ -176,20 +198,20 @@ export class OrdenComponent implements OnInit {
 
             if (this.ordenSeleccionada) {
 
-              this.suppliersService.actualizarEstado(this.ordenSeleccionada).subscribe({
-                next: (response) => {
-              console.log('Estado actualizado correctamente:', response);
-              this.cambiarSiguiente();
+                this.suppliersService.actualizarEstado(this.ordenSeleccionada).subscribe({
+                  next: (response) => {
+                console.log('Estado actualizado correctamente:', response);
+                this.cambiarSiguiente();
 
-            },
-            error: (error) => {
-              console.error('Error al actualizar el estado:', error);
-            }
-          });
+              },
+              error: (error) => {
+                console.error('Error al actualizar el estado:', error);
+              }
+              });
 
-        } else {
-          console.error('ID de la orden no encontrado.');
-        }
+          } else {
+            console.error('ID de la orden no encontrado.');
+          }
         });
         }
 
