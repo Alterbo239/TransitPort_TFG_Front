@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule, Route, ActivatedRoute, Router } from '@angular/router';
-import { IncidenciaService } from '../../../services/incidencia.service';
 import { OrdenService } from '../../../services/orden.service';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -24,8 +23,6 @@ export class IncidenciaComponent {
   usuario: any;
 
   constructor(
-
-    private incidenciaService: IncidenciaService,
     private route: ActivatedRoute,
     private router: Router,
     private sacarOrden: OrdenService,
@@ -43,7 +40,7 @@ export class IncidenciaComponent {
 
   ordenPadre(){
 
-    this.sacarOrden.getSuppliersList().subscribe(resp => {
+    this.sacarOrden.getOrden().subscribe(resp => {
       this.datos = resp;
 
       console.log(this.datos);
@@ -58,9 +55,7 @@ export class IncidenciaComponent {
 
   }
 
-  crearIncidencia(){
-
-
+  crearIncidencia() {
         switch(this.codigo_tipo){
 
           case '1':
@@ -106,7 +101,7 @@ export class IncidenciaComponent {
 
       if (incidencia) {
 
-        this.incidenciaService.crearIncidencia(incidencia).subscribe({
+        this.sacarOrden.crearIncidencia(incidencia).subscribe({
 
           next: (response) => {
 

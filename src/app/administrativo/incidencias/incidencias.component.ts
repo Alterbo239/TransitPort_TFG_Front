@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
 import { DataTablesModule  } from 'angular-datatables';
-import { IncidenciaService } from '../../services/incidencia.service';
+import { OrdenService } from '../../services/orden.service';
 
 @Component({
   selector: 'app-incidencias',
@@ -14,14 +14,14 @@ export class IncidenciasComponent implements OnInit{
   dtOptions: Config = {};
 
   constructor(
-    private suppliersService: IncidenciaService,
+    private suppliersService: OrdenService,
     private renderer: Renderer2
   ){}
 
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.getSuppliersList().subscribe(resp => {
+        this.suppliersService.getOrden().subscribe(resp => {
           console.log(resp);
           callback({
             data: resp

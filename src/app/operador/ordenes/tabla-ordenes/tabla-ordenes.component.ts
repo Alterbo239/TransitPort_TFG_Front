@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenesService } from '../../../services/ordenes.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 // import { Suppliers } from '../../data.service';
@@ -9,6 +8,7 @@ import { OrdenComponent } from '../orden/orden.component';
 import { UsuarioService } from '../../../services/usuario.service';
 import { response } from 'express';
 import { error } from 'console';
+import { OrdenService } from '../../../services/orden.service';
 
 @Component({
   selector: 'app-tabla-ordenes',
@@ -25,7 +25,7 @@ export class TablaOrdenesComponent implements OnInit {
     dtOptions: Config = {};
 
       constructor(
-        private suppliersService: OrdenesService,
+        private suppliersService: OrdenService,
         private router: Router,
         private route: ActivatedRoute,
         private userService: UsuarioService
@@ -43,7 +43,7 @@ export class TablaOrdenesComponent implements OnInit {
 
         this.dtOptions = {
           ajax: (dataTablesParameters: any, callback) => {
-            this.suppliersService.getSuppliersList(this.usuarioId).subscribe(
+            this.suppliersService.getOrdenes(this.usuarioId).subscribe(
               resp => {
                 callback({
                   data: resp

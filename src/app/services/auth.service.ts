@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export class AuthService {
 
-  private apiUrl = 'http://localhost/api';
+  private apiUrl = 'http://localhost:8000/api';
 
   public logIn = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.logIn.asObservable();
@@ -24,10 +24,10 @@ export class AuthService {
 
   //Guardamos el rol del usuario para usarlo con el menu.
   setRol(rol: string): void {
-    localStorage.setItem('cargo', rol);
+    localStorage.setItem('user', rol);
   }
   getRol(): string {
-    return localStorage.getItem('cargo') || '';
+    return localStorage.getItem('user') || '';
   }
 
   logout() {
