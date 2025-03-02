@@ -6,24 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GruaService {
-
-  private apiUrl = 'http://localhost:8000/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
 
   constructor(private http: HttpClient) {}
 
   getGruas(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/gruas`);
+    return this.http.get(`${this.apiUrl}/grua`);
   }
 
   getZonas(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/zonas`);
+    return this.http.get(`${this.apiUrl}/zona`);
   }
 
-  asignarGrua(id_grua: number, id_zona: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/asignar-grua`, { id_grua, id_zona });
-  }
-
-  eliminarGrua(id_grua: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/gruas/${id_grua}`);
+  asignarGruas(payload: { id_zona: number; id_grua: number }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/asignar-grua`, payload);
   }
 }

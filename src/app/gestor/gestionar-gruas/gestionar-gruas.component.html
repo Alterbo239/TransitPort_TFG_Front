@@ -1,81 +1,26 @@
-<h1><img src="assets/Gestor/crearPatioVer.png" alt="Crear Patio">  Crear Patio | Zona</h1>
-             <form action="" method="post">
-
-
-                <div class="div1">
-                    <h2 class="num">1</h2>
-                    <h2>Nombre</h2>
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="nombre">
-
-
-                </div>
-                <div class="div2">
-                    <h2 class="num">2</h2>
-                    <h2>Dimensiones</h2>
-                    <label for="valorX">Valor X:</label>
-                    <input type="number" name="x" id="valorX">
-                    <label for="valorY">Valor Y:</label>
-                    <input type="number" name="y" id="valorY">
-                    <label for="valorZ">Valor Z:</label>
-                    <input type="number" name="z" id="valorZ">
-
-                </div>
-
-
-
-                <button type="submit" class="anyadirPatio btn btn-primary">Añadir</button>
-
-            </form>
-
-            <form action="" method="post">
-
-                <div class="div3">
-                    <h2 class="num">3</h2>
-                    <h2>Zonas</h2>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre">
-
-                    <div class="flex-row d-flex justify-content-between" id="valores">
-                        <div class="d-flex flex-column justify-content-center">
-                            <label class="d-flex justify-content-center" for="valX">Valor X:</label>
-                            <input type="number" class="valX" name="X" id="valX">
-                        </div>
-
-                        <div class="d-flex flex-column">
-                            <label class="d-flex justify-content-center" for="valY">Valor Y:</label>
-                            <input type="number" name="Y" id="valY">
-                        </div>
-
-                        <div class="d-flex flex-column">
-                            <label class="d-flex justify-content-center" for="valZ">Valor Z:</label>
-                            <input type="number" name="Z" id="valZ">
-                        </div>
-                </div>
-
-
-                    </div>
-                </form>
-
-                <div id="tabla">
-                <table id="zona" class="table table-bordered">
-                        <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>X</th>
-                                    <th>Y</th>
-                                    <th>Z</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                </table>
-                </div>
-
-
-
-                <a class="crear btn btn-primary">Aceptar</a>
-
-                <a class="cancelar btn btn-warning">Cancelar</a>
-
+<form [formGroup]="gruaForm" (ngSubmit)="onSubmit()">
+    <!-- Seleccionar Zona -->
+    <div>
+      <label for="selectedZona">Zona:</label>
+      <select id="selectedZona" formControlName="selectedZona">
+        <option value="" disabled>Selecciona una zona</option>
+        <option *ngFor="let zona of availableZonas" [value]="zona.id">
+          {{ zona.nombre }}
+        </option>
+      </select>
+    </div>
+  
+    <!-- Seleccionar Grúa -->
+    <div>
+      <label for="selectedGrua">Grúa:</label>
+      <select id="selectedGrua" formControlName="selectedGrua">
+        <option value="" disabled>Selecciona una grúa</option>
+        <option *ngFor="let grua of availableGruas" [value]="grua.id">
+          {{ grua.nombre }} ({{ grua.tipo }})
+        </option>
+      </select>
+    </div>
+  
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Asignar Grúa</button>
+  </form>
