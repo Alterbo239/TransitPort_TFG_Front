@@ -23,7 +23,7 @@ export class MonitorizarOrdenComponent implements OnInit{
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.getSuppliersList().subscribe(resp => {
+        this.suppliersService.getOrden().subscribe(resp => {
           console.log(resp);
           callback({
             data: resp

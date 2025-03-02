@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenesService } from '../../../services/ordenes.service';
+import { OrdenService } from '../../../services/orden.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -18,7 +18,7 @@ export class OrdenComponent implements OnInit {
   usuarioId: any;
 
   constructor(
-    private suppliersService: OrdenesService,
+    private suppliersService: OrdenService,
     private router: Router,
     private route: ActivatedRoute,
     private userService: UsuarioService
@@ -46,7 +46,7 @@ export class OrdenComponent implements OnInit {
 
         this.usuarioId = this.usuario.id;
 
-    this.suppliersService.getSuppliersList(this.usuarioId).subscribe(resp => {
+    this.suppliersService.getOrdenes(this.usuarioId).subscribe(resp => {
       this.datos = resp;
 
       console.log('Entra: ', this.datos)
@@ -263,4 +263,3 @@ export class OrdenComponent implements OnInit {
 
   }
 }
-

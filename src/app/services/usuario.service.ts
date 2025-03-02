@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
+  private apiUrl = 'http://localhost:8000/api';
+
   constructor(private http: HttpClient) {}
 
   private usuario: any = null;
@@ -26,11 +28,15 @@ export class UsuarioService {
     return this.usuario;
   }
 
-  private apiUrl = 'http://localhost:8000/api/user';
-
   getUsuarioPerfil():Observable<any>{
     
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(`${this.apiUrl}/user`);
+
+  }
+
+  getPersonal(): Observable<any[]> {
+
+    return this.http.get<any[]>(`${this.apiUrl}/gestor`);
 
   }
 
