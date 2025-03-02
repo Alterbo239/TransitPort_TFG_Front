@@ -47,7 +47,7 @@ export class UsuariosComponent implements OnInit{
         info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
         paginate: {
           first: 'Primero',
-          last: 'Último',
+          last: 'Último', 
           next: 'Siguiente',
           previous: 'Anterior'
         },
