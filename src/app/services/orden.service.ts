@@ -9,17 +9,15 @@ import { Incidencia } from '../models/incidencia';
 })
 
 export class OrdenService {
-  private urlOrden = 'http://localhost:8000/api/orden';
-
   constructor(private http: HttpClient){}
 
   getOrden(): Observable<any[]> {
-    return this.http.get<any[]>(this.urlOrden);
+    return this.http.get<any[]>('http://localhost:8000/api/orden');
   }
   
   getOrdenes(id?: any): Observable<any[]> {
 
-    return this.http.get<any[]>(`http://localhost:8000/api/operador/ordenes?id_operador=${id}`)
+    return this.http.get<any[]>(`http://localhost:8000/api/operador/ordenes?id_operador=${id}`);
 
   }
   actualizarEstado(orden: Orden): Observable<Orden> {
@@ -30,5 +28,13 @@ export class OrdenService {
 
     return this.http.post('http://localhost:8000/api/incidencia', incidencia);
 
+  }
+
+  getIncidencia(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8000/api/incidencia');
+  }
+
+  borrarIncidencia(id: string) {
+    return this.http.delete(`http://localhost:8000/api/incidencia/borrar/${id}`);
   }
 }
