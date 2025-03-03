@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Config } from 'datatables.net';
 import { DataTablesModule  } from 'angular-datatables';
-import { IncidenciaService } from '../../services/incidencia.service';
+import { OrdenService } from '../../services/orden.service';
 
 @Component({
   selector: 'app-incidencias',
@@ -14,14 +14,14 @@ export class IncidenciasComponent implements OnInit{
   dtOptions: Config = {};
 
   constructor(
-    private suppliersService: IncidenciaService,
+    private suppliersService: OrdenService,
     private renderer: Renderer2
   ){}
 
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.getSuppliersList().subscribe(resp => {
+        this.suppliersService.getOrden().subscribe(resp => {
           console.log(resp);
           callback({
             data: resp
@@ -37,23 +37,6 @@ export class IncidenciasComponent implements OnInit{
       scrollCollapse:true,
       paging: false,
 
-
-      // //configuración de la tabla a español
-      // language: {
-      //   search: 'Buscar:',
-      //   lengthMenu: 'Mostrar  _MENU_',
-      //   info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
-      //   paginate: {
-      //     first: 'Primero',
-      //     last: 'Último',
-      //     next: 'Siguiente',
-      //     previous: 'Anterior'
-      //   },
-      //   emptyTable: 'No hay datos disponibles en la tabla'
-      // },
-
-
-
       //tipos de columnas y sus nombres
       columns: [
         { title: 'Codigo', data: 'codigo_tipo' },
@@ -65,16 +48,6 @@ export class IncidenciasComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-
-        //estilo de la tabla
-
-        // const actionCell = rowElement.querySelector('table');
-        // if (actionCell) {
-        //   actionCell.setAttribute(
-        //     'style',
-        //     'display: flex; justify-content: center; '
-        //   );
-        // }
 
         const actionButton = rowElement.querySelector('.action-btn');
         if (actionButton) {

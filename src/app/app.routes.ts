@@ -7,6 +7,7 @@ import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/bu
 import { RealizarAuditoriaComponent } from './administrativo/auditorias/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { PerfilOrdenadorComponent } from './perfil-ordenador/perfil-ordenador.component';
 import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
 import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
@@ -17,7 +18,6 @@ import { OrdenesComponent } from './operador/ordenes/ordenes.component';
 import { NotificacionesComponent } from './operador/notificaciones/notificaciones.component';
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
-import { VisualizarAuditoriasComponent } from './administrativo/auditorias/visualizar-auditorias/visualizar-auditorias.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 import { isLoggedIn } from './auth/guards/is-logged-in.guard';
@@ -25,9 +25,14 @@ import { hasRole } from './auth/guards/has-role.guard'
 
 export const routes: Routes = [
     {
+        path: 'perfil-ordenador',
+        component: PerfilOrdenadorComponent
+    },
+    {
         path: '',
         component: LogInComponent
     },
+    
     {
         path: 'administrativo',
         canActivate:[hasRole],
@@ -53,14 +58,6 @@ export const routes: Routes = [
             {
                 path: 'buscar-contenedor',
                 component: BuscarContenedorComponent
-            },
-            {
-                path: 'realizar-auditoria',
-                component: RealizarAuditoriaComponent
-            },
-            {
-                path: 'visualizar-auditoria',
-                component: VisualizarAuditoriasComponent
             },
             {
                 path: 'incidencias',

@@ -1,7 +1,6 @@
 import { Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DataTablesModule  } from 'angular-datatables';
-import { OrdenService } from '../../services/orden.service';
-import { SuppliersService } from '../../services/data.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Config } from 'datatables.net';
 
 @Component({
@@ -17,14 +16,14 @@ export class UsuariosComponent implements OnInit{
   dtOptions: Config = {};
 
   constructor(
-    private suppliersService: SuppliersService,
+    private usuarioService: UsuarioService,
     private renderer: Renderer2
   ){}
 
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.getSuppliersList().subscribe(resp => {
+        this.usuarioService.getPersonal().subscribe(resp => {
           callback({
             data: resp
           });
@@ -47,14 +46,12 @@ export class UsuariosComponent implements OnInit{
         info: 'Mostrando _START_ a _END_ de _TOTAL_ usuarios',
         paginate: {
           first: 'Primero',
-          last: 'Último',
+          last: 'Último', 
           next: 'Siguiente',
           previous: 'Anterior'
         },
         emptyTable: 'No hay datos disponibles en la tabla'
       },
-
-
 
       //tipos de columnas y sus nombres
       columns: [
@@ -69,16 +66,6 @@ export class UsuariosComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-
-        //estilo de la tabla
-
-        // const actionCell = rowElement.querySelector('table');
-        // if (actionCell) {
-        //   actionCell.setAttribute(
-        //     'style',
-        //     'display: flex; justify-content: center; '
-        //   );
-        // }
 
         const actionButton = rowElement.querySelector('.action-btn');
         if (actionButton) {

@@ -43,39 +43,40 @@ export class LogInComponent {
   }
 
   onLogin() {
+    const credentials = {
 
-  const credentials = {
+      email: this.email,
+      password: this.password
 
-    email: this.email,
-    password: this.password
+    }
+    console.log('Intentando iniciar sesión con:', this.email, this.password);
 
-  }
-  console.log('Intentando iniciar sesión con:', this.email, this.password);
+      this.authService.login(credentials).subscribe({
+        next: (response) => {
+          console.log('Inicio de sesión exitoso:', response);
+          this.usuarioService.setUsuario(response.user);
+          console.log('Usuario recibido en login:', response.user);
 
-    this.authService.login(credentials).subscribe({
-      next: (response) => {
-        console.log('Inicio de sesión exitoso:', response);
-        this.usuarioService.setUsuario(response.user);
-        console.log('Usuario recibido en login:', response.user);
+          //Guardamos el rol del usuario en AuthService.
+          const rol = response.user.cargo;
+          this.authService.setRol(rol);
+          this.authService.logIn.next(true); //Actualizamos el "logIn".
 
-        //Guardamos el rol del usuario en AuthService.
-        const rol = response.cargo;
-        this.authService.setRol(rol);
-        this.authService.logIn.next(true); //Actualizamos el "logIn".
-
-        if(response.user.cargo == "operador"){
-          this.router.navigate(['/operador/ordenes']);
-        } else if(response.user.cargo == "administrativo"){
-          this.router.navigate(['/administrativo']);
-        } else {
-          this.router.navigate(['/gestor']);
+          if (response.user.estado != 'Inactivo/a') {
+            if(response.user.cargo == "operador") {
+              this.router.navigate(['/operador/ordenes']);
+            } else if(response.user.cargo == "administrativo") {
+              this.router.navigate(['/administrativo']);
+            } else {
+              this.router.navigate(['/gestor/usuarios']);
+            }
+          } else {
+            this.router.navigate(['/']);
+          }          
+        },
+        error: (err) => {
+          console.error('Error al iniciar sesión:', err);
         }
-      },
-      error: (err) => {
-        console.error('Error al iniciar sesión:', err);
-      }
-    });
-  }
-
-
+      });
+    }
 }

@@ -24,13 +24,13 @@ export class AuthService {
 
   //Guardamos el rol del usuario para usarlo con el menu.
   setRol(rol: string): void {
-    localStorage.setItem('cargo', rol);
+    localStorage.setItem('user', rol);
   }
   getRol(): string {
-    return localStorage.getItem('cargo') || '';
+    return localStorage.getItem('user') || '';
   }
 
-  logout(){
+  logout() {
     this.logIn.next(false);
   }
 }

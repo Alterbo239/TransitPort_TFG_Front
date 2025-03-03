@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+
+  private apiUrl = 'http://localhost:8000/api';
+
+  constructor(private http: HttpClient) {}
 
   private usuario: any = null;
 
@@ -21,4 +27,19 @@ export class UsuarioService {
     }
     return this.usuario;
   }
+
+  //recoge los datos del usuario
+  getUsuarioPerfil():Observable<any>{
+    
+    return this.http.get<any>(`${this.apiUrl}/user`);
+
+  }
+
+  //recoge los datos de los usuarios en la base de datos
+  getPersonal(): Observable<any[]> {
+
+    return this.http.get<any[]>(`${this.apiUrl}/gestor`);
+
+  }
+
 }

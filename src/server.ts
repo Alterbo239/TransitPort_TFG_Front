@@ -12,6 +12,7 @@ const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
+const cors = require('cors');
 const angularApp = new AngularNodeAppEngine();
 
 /**
@@ -36,6 +37,11 @@ app.use(
     redirect: false,
   }),
 );
+app.use(
+  cors ({
+    origin: "http://localhost:4200"
+  })
+)
 
 /**
  * Handle all other requests by rendering the Angular application.

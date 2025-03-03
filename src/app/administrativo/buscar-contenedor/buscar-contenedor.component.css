@@ -1,98 +1,160 @@
 .usuarios-container {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 1200px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .usuarios-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    max-width: 1200px;
-    background-color: var(--Cinder-50, #f1f5fe);
-    margin: 0 auto;
-    overflow: auto;
-    border-collapse: collapse;
-  }
-  
-  table td {
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    padding: 30px;
-  }
-  
-  table th {
-    background-color: #152d65;
-    width: 1477px;
-    height: 80px;
-    color: var(--Cinder-50, #f1f5fe);
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding: 30px;
-    position: sticky;
-  }
-  
-  table tr {
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-  }
-  
-  .tituloSecc {
-    width: 390px;
-    height: 58px;
-    color: #000;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-    margin-top: 60px;
-    margin-bottom: 80px;
-  }
-  
-  .imgPag {
-    width: 49.074px;
-    height: 53.535px;
-    margin-left: 85px;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .contenedor-tabla {
-    max-height: 600px;
-    overflow-y: auto;
-    margin: 0 auto;
-  }
-  
-  .dataTables_scrollBody thead tr {
-    visibility: collapse;
-  }
-  
-  .dataTables_scrollBody {
-    margin-top: -10px;
-  }
-  
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--Cinder-50, #f1f5fe);
+  margin: 0 auto;
+  overflow: auto;
+  border-collapse: collapse;
+}
+
+table td {
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding: 30px;
+}
+
+table th {
+  background-color: #152d65;
+  width: 1477px;
+  height: 80px;
+  color: var(--Cinder-50, #f1f5fe);
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 30px;
+  position: sticky;
+}
+
+table tr {
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.tituloSecc {
+  width: 390px;
+  height: 58px;
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.imgPag {
+  width: 49.074px;
+  height: 53.535px;
+  margin-left: 85px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.contenedor-tabla {
+  max-height: 600px;
+  margin: 0 auto;
+  margin-left: 200px;
+  width: 1200px;
+  margin-top: 6%;
+}
+
+.dataTables_scrollBody thead tr {
+  visibility: collapse;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+.dt-search {
+  width: 300px !important;
+  padding: 8px !important;
+
+  border-radius: 4px !important;
+  font-size: 1em !important;
+}
+
+.dt-layout {
+  text-align: center;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+.dt-scroll-head > .dt-scroll-headInner > table > thead > tr > th {
+  background-color: #152d65;
+  width: 1477px;
+  height: 80px;
+  color: var(--Cinder-50, #f1f5fe);
+  text-align: center;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 20px;
+  position: sticky;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td {
+  text-align: center;
+  font-size: 20px;
+  border-bottom: solid 10px var(--Cinder-50, #f1f5fe);
+  padding: 25px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
+  text-align: left;
+  padding: 25px;
+  margin-left: -200px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(2) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+  padding-right: 56px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(3) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {
+  margin-left: 25px;
+  margin-right: 65px;
+}
