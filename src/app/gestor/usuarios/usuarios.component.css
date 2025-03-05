@@ -88,7 +88,7 @@ table tr {
   max-height: 600px;
   margin: 0 auto;
   margin-left: 200px;
-  width: 1200px;
+  max-width: 1477px;
   margin-top: -70px;
 }
 
@@ -96,12 +96,36 @@ table tr {
   visibility: collapse;
 }
 
-.dt-search {
-  width: 300px !important;
+div.dt-search {
+  width: 270px !important;
   padding: 8px !important;
-
   border-radius: 4px !important;
   font-size: 1em !important;
+  margin-top: -8px;;
+  margin-right: 12px;
+  /* border: 2px solid #000; */
+
+}
+
+div.dt-search input {
+  width: 100% !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  font-size: 20px !important;
+  border: 2px solid #000 !important;
+  height: 36px !important;
+  font-weight: 700;
+  color: #000 !important;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  background-image: url('/assets/lupa.svg') !important;
+  background-repeat: no-repeat;
+  background-position: left 10px center !important; /* Adjust the position of the icon */
+}
+
+input#dt-search-0.dt-input {
+
+  text-align: center;
+
 }
 
 .dt-layout {
@@ -131,6 +155,8 @@ table tr {
   background: rgba(217, 217, 217, 0);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
   z-index: 1;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .botonCrear:hover {
@@ -147,15 +173,11 @@ table tr {
   margin-left: -90px;
 }
 
-/* .botonImagen:hover {
-  opacity: 20;
-} */
-
 .botonEliminar {
   display: flex;
-  padding-left: 39px;
+  padding-left: 42px;
   align-items: center;
-  width: 112px;
+  width: 220px;
   height: 35px;
   border-radius: 4px;
   border: 2px solid #000;
@@ -163,6 +185,12 @@ table tr {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
   z-index: 1;
   margin-left: 80px;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .botonEliminar:hover {
@@ -173,9 +201,47 @@ table tr {
 }
 
 .botonImagen2 {
-  width: 22px;
-  height: 30px;
-  margin-top: 2px;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  margin-top: 6px;
+  margin-left: -210px;
+}
+
+.botonFiltrar{
+
+  display: flex;
+  padding-left: 39px;
+  align-items: center;
+  width: 110px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid #000;
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  margin-left: 930px;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+}
+
+.botonFiltrar:hover {
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.botonImagen3 {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  margin-top: 9px;
   margin-left: -100px;
 }
 
@@ -221,6 +287,73 @@ table tr {
 
 .dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {
   margin-left: 25px;
-  margin-right: 65px;
+  margin-right: 105px;
 }
 
+/* modales */
+
+::ng-deep div.swal2-popup {
+  border-radius: 32px;
+  border: 2px solid #000;
+
+  background: #FFFCFC;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.50);
+}
+
+::ng-deep h2.swal2-title {
+  color: var(--Cinder-950, #040813);
+  border-bottom: solid 2px black;
+
+  padding-bottom: 4%;
+  margin-bottom: -4%;
+
+  text-align: left;
+}
+
+::ng-deep div.swal2-html-container > h3 {
+  color: var(--Cinder-900, #152D65);
+
+  text-align: left;
+  margin-top: 4%;
+  margin-left: 1%;
+}
+::ng-deep div.swal2-html-container > input {
+  color: black;
+  background: var(--Cinder-50, #F1F5FE);
+  border: none;
+
+  padding-left: 10px;
+  margin-left: -51%;
+}
+
+::ng-deep div.swal2-html-container > textarea {
+  width: 100%;
+  height: 80px;
+  
+  color: black;
+  background: var(--Cinder-50, #F1F5FE);
+  border: none;
+
+  padding-left: 0px;
+  resize: none;
+}
+
+::ng-deep .swal2-confirm {
+  width: 400px;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Cinder-900, #152D65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+::ng-deep div.swal2-html-container > input.Por.empezar {
+  background-color: var(--Rojo, #FF6F6F);;
+}
+::ng-deep div.swal2-html-container > input.En.curso {
+  background-color: var(--Amarillo-3, #FACD84);;
+}
+::ng-deep div.swal2-html-container > input.Completada {
+  background-color: var(--Verde, #B8FFB5);;
+}
