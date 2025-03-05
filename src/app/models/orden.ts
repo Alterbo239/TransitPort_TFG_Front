@@ -1,6 +1,6 @@
 export interface Orden {
     id: number;
-    estado:string;
+    estado: string;
     tipo: string;
     zona: number;
     id_administrativo: number;
