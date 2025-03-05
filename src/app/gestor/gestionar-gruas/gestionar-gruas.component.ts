@@ -46,22 +46,28 @@ export class GestionarGruasComponent implements OnInit {
 
   //se envia el formulario
   enviar(): void {
+  const datos = {
+    id_zona: this.form.value.zonaId,
+    id_grua: this.form.value.gruaId,
+  };
 
-    const datos = {
-      id_zona: this.form.value.zonaId,
-      id_grua: this.form.value.gruaId,
-    };
+  console.log('Datos enviados:', datos);
 
-    console.log('Datos enviados:', datos);
-
-    this.gruaService.asignarGruas(datos).subscribe({
-      next: () => {
-        alert('Grúa asignada correctamente.');
-        this.form.reset(); //si la grua se asigna bien, se hace reset del formulario
-      },
-      error: (err) => {
-        alert('Error al asignar la grúa');
-      },
-    });
+  if (!datos.id_zona || !datos.id_grua) {
+    alert('Debe seleccionar una zona y una grúa.');
+    return;
   }
+
+  this.gruaService.asignarGruas(datos).subscribe({
+    next: () => {
+      alert('Grúa asignada correctamente.');
+      this.form.reset();
+    },
+    error: (err) => {
+      console.error('Error en la petición:', err);
+      alert('Error al asignar la grúa. Verifique la consola.');
+    },
+  });
+}
+
 }

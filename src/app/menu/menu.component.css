@@ -1,4 +1,4 @@
-div.menu {
+/* div.menu {
   background: var(--Cinder-800, #133379);
   height: 100vh;
   flex-shrink: 0;
@@ -53,4 +53,102 @@ div.seleccionado {
   flex-shrink: 0;
   margin-left: 10px;
   margin-top: 40px;
+} */
+
+div.menu {
+  background-color: #133379;
+  transition: width 0.5s ease-in-out;
+  
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 100;
+
+}
+
+div.menu:hover {
+  width: 320px;
+  z-index: 100;
+  align-items: flex-start;
+  padding-left: 15px;
+  position: fixed;
+
+}
+
+.perfil {
+
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  border: 3px solid #ffffff !important;
+  transition: border-color 0.3s ease-in-out !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+.imgMenu {
+  margin-right: 12px;
+  width: 50px;
+        height: 60px;
+        flex-shrink: 0;
+        margin-left:10px;
+}
+
+ #perfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-decoration:none;
+}
+
+a {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  transition: background 0.3s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration:none;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-left:10px;
+}
+
+span {
+  display: none;
+  color: white;
+  font-size: 16px;
+  white-space: nowrap;
+  text-decoration:none;
+}
+
+div.menu:hover span {
+  display: inline;
+  flex-grow: 1;
+}
+
+.home {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  padding-top: 12px;
+  transition: background 0.3s ease-in-out;
+  white-space: nowrap;
+  
 }
