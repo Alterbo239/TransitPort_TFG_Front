@@ -73,8 +73,10 @@ export class UsuariosComponent implements OnInit{
         const rowElement = row as HTMLElement;
         const checkbox = rowElement.querySelector('.select-checkbox') as HTMLInputElement;
       
+        // Evento para seleccionar el checkbox
         if (checkbox) {
-          this.renderer.listen(checkbox, 'change', (event) => {
+          this.renderer.listen(checkbox, 'click', (event) => {
+            event.stopPropagation(); // Evita que el clic en el checkbox active el evento de la fila
             if (checkbox.checked) {
               this.selectedUsers.push(data.id);
             } else {
@@ -82,6 +84,14 @@ export class UsuariosComponent implements OnInit{
             }
           });
         }
+      
+        // Evento para mostrar los detalles del usuario, pero solo si NO se hace clic en el checkbox
+        this.renderer.listen(rowElement, 'click', (event) => {
+          if (!(event.target as HTMLElement).classList.contains('select-checkbox')) {
+            this.mostrarDetallesUsuario(data);
+          }
+        });
+      
         return row;
       }
       
@@ -89,6 +99,30 @@ export class UsuariosComponent implements OnInit{
     };
 
   }
+
+  mostrarDetallesUsuario(usuario: any) {
+    Swal.fire({
+      title: `${usuario.name}`,
+      html: `
+        <p><strong>Email:</strong> ${usuario.email}</p>
+        <p><strong>Usuario:</strong> ${usuario.usuario}</p>
+        <p><strong>Teléfono:</strong> ${usuario.telefono}</p>
+        <p><strong>Ciudad:</strong> ${usuario.ciudad}</p>
+        <p><strong>Código Postal:</strong> ${usuario.codigoPostal}</p>
+        <p><strong>Cargo:</strong> ${usuario.cargo}</p>
+        <p><strong>Estado:</strong> ${usuario.estado}</p>
+      `,
+      confirmButtonText: "Cerrar", 
+      width: "400px",
+      customClass: {
+        popup: "mi-popup",
+        title: "mi-titulo",
+        confirmButton: "mi-boton",
+      }
+    });
+  }
+  
+  
 
   filtrarUsuarios(cargo: string, estado: string) {
 
@@ -111,26 +145,32 @@ export class UsuariosComponent implements OnInit{
 
   abrirFiltro() {
     Swal.fire({
-      title: "Filtrar Usuarios",
+      title: "Filtrar",
       html: `
-        <label for="selectCargo">Cargo:</label>
+        <label for="selectCargo">Cargo</label><br>
         <select id="selectCargo" class="swal2-select">
           <option value="">Todos</option>
           <option value="gestor">Gestor</option>
           <option value="administrativo">Administrativo</option>
           <option value="operador">Operador</option>
-        </select>
+        </select><br><br>
   
-        <label for="selectEstado" style="margin-top:10px;">Estado:</label>
+        <label for="selectEstado" style="margin-top:10px;">Estado</label><br>
         <select id="selectEstado" class="swal2-select">
           <option value="">Todos</option>
           <option value="Activo/a">Activo</option>
           <option value="Inactivo/a">Inactivo</option>
-        </select>
+        </select><br><br>
       `,
-      showCancelButton: true,
       confirmButtonText: "Buscar",
-      cancelButtonText: "Cancelar",
+      showCloseButton: true, 
+      customClass: {
+        popup: "mi-popup2",
+        title: "mi-titulo2",
+        confirmButton: "mi-boton2",
+        closeButton: "mi-cruz",
+        htmlContainer: "misCosas"
+      },
       preConfirm: () => {
         const cargo = (document.getElementById("selectCargo") as HTMLSelectElement).value;
         const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
