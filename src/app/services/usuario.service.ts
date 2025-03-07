@@ -42,4 +42,14 @@ export class UsuarioService {
 
   }
 
+  modificarEstadoUsuario(id: number, estado: string): Observable<any> {
+    const body = {
+        estado: estado // Enviar solo el estado en el cuerpo
+    };
+
+    return this.http.put<any>(`${this.apiUrl}/modificar-estado/${id}`, body);
+}
+  
+    
+
 }

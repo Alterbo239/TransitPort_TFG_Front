@@ -1,28 +1,35 @@
+<img class="imgPag" src="/assets/Gestor/gestionarGruasVer.png" alt="Gestionar Gruas"><p class="tituloSecc">Gestionar grúas</p>
+
 <form [formGroup]="form" (ngSubmit)="enviar()">
+  <div class="form-group div1">
+    <h2 class="num">2</h2>
+    <h2>Zona</h2>
+    <p>Seleccionar</p>
+    <select id="gruaId" formControlName="gruaId">
+      <!-- <option value="" disabled>Selecciona una grúa</option> -->
+      <option *ngFor="let grua of gruas" [value]="grua.id">
+        {{ grua.nombre }} ({{ grua.tipo }})
+      </option>
+    </select>
+  </div>
 
-    <div>
-      <label for="zonaId">Zona:</label>
-      <select id="zonaId" formControlName="zonaId">
+  <div class="form-group div3">
+    
+    <h2 class="num">1</h2>
+    <h2>Grúa</h2>
+    <p>Seleccionar</p>
+    <select id="zonaId" formControlName="zonaId">
+      <!-- <option value="" disabled>Selecciona una zona</option> -->
+      <option *ngFor="let zona of zonas" [value]="zona.id">
+        {{ zona.nombre }}
+      </option>
+    </select>
+    
+  </div>
 
-        <option value="" disabled>Selecciona una zona</option>
-        <option *ngFor="let zona of zonas" [value]="zona.id">
-          {{ zona.nombre }}
-        </option>
-        
-      </select>
-    </div>
+  <button type="submit" class="crear btn btn-primary">Asignar</button>
   
-    <div>
-      <label for="gruaId">Grúa:</label>
-      <select id="gruaId" formControlName="gruaId">
-
-        <option value="" disabled>Selecciona una grúa</option>
-        <option *ngFor="let grua of gruas" [value]="grua.id">
-          {{ grua.nombre }} ({{ grua.tipo }})
-        </option>
-
-      </select>
-    </div>
   
-    <button type="submit">Asignar</button>
-  </form>
+</form>
+
+<button type="button" class="cancelar btn btn-primary">Cancelar</button>

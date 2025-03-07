@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GruaService } from '../../services/grua.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-gestionar-gruas',
@@ -46,22 +48,36 @@ export class GestionarGruasComponent implements OnInit {
 
   //se envia el formulario
   enviar(): void {
+  const datos = {
+    id_zona: this.form.value.zonaId,
+    id_grua: this.form.value.gruaId,
+  };
 
-    const datos = {
-      id_zona: this.form.value.zonaId,
-      id_grua: this.form.value.gruaId,
-    };
+  console.log('Datos enviados:', datos);
 
-    console.log('Datos enviados:', datos);
-
-    this.gruaService.asignarGruas(datos).subscribe({
-      next: () => {
-        alert('Grúa asignada correctamente.');
-        this.form.reset(); //si la grua se asigna bien, se hace reset del formulario
-      },
-      error: (err) => {
-        alert('Error al asignar la grúa');
-      },
+  if (!datos.id_zona || !datos.id_grua) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Campos incompletos',
+      text: 'Debe seleccionar una zona y una grúa.',
+      confirmButtonText: 'Aceptar'
     });
+    return;
   }
+
+  this.gruaService.asignarGruas(datos).subscribe({
+    next: () => {
+      Swal.fire({
+        icon: 'success',
+        text: 'Grúa asignada correctamente.',
+        confirmButtonText: 'Aceptar'
+      });
+      this.form.reset();
+    },
+    error: (err) => {
+      console.error('Error en la petición:', err);
+    },
+  });
+}
+
 }
