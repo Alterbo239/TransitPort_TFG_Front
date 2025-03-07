@@ -44,10 +44,11 @@
           },
           "configurations": {
             "production": {
+              "outputMode": "server",
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "800kB",
+                  "maximumWarning": "1000kB",
                   "maximumError": "1MB"
                 },
                 {
