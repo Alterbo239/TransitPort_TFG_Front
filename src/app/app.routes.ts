@@ -22,6 +22,8 @@ import { OrdenComponent } from './operador/ordenes/orden/orden.component';
 import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
 import { isLoggedIn } from './auth/guards/is-logged-in.guard';
 import { hasRole } from './auth/guards/has-role.guard'
+import { RenderMode, ServerRoute, PrerenderFallback } from '@angular/ssr';
+
 
 export const routes: Routes = [
     {
@@ -32,7 +34,7 @@ export const routes: Routes = [
         path: '',
         component: LogInComponent
     },
-    
+
     {
         path: 'administrativo',
         canActivate:[hasRole],
@@ -109,18 +111,23 @@ export const routes: Routes = [
           {
             path: '',
             redirectTo: 'ordenes',
-            pathMatch: 'full' },
+            pathMatch: 'full',
+          },
           {
               path: 'ordenes',
               component: OrdenesComponent
           },
           {
               path: 'ordenes/orden/:id',
-              component: OrdenComponent
+              component: OrdenComponent,
+              data: { skipPrerender: true },
+
           },
           {
             path: 'ordenes/incidencia/:id',
-            component: IncidenciaComponent
+            component: IncidenciaComponent,
+            data: { skipPrerender: true },
+
           },
           {
               path: 'notificaciones',
