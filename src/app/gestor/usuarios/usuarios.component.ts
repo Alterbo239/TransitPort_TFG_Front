@@ -102,22 +102,43 @@ export class UsuariosComponent implements OnInit{
 
   mostrarDetallesUsuario(usuario: any) {
     Swal.fire({
-      title: `${usuario.name}`,
+      title: 'Detalles',
       html: `
-        <p><strong>Email:</strong> ${usuario.email}</p>
-        <p><strong>Usuario:</strong> ${usuario.usuario}</p>
-        <p><strong>Teléfono:</strong> ${usuario.telefono}</p>
-        <p><strong>Ciudad:</strong> ${usuario.ciudad}</p>
-        <p><strong>Código Postal:</strong> ${usuario.codigoPostal}</p>
-        <p><strong>Cargo:</strong> ${usuario.cargo}</p>
-        <p><strong>Estado:</strong> ${usuario.estado}</p>
+        <p><span>${usuario.name}</span> </p><br>
+
+        <div class="div1">
+        <label for="email"><span>Email</span></label><br>
+        <input id="email" class="swal2-input" type="email" value="${usuario.email}" readonly><br>
+
+        <label for="usuario"><span>Usuario</span></label><br>
+        <input id="usuario" class="swal2-input" type="text" value="${usuario.usuario}" readonly><br>
+
+        <label for="telefono"><span>Teléfono</span></label><br>
+        <input id="telefono" class="swal2-input" type="tel" value="${usuario.telefono}" readonly><br>
+
+        <label for="ciudad"><span>Ciudad</span></label><br>
+        <input id="ciudad" class="swal2-input" type="text" value="${usuario.ciudad}" readonly><br>
+        </div>
+
+        <div class="div2">
+        <label for="codigoPostal"><span>Código Postal</span></label><br>
+        <input id="codigoPostal" class="swal2-input" type="text" value="${usuario.codigoPostal}" readonly><br>
+
+        <label for="cargo"><span>Cargo</span></label><br>
+        <input id="cargo" class="swal2-input" type="text" value="${usuario.cargo}" readonly><br>
+
+        <label for="estado"><span>Estado</span></label><br>
+        <input id="estado" class="swal2-input" type="text" value="${usuario.estado}" readonly>
+        </div>
       `,
       confirmButtonText: "Cerrar", 
-      width: "400px",
+      showCloseButton: true, 
       customClass: {
         popup: "mi-popup",
         title: "mi-titulo",
         confirmButton: "mi-boton",
+        closeButton: "mi-cruz",
+        htmlContainer: "misCosas2"
       }
     });
   }
@@ -168,7 +189,7 @@ export class UsuariosComponent implements OnInit{
         popup: "mi-popup2",
         title: "mi-titulo2",
         confirmButton: "mi-boton2",
-        closeButton: "mi-cruz",
+        closeButton: "mi-cruz2",
         htmlContainer: "misCosas"
       },
       preConfirm: () => {
@@ -193,16 +214,22 @@ export class UsuariosComponent implements OnInit{
   
     Swal.fire({
       title: "Modificar Estado",
-      text: "Selecciona el nuevo estado para los usuarios seleccionados:",
+      text: "Selecciona el nuevo estado:",
       input: "select",
       inputOptions: {
         "Activo/a": "Activo/a",
         "Inactivo/a": "Inactivo/a",
       },
-      inputPlaceholder: "Seleccione un estado",
-      showCancelButton: true,
+      inputPlaceholder: "Selecciona un estado",
       confirmButtonText: "Modificar",
-      cancelButtonText: "Cancelar"
+      showCloseButton: true, 
+      customClass: {
+        popup: "mi-popup3",
+        title: "mi-titulo3",
+        confirmButton: "mi-boton3",
+        closeButton: "mi-cruz3",
+        htmlContainer: "misCosas3"
+      },
     }).then((result) => {
       if (result.isConfirmed && result.value) {
         this.actualizarEstadoUsuarios(result.value);
@@ -214,7 +241,16 @@ export class UsuariosComponent implements OnInit{
 
     //no puede utilizar el boton sin seleccionar al menos uno
     if (this.selectedUsers.length === 0) {
-      Swal.fire("Selecciona al menos un usuario", "", "warning");
+      Swal.fire({
+        title: "Selecciona al menos un usuario",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+        customClass: {
+          popup: "mi-popup-warning",
+          title: "mi-titulo-warning",
+          confirmButton: "mi-boton-warning",
+        },
+      });
       return;
     }
   
@@ -226,7 +262,17 @@ export class UsuariosComponent implements OnInit{
     //procesamos varios usuarios a la vez
     Promise.all(updateRequests)
       .then(() => {
-        Swal.fire("Estados actualizados", "", "success");
+        Swal.fire({
+          title: "Estados actualizados",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          customClass: {
+            popup: "mi-popup-success",
+            title: "mi-titulo-success",
+            confirmButton: "mi-boton-success",
+            htmlContainer: "misCosas-success",
+          },
+        });
         this.selectedUsers = []; //limpio el array
         this.recargarTabla();
       })
