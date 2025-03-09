@@ -31,7 +31,7 @@ export class UsuarioService {
   //recoge los datos del usuario
   getUsuarioPerfil():Observable<any>{
     
-    return this.http.get<any>(`${this.apiUrl}/user`);
+    return this.http.get<any>(`${this.apiUrl}/gestor/buscar/{id}`);
 
   }
 
