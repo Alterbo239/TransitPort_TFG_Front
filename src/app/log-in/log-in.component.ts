@@ -66,7 +66,7 @@ export class LogInComponent {
             if(response.user.cargo == "operador") {
               this.router.navigate(['/operador/ordenes']);
             } else if(response.user.cargo == "administrativo") {
-              this.router.navigate(['/administrativo']);
+              this.router.navigate(['/administrativo/monitorizar-orden']);
             } else {
               this.router.navigate(['/gestor/usuarios']);
             }
