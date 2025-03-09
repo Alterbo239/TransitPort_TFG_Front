@@ -5,6 +5,12 @@ body {
   padding: 0;
   background-color: #f4f4f4;
 }
+.titulo {
+  margin-left: 80px;
+}
+#todo {
+  margin-left: 200px;
+}
 
 .imgPag {
   width: 96px;
