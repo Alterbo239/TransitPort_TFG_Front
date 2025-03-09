@@ -151,4 +151,64 @@ export class MonitorizarOrdenComponent implements OnInit{
       }
     });
     }
+
+    abrirFiltro() {
+      Swal.fire({
+        title: "Filtrar",
+        html: `
+          <label for="selectTipo">Tipo</label><br>
+          <select id="selectTipo" class="swal2-select">
+            <option value="">Todos</option>
+            <option value="carga">Carga</option>
+            <option value="descarga">Descarga</option>
+          </select><br><br>
+
+          <label for="selectEstado">Estado</label><br>
+          <select id="selectEstado" class="swal2-select">
+            <option value="">Todos</option>
+            <option value="Por empezar">Por empezar</option>
+            <option value="En curso">En curso</option>
+            <option value="Finalizada">Finalizada</option>
+          </select><br><br>
+        `,
+
+        confirmButtonText: "Buscar",
+        showCloseButton: true, 
+        customClass: {
+          popup: "mi-popup2",
+          title: "mi-titulo2",
+          confirmButton: "mi-boton2",
+          closeButton: "mi-cruz",
+          htmlContainer: "misCosas"
+        },
+
+        preConfirm: () => {
+          const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
+          const tipo = (document.getElementById("selectTipo") as HTMLSelectElement).value
+          return { tipo, estado };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.filtrarOrdenes(result.value.tipo, result.value.estado);
+        }
+      });
+    }
+
+    filtrarOrdenes(tipo: string, estado: string) {
+      const table = $('.dataTable').DataTable();
+    
+      if (tipo) {
+        table.column(1).search(`^${tipo}$`, true, false);
+      } else {
+        table.column(1).search('');
+      }
+    
+      if (estado) {
+        table.column(2).search(`^${estado}$`, true, false);
+      } else {
+        table.column(2).search(''); //limpia el filtro si elegimos todos
+      }
+    
+      table.draw(); //Refresca la tabla con los filtros
+    }
   }

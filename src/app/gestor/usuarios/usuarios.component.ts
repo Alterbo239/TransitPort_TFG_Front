@@ -125,7 +125,6 @@ export class UsuariosComponent implements OnInit{
   
 
   filtrarUsuarios(cargo: string, estado: string) {
-
     const table = $('.dataTable').DataTable();
   
     if (cargo) {

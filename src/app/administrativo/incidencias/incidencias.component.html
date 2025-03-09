@@ -1,4 +1,9 @@
-<h2 class="titulo"><img src="./assets/Administrativo/incidenciasVer.svg">  Incidencias</h2>
+<img class="imgPag" src="./assets/Administrativo/incidenciasVer.png"><p class="tituloSecc">Incidencias</p>
+
+<div class="crearNuevo">
+  <button type="button" class="btn btn-info botonFiltrar" (click)="abrirFiltro()">Filtrar</button>
+  <img src="./assets/vector.svg" class="botonImagen2" alt="Filtrar">
+</div>
 
 <div class="contenedor-tabla">
     <table datatable [dtOptions]="dtOptions" class="table table-hover text-center">

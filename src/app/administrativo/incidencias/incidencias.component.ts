@@ -99,4 +99,63 @@ export class IncidenciasComponent implements OnInit{
       }
     });
   }
+
+  abrirFiltro() {
+    Swal.fire({
+      title: 'Filtrar',
+      html: `
+        <lable for="selectTipo">Tipo</lable><br>
+        <select id="selectTipo" class="swal2-select">
+          <option value="">Todos</option>
+          <option value="grua">Grua</option>
+          <option value="operador">Operador</option>
+          <option value="buque">Buque</option>
+          <option value="contenedor">Contenedor</option>
+        </select><br><br>
+
+        <lable for="selectOrden">Orden</lable><br>
+        <select id="selectOrden" class="swal2-select">
+          <option value="">Todos</option>
+          <option value="carga">Carga</option>
+          <option value="descarga">Descarga</option>
+        </select><br><br>
+      `, 
+      confirmButtonText: "Buscar",
+      showCloseButton: true, 
+      customClass: {
+        popup: "mi-popup2",
+        title: "mi-titulo2",
+        confirmButton: "mi-boton2",
+        closeButton: "mi-cruz",
+        htmlContainer: "misCosas"
+      },
+      preConfirm: () => {
+        const tipo = (document.getElementById("selectTipo") as HTMLSelectElement).value;
+        const orden = (document.getElementById("selectOrden") as HTMLSelectElement).value;
+        return { tipo, orden };
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.filtrarIncidencia(result.value.tipo, result.value.orden);
+      }
+    });
+  }
+
+  filtrarIncidencia(tipo: string, orden: string) {
+    const tabla = $('.dataTable').DataTable();
+
+    if (tipo) {
+      tabla.column(1).search(`^${tipo}$`, true, false);
+    } else {
+      tabla.column(1).search('');
+    }
+
+    if (orden) {
+      tabla.column(3).search(`^${orden}$`, true, false);
+    } else {
+      tabla.column(3).search('');
+    }
+
+    tabla.draw();
+  }
 }

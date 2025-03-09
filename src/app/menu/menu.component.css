@@ -149,6 +149,5 @@ div.menu:hover span {
   width: 100%;
   padding-top: 12px;
   transition: background 0.3s ease-in-out;
-  white-space: nowrap;
-  
+  white-space: nowrap;  
 }

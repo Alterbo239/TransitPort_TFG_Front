@@ -38,7 +38,7 @@ export class BuscarContenedorComponent implements OnInit{
       scrollCollapse:true,
       paging: false,
 
-      //tipos de columnas y sus nombres
+      //Ubicacions de columnas y sus nombres
       columns: [
         { title: 'Contenedor', data: 'id_contenedor' },
         /* { title: 'Ubicacion actual', data: 'ubicacion', },
@@ -85,5 +85,94 @@ export class BuscarContenedorComponent implements OnInit{
         `,      
         confirmButtonText: 'Aceptar',
       })
+    }
+
+    abrirFiltro() {
+      //Cogemos la consulta de la base de datos.
+      this.suppliersService.getSuppliersList().subscribe((resp: any[]) => {
+        const ubis = [...new Set(resp.map(datos => datos.ubicacion))]; //Creamos un map para evitar que se repitan datos.
+        let ubicaciones = `<option value="">Todos</option>`; //Creamos el select con las ubicaciones.
+        ubis.forEach(ubicacion => {
+          ubicaciones += `<option value="${ubicacion}">${ubicacion}</option>`; //Agregamos las opciones de ubicaciones.
+        });
+
+        //Lo mismo pero con los destinos.
+        const dest = [...new Set(resp.map(datos => datos.destino))];
+        let detinos = `<option value="">Todos</option>`;
+        dest.forEach(destino => {
+          detinos += `<option value="${destino}">${destino}</option>`;
+        });
+
+        Swal.fire({
+          title: 'Filtrar',
+          html: `
+            <lable for="selectOrden">Orden</lable><br>
+            <select id="selectOrden" class="swal2-select">
+              <option value="">Todos</option>
+              <option value="carga">Carga</option>
+              <option value="descarga">Descarga</option>
+            </select><br><br>
+
+            <lable for="selectUbicacion">Ubicacion</lable><br>
+            <select id="selectUbicacion" class="swal2-select">
+              ${ubicaciones}
+            </select><br><br>
+
+            <lable for="selectDestino">Destino</lable><br>
+            <select id="selectDestino" class="swal2-select">
+              ${detinos}
+            </select><br><br>
+
+            <label for="selectEstado">Estado</label><br>
+            <select id="selectEstado" class="swal2-select">
+              <option value="">Todos</option>
+              <option value="Por empezar">Por empezar</option>
+              <option value="En curso">En curso</option>
+              <option value="Finalizada">Finalizada</option>
+            </select><br><br>                
+          `, 
+          confirmButtonText: "Buscar",
+          showCloseButton: true, 
+          customClass: {
+            popup: "mi-popup2",
+            title: "mi-titulo2",
+            confirmButton: "mi-boton2",
+            closeButton: "mi-cruz",
+            htmlContainer: "misCosas"
+          },
+          preConfirm: () => {
+            const orden = (document.getElementById("selectOrden") as HTMLSelectElement).value;
+            const ubicacion = (document.getElementById("selectUbicacion") as HTMLSelectElement).value;
+            const destino = (document.getElementById("selectDestino") as HTMLSelectElement).value;
+            const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
+            return { orden, ubicacion, destino, estado };
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.filtrarIncidencia(result.value.orden, result.value.ubicacion, result.value.destino, result.value.estado);
+          }
+        });
+      });
+    }
+  
+    filtrarIncidencia(orden: string, ubicacion: string, destino: string, estado: string) {
+      // Volvemos a coger los datos de la base de datos.
+      this.suppliersService.getSuppliersList().subscribe(resp => {
+        let datosFiltrados = resp.filter(datos => {
+          // Filtramos los datos por cada columna, aunque no esté en la tabla.
+          const filtroOrden = orden ? datos.orden === orden : true;
+          const filtroUbicacion = ubicacion ? datos.ubicacion === ubicacion : true;
+          const filtroDestino = destino ? datos.destino === destino : true;
+          const filtroEstado = estado ? datos.estado === estado : true;
+    
+          return filtroOrden && filtroUbicacion && filtroDestino && filtroEstado;
+        });
+    
+        // Por ultimo, actualizamos la tabla con los datos filtrados.
+        const tabla = $('.dataTable').DataTable();
+        tabla.clear();
+        tabla.rows.add(datosFiltrados);
+        tabla.draw();
+      });
     }
 }
