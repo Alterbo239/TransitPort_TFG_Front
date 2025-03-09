@@ -1,36 +1,90 @@
+<div class="menuCompleto">
+  @if (rol == 'gestor') {
+    <div>
+      <div class="col-12 menu">
+        <a routerLink="/perfil-ordenador">
+        <img class="perfil" src="./assets/Gestor/gestor.png" alt="">
+        </a>
+        <a class="nav-link d-flex flex-column">
+          <div class="imagenLink">
+            <img class="primeraImg imgMenu" src="./assets/Gestor/usuariosCrearVer.svg" alt="">
+            <span>Crear Usuario</span>
+          </div>
+        </a><br>
+        <a class="nav-link d-flex flex-column" routerLink="usuarios">
+          <div class="imagenLink">
+            <img class="imgMenu" src="./assets/Gestor/usuarios.svg" alt="">
+            <span>Ver usuarios</span>
+          </div>
+        </a><br>
+        <a class="nav-link d-flex flex-column">
+          <div class="imagenLink">
+            <img class="imgMenu" src="./assets/Gestor/crearGruas.svg" alt="">
+            <span>Crear Grua</span>
+          </div>
+        </a><br>
+        <a class="nav-link d-flex flex-column">
+          <div class="imagenLink">
+            <img class="imgMenu" src="./assets/Gestor/crearPatio.png" alt="">
+            <span>Crear Patio</span>
+          </div>
+        </a><br>
+        <a class="nav-link d-flex flex-column" routerLink="gestionar-gruas">
+          <div class="imagenLink">
+            <img class="imgMenu" src="./assets/Gestor/gestionarGruas.svg" alt="">
+            <span>Gestionar Gruas</span>
+          </div>
+        </a><br>
+      </div>
 
-
-@if (rol == 'gestor') {
-  <div>
-    <div class="col-12 menu">
-      <a id="perfil" routerLink="/perfil-ordenador">
-      <img class="perfil" src="./assets/Gestor/gestor.png" alt="">
-      </a>
-      <a class="nav-link d-flex flex-column"><img class="primeraImg imgMenu" src="./assets/Gestor/usuariosCrearVer.svg" alt=""><span>Crear Usuario</span></a><br>
-      <a class="nav-link d-flex flex-column" routerLink="usuarios"><img class="imgMenu" src="./assets/Gestor/usuarios.svg" alt=""><span>Ver usuarios</span></a><br>
-      <a class="nav-link d-flex flex-column"><img class="imgMenu" src="./assets/Gestor/crearGruas.svg" alt=""><span>Crear Grua</span></a><br>
-      <a class="nav-link d-flex flex-column"><img class="imgMenu" src="./assets/Gestor/crearPatio.png" alt=""><span>Crear Patio</span></a><br>
-      <a class="nav-link d-flex flex-column" routerLink="gestionar-gruas"><img class="imgMenu" src="./assets/Gestor/gestionarGruas.svg" alt=""><span>Gestionar Gruas</span></a><br>
     </div>
+  }
+  @if (rol == 'administrativo') {
+    <div class="menu">
+      <a routerLink="/perfil-ordenador">
+      <img class="perfil" src="./assets/Administrativo/perfil.svg" alt="">
+      </a>
+      <a class="nav-link d-flex flex-column" routerLink="crear-orden">
+        <div class="imagenLink">
+          <img class="primeraImg imgMenu" src="./assets/Administrativo/crearOrden.png" alt="">
+          <span>Crear Orden</span>
+        </div>
+      </a><br>
+      <a class="nav-link d-flex flex-column" routerLink="crear-turno">
+        <div class="imagenLink">
+          <img class="imgMenu" src="./assets/Administrativo/crearTurno.png" alt="">
+          <span>Crear Turno</span>
+        </div>
+      </a><br>
+      <a class="nav-link d-flex flex-column" routerLink="monitorizar-orden">
+        <div class="imagenLink">
+          <img class="imgMenu" src="./assets/Administrativo/monitorizarOrden.png" alt="">
+          <span>Monitorizar Orden</span>
+        </div>
+      </a><br>
+      <a class="nav-link d-flex flex-column" routerLink="buscar-contenedor">
+        <div class="imagenLink">
+          <img class="imgMenu" src="./assets/Administrativo/buscarContenedor.png" alt="">
+          <span>Buscar Contenedor</span>
+        </div>
+      </a><br>
+      <a class="nav-link d-flex flex-column" routerLink="realizar-auditoria">
+        <div class="imagenLink">
+          <img class="imgMenu" src="./assets/Administrativo/realizarAuditoria.png" alt="">
+          <span>Realizar Auditoria</span>
+        </div>
+      </a><br>
+      <a class="nav-link d-flex flex-column" routerLink="incidencias">
+        <div class="imagenLink">
+          <img class="imgMenu" src="./assets/Administrativo/incidencias.png" alt="">
+          <span>Incidencias</span>
+        </div>
+      </a><br>
+    </div>
+  }
 
-  </div>
-}
-@if (rol == 'administrativo') {
-  <div class="menu">
-    <a routerLink="/perfil-ordenador">
-    <img class="perfil" src="./assets/Administrativo/perfil.svg" alt="">
-    </a>
-    <a class="nav-link d-flex flex-column" routerLink="crear-orden"><img class="primeraImg imgMenu" src="./assets/Administrativo/crearOrden.png" alt=""><span>Crear Orden</span></a><br>
-    <a class="nav-link d-flex flex-column" routerLink="crear-turno"><img class="imgMenu" src="./assets/Administrativo/crearTurno.png" alt=""><span>Crear Turno</span></a><br>
-    <a class="nav-link d-flex flex-column" routerLink="monitorizar-orden"><img class="imgMenu" src="./assets/Administrativo/monitorizarOrden.png" alt=""><span>Monitorizar Orden</span></a><br>
-    <a class="nav-link d-flex flex-column" routerLink="buscar-contenedor"><img class="imgMenu" src="./assets/Administrativo/buscarContenedor.png" alt=""><span>Buscar Contenedor</span></a><br>
-    <a class="nav-link d-flex flex-column" routerLink="realizar-auditoria"><img class="imgMenu" src="./assets/Administrativo/realizarAuditoria.png" alt=""><span>Realizar Auditoria</span></a><br>
-    <a class="nav-link d-flex flex-column" routerLink="incidencias"><img class="imgMenu" src="./assets/Administrativo/incidencias.png" alt=""><span>Incidencias</span></a><br>
-  </div>
-}
-
-<a class="home" (click)="logout()">
-  <img src="./assets/home.svg" alt="Cerrar sesión">
-</a>
-
-
+  <a class="home" (click)="logout()">
+    <img class="imgMenu" src="./assets/home.svg" alt="Cerrar sesión">
+    <span>Logout</span>
+  </a>
+</div>

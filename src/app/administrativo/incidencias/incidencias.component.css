@@ -1,3 +1,6 @@
+div.titulo {
+  margin-left: 50px;
+}
 .usuarios-container {
   margin: 20px auto;
   padding: 20px;
@@ -281,7 +284,7 @@ table tr {
   padding: 8px !important;
   border-radius: 4px !important;
   font-size: 1em !important;
-  margin-top: -32px;;
+  margin-top: -8px;;
   margin-right: 125px;
   /* border: 2px solid #000; */
 
@@ -302,10 +305,11 @@ table tr {
   background-position: left 10px center !important; /* Adjust the position of the icon */
 }
 
+::ng-deep .dt-search label {
+  display: none;
+}
 ::ng-deep input#dt-search-0.dt-input {
-
   text-align: center;
-
 }
 
 /* Filtro */

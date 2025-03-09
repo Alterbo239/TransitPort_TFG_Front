@@ -1,3 +1,6 @@
+div.titulo {
+  margin-left: 80px;
+}
 .usuarios-container {
   margin: 20px auto;
   padding: 20px;
@@ -80,7 +83,7 @@ table th {
 .contenedor-tabla {
   max-height: 600px;
   margin: 0 auto;
-  margin-left: 350px;
+  margin-left: 500px;
   width: 1000px;
   margin-top: 6%;
 }
@@ -106,7 +109,7 @@ table th {
   padding: 8px !important;
   border-radius: 4px !important;
   font-size: 1em !important;
-  margin-top: -32px;;
+  margin-top: -8px;;
   margin-right: 130px;
   /* border: 2px solid #000; */
 
@@ -127,10 +130,11 @@ table th {
   background-position: left 10px center !important; /* Adjust the position of the icon */
 }
 
+::ng-deep .dt-search label {
+  display: none;
+}
 ::ng-deep input#dt-search-0.dt-input {
-
   text-align: center;
-
 }
 
 .dt-layout {
@@ -143,8 +147,8 @@ table th {
 
 .crearNuevo {
   display: flex;
-  margin-left: 310px;
-  margin-bottom: -116px;
+  margin-left: 460px;
+  margin-bottom: -125px;
   margin-top: 6%;
 }
 

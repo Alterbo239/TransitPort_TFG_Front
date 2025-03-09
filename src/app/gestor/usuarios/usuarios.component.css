@@ -1,3 +1,6 @@
+div.titulo {
+  margin-left: 80px;
+}
 .usuarios-container {
   padding: 20px;
   max-width: 1200px;
@@ -87,7 +90,7 @@ table tr {
 .contenedor-tabla {
   max-height: 600px;
   margin: 0 auto;
-  margin-left: 200px;
+  margin-left: 300px;
   max-width: 1477px;
   margin-top: -70px;
 }
@@ -139,7 +142,7 @@ input#dt-search-0.dt-input {
 
 .crearNuevo {
   display: flex;
-  margin-left: 200px;
+  margin-left: 300px;
   margin-bottom: 35px;
   margin-top: -30px;
 }
