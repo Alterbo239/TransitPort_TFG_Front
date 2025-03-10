@@ -8,10 +8,12 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
+const cors = require('cors');
 const angularApp = new AngularNodeAppEngine();
 
 /**
@@ -33,9 +35,14 @@ app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
     index: false,
-    redirect: false,
+    redirect: true,//he cambiado esto, estaba en false
   }),
 );
+app.use(
+  cors ({
+    origin: "http://localhost:4200"
+  })
+)
 
 /**
  * Handle all other requests by rendering the Angular application.

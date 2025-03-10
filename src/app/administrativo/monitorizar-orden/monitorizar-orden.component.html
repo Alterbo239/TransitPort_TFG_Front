@@ -1,20 +1,28 @@
-<img src="./assets/Administrativo/monitorizarOrdenVer.svg"><p class="tituloSecc">Monitorizar Orden</p>
+<div class="titulo"><img class="imgPag" src="./assets/Administrativo/monitorizarOrdenVer.png"><p class="tituloSecc">Monitorizar Orden</p></div>
 
-<br> <!-- onclick para que te lleve a la ruta absoluta. Con routerLink te mandaria a "administrativo/monitorizar-orden/crear-orden" -->
-<img src="./assets/Administrativo/crearOrdenVer.svg" onclick="location.href = 'administrativo/crear-orden'">Crear Orden
-<img src="./assets/Administrativo/realizarAuditoriaVer.svg" onclick="location.href = 'administrativo/realizar-auditoria'">Realizar Auditoria
+<div class="crearNuevo">
+  <button type="submit" class="btn btn-info botonCrear" onclick="location.href = 'administrativo/crear-orden'">Crear</button>
+  <img src="./assets/Administrativo/crearOrdenVer.svg" class="botonImagen">
+
+  <button type="submit" class="btn btn-info botonAuditoria">Auditoria</button>
+  <img src="./assets/Administrativo/realizarAuditoriaVer.svg" class="botonImagen3">
+
+  <button type="button" class="btn btn-info botonFiltrar" (click)="abrirFiltro()">Filtrar</button>
+  <img src="./assets/vector.svg" class="botonImagen2" alt="Filtrar">
+
+</div>
 
 <div class="contenedor-tabla">
-    <table datatable [dtOptions]="dtOptions" class="table table-hover text-center" hidden>
-        <thead>
-          <tr>
-            <th>Fecha creación</th>
-            <th>Orden</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
+  <table datatable [dtOptions]="dtOptions" class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
 
-        </tbody>
-    </table>
+      </tbody>
+  </table>
 </div>

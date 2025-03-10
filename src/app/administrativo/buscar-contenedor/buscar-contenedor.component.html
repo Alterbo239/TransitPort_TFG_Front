@@ -1,10 +1,17 @@
+<div class="titulo"><img class="imgPag" src="./assets/Administrativo/buscarContenedorVer.png"><p class="tituloSecc">Buscar contenedor</p></div>
+
+<div class="crearNuevo">
+  <button type="button" class="btn btn-info botonFiltrar" (click)="abrirFiltro()">Filtrar</button>
+  <img src="./assets/vector.svg" class="botonImagen2" alt="Filtrar">
+</div>
+
 <div class="contenedor-tabla">
     <table datatable [dtOptions]="dtOptions" class="table table-hover text-center">
         <thead>
           <tr>
             <th>Código contenedor</th>
-            <th>Ubicación actual</th>
-            <th>Destino</th>
+            <!-- <th>Ubicación actual</th>
+            <th>Destino</th> -->
             <th>Estado</th>
           </tr>
         </thead>

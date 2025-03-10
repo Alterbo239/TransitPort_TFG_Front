@@ -1,0 +1,52 @@
+<div class="d-flex flex-row">
+  <app-menu></app-menu>
+<router-outlet />
+
+<div class="titulo">
+  <img class="imgPag" src="./assets/perfil.png" alt="">
+  <p class="tituloSecc">Perfil</p>
+</div>
+
+<div id="todo" class="d-flex flex-row justify-content-center">
+
+    <div>
+
+      @if (rol == 'administrativo') {
+
+          <img class="perfil" src="./assets/Administrativo/fernando.svg" alt="">
+      
+      }
+      @if (rol == 'gestor') {
+
+        <img class="perfil" src="./assets/Gestor/germanP.png" alt="">
+
+    }
+      
+    <div id="datos" class="datos-container">
+      <div class="input-group">
+        <label for="nombre"><strong>Nombre</strong></label>
+        <input id="nombre" type="text" [value]="usuario.name" readonly>
+      </div>
+    
+      <div class="input-group">
+        <label for="email"><strong>Email</strong></label>
+        <input id="email" type="email" [value]="usuario.email" readonly>
+      </div>
+    
+      <div class="input-group">
+        <label for="rol"><strong>Cargo</strong></label>
+        <input id="rol" type="text" [value]="usuario.cargo" readonly>
+      </div>
+    
+      <div class="input-group">
+        <label for="telefono"><strong>Teléfono</strong></label>
+        <input id="telefono" type="text" [value]="usuario.telefono" readonly>
+      </div>
+    
+      <div class="input-group">
+        <label for="direccion"><strong>Código Postal</strong></label>
+        <input id="direccion" type="text" [value]="usuario.codigoPostal" readonly>
+      </div>
+    </div>
+
+</div>

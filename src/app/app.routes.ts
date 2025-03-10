@@ -4,9 +4,10 @@ import { AdministrativoComponent } from './administrativo/administrativo.compone
 import { CrearTurnoComponent } from './administrativo/crear-turno/crear-turno.component';
 import { MonitorizarOrdenComponent } from './administrativo/monitorizar-orden/monitorizar-orden.component';
 import { BuscarContenedorComponent } from './administrativo/buscar-contenedor/buscar-contenedor.component';
-import { RealizarAuditoriaComponent } from './administrativo/realizar-auditoria/realizar-auditoria.component';
+import { RealizarAuditoriaComponent } from './administrativo/auditorias/realizar-auditoria/realizar-auditoria.component';
 import { IncidenciasComponent } from './administrativo/incidencias/incidencias.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { PerfilOrdenadorComponent } from './perfil-ordenador/perfil-ordenador.component';
 import { CrearGruasComponent } from './gestor/crear-gruas/crear-gruas.component';
 import { CrearPatioComponent } from './gestor/crear-patio/crear-patio.component';
 import { GestionarGruasComponent } from './gestor/gestionar-gruas/gestionar-gruas.component';
@@ -18,14 +19,30 @@ import { NotificacionesComponent } from './operador/notificaciones/notificacione
 import { PerfilComponent } from './operador/perfil/perfil.component';
 import { CrearUsuarioComponent} from './gestor/crear-usuario/crear-usuario.component';
 import { OrdenComponent } from './operador/ordenes/orden/orden.component';
+import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.component';
+import { isLoggedIn } from './auth/guards/is-logged-in.guard';
+import { hasRole } from './auth/guards/has-role.guard'
+import { RenderMode, ServerRoute, PrerenderFallback } from '@angular/ssr';
+
 
 export const routes: Routes = [
+    {
+        path: 'perfil-ordenador',
+        component: PerfilOrdenadorComponent
+    },
     {
         path: '',
         component: LogInComponent
     },
+
     {
         path: 'administrativo',
+        canActivate:[hasRole],
+        data: {
+
+          allowedRoles: ['administrativo']
+
+        },
         component: AdministrativoComponent,
         children: [
             {
@@ -45,16 +62,18 @@ export const routes: Routes = [
                 component: BuscarContenedorComponent
             },
             {
-                path: 'realizar-auditoria',
-                component: RealizarAuditoriaComponent
-            },
-            {
                 path: 'incidencias',
                 component: IncidenciasComponent
             },
         ]
     },{
         path: 'gestor',
+        canActivate:[hasRole],
+        data: {
+
+          allowedRoles: ['gestor']
+
+        },
         component: GestorComponent,
         children: [
             {
@@ -80,20 +99,35 @@ export const routes: Routes = [
         ]
     },{
       path: 'operador',
+      canActivate:[hasRole],
+      data: {
+
+        allowedRoles: ['Operador', 'operador']
+
+      },
       component: OperadorComponent,
       children: [
 
           {
             path: '',
             redirectTo: 'ordenes',
-            pathMatch: 'full' },
+            pathMatch: 'full',
+          },
           {
               path: 'ordenes',
               component: OrdenesComponent
           },
           {
               path: 'ordenes/orden/:id',
-              component: OrdenComponent
+              component: OrdenComponent,
+              data: { skipPrerender: true },
+
+          },
+          {
+            path: 'ordenes/incidencia/:id',
+            component: IncidenciaComponent,
+            data: { skipPrerender: true },
+
           },
           {
               path: 'notificaciones',

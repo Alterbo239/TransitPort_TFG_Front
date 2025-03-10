@@ -10,6 +10,12 @@
   background: var(--Cinder-800, #133379);
 }
 
+#nombreUsuario{
+
+  color: #f1f5fe;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 a {
   color: #f1f5fe;
   text-decoration: none;

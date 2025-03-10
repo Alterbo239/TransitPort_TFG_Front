@@ -1,3 +1,14 @@
+.imgPag {
+  width: 49.074px;
+  height: 53.535px;
+  margin-left: 225px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  margin-bottom: 40px;
+}
+
 div.menu {
     background: var(--Cinder-800, #133379);
     width: 110px;
