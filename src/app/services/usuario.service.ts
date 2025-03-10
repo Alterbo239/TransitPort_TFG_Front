@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
-  private apiUrl = 'http://localhost:8000/api';
+  private apiUrl = 'http://localhost/api';
 
   constructor(private http: HttpClient) {}
 
@@ -30,7 +30,7 @@ export class UsuarioService {
 
   //recoge los datos del usuario
   getUsuarioPerfil():Observable<any>{
-    
+
     return this.http.get<any>(`${this.apiUrl}/gestor/buscar/{id}`);
 
   }
@@ -49,7 +49,7 @@ export class UsuarioService {
 
     return this.http.put<any>(`${this.apiUrl}/modificar-estado/${id}`, body);
 }
-  
-    
+
+
 
 }
