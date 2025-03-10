@@ -3,6 +3,7 @@ import { OrdenService } from '../../../services/orden.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { UsuarioService } from '../../../services/usuario.service';
+import { ContenedorService } from '../../../services/contenedor.service';
 
 @Component({
   selector: 'app-orden',
@@ -21,7 +22,8 @@ export class OrdenComponent implements OnInit {
     private suppliersService: OrdenService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UsuarioService
+    private userService: UsuarioService,
+    private contenedorService: ContenedorService
   ) {}
 
   volver(): void {
@@ -73,19 +75,32 @@ export class OrdenComponent implements OnInit {
     let ubiDestino = document.getElementById('ubi-destino');
     let zonaDestino = document.getElementById('zona-destino');
 
-    if (ubiProcedencia && zonaProcedencia && ubiDestino && zonaDestino) {
-      if (this.ordenSeleccionada.tiene.tipo_destino === 'Buque') {
+    this.contenedorService.getSuppliersList().subscribe({
 
-        ubiProcedencia.textContent = 'Parcela ' + this.ordenSeleccionada.contenedor.parcela;
+      next: (response) => {
+
+        if (response)
+        console.log('Contenedores:', response);
+      },
+      error: (error) => {
+        console.error('Error al cargar los contenedores:', error);
+      }
+
+    });
+
+    if (ubiProcedencia && zonaProcedencia && ubiDestino && zonaDestino) {
+      if (this.ordenSeleccionada.tipo === 'carga') {
+
+        ubiProcedencia.textContent = 'Zona ' + this.ordenSeleccionada.tiene.ubicacion;
         zonaProcedencia.textContent = this.ordenSeleccionada.zona.ubicacion;
         ubiDestino.textContent = this.ordenSeleccionada.buque.nombre;
         zonaDestino.textContent = 'Amarre ' + this.ordenSeleccionada.buque.amarre;
 
-      } else if (this.ordenSeleccionada.tiene.tipo_destino === 'Zona') {
+      } else if (this.ordenSeleccionada.tipo === 'descarga') {
 
         ubiProcedencia.textContent = this.ordenSeleccionada.buque.nombre;
         zonaProcedencia.textContent = 'Amarre ' + this.ordenSeleccionada.buque.amarre;
-        ubiDestino.textContent = 'Parcela ' + this.ordenSeleccionada.contenedor.parcela;
+        ubiDestino.textContent = 'Zona ' + this.ordenSeleccionada.id_zona;
         zonaDestino.textContent = this.ordenSeleccionada.zona.ubicacion;
 
       }
