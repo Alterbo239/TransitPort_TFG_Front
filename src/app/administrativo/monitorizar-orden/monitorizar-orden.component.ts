@@ -90,9 +90,6 @@ export class MonitorizarOrdenComponent implements OnInit{
         Swal.fire({
           title: 'Actualizar',
           html: `
-            <h3>ID Grua</h3>
-            <input class="infoInput" id="id_grua" style="border: solid 1px black" type="text" value="${data.id_grua}">
-            <br>
             <h3>ID Buque</h3>
             <input class="infoInput" id="id_buque" style="border: solid 1px black" type="text" value="${data.id_buque}">
             <br>
@@ -103,20 +100,18 @@ export class MonitorizarOrdenComponent implements OnInit{
             <input class="infoInput" id="id_operador" style="border: solid 1px black" type="text" value="${data.id_operador}">
           `,
           preConfirm: () => {
-            let grua = (document.getElementById('id_grua') as HTMLInputElement).value;
             let buque = (document.getElementById('id_buque') as HTMLInputElement).value;
             let zona = (document.getElementById('id_zona') as HTMLInputElement).value;
             let operador = (document.getElementById('id_operador') as HTMLInputElement).value;
 
             return Promise.all([
-              this.suppliersService.validarGrua(grua).toPromise(),
               this.suppliersService.validarBuque(buque).toPromise(),
               this.suppliersService.validarZona(zona).toPromise(),
               this.suppliersService.validarOperador(operador).toPromise()
-            ]).then(([gruaValida, buqueValido, zonaValida, operadorValido]) => {
-              console.log(gruaValida, buqueValido, zonaValida, operadorValido);
-              if (gruaValida && buqueValido && zonaValida && operadorValido) {
-                return { grua, buque, zona, operador };
+            ]).then(([buqueValido, zonaValida, operadorValido]) => {
+              console.log(buqueValido, zonaValida, operadorValido);
+              if (buqueValido && zonaValida && operadorValido) {
+                return { buque, zona, operador };
               } else {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
                 return false;
@@ -133,14 +128,13 @@ export class MonitorizarOrdenComponent implements OnInit{
               fecha_fin: data.fecha,
               estado: data.estado,
               id_administrativo: data.id_administrativo,
-              id_grua: result.value.grua,
               id_buque: result.value.buque,
               id_zona: result.value.zona,
               id_operador: result.value.operador,
             };
             this.suppliersService.actualizarOrdenes(updatedData).subscribe(
               (response) => {
-                Swal.fire('Exito', 'Orden actualizada correctamente', 'success')
+                Swal.fire('Orden actualizada correctamente', `Codigo orden ${updatedData.id}`, 'success')
                 .then(() => {
                   window.location.reload();
                 });
