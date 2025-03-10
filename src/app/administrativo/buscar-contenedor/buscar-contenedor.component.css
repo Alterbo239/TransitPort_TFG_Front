@@ -38,7 +38,6 @@ table td {
 
 table th {
   background-color: #152d65;
-  width: 100%;
   height: 80px;
   color: var(--Cinder-50, #f1f5fe);
   text-align: center;
@@ -48,10 +47,6 @@ table th {
   line-height: normal;
   padding: 30px;
   position: sticky;
-}
-
-::ng-deep td.dt-type-numeric {
-  text-align: center !important;
 }
 
 .tituloSecc {
@@ -188,9 +183,13 @@ table th {
   margin-left: -100px;
 }
 
+::ng-deep .dt-scroll-head > .dt-scroll-headInner > table {
+  table-layout: fixed;
+  width: 100%;
+}
+
 ::ng-deep .dt-scroll-head > .dt-scroll-headInner > table > thead > tr > th {
   background-color: #152d65;
-  width: 1477px;
   height: 80px;
   color: var(--Cinder-50, #f1f5fe);
   text-align: center;
@@ -204,14 +203,8 @@ table th {
 
 ::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td {
   text-align: center;
-  font-size: 20px;
   border-bottom: solid 10px var(--Cinder-50, #f1f5fe);
-  padding: 25px;
-}
-
-::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {
-  margin-left: 25px;
-  margin-right: 105px;
+  padding: 20px;
 }
 
 .dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
@@ -231,11 +224,6 @@ table th {
   text-align: center;
   padding: 25px;
   padding-left: 0px;
-}
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {
-  margin-left: 25px;
-  margin-right: 65px;
 }
 
 /* Modales */
@@ -271,13 +259,14 @@ table th {
   border: none;
 
   padding-left: 10px;
-  margin-left: -51%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 ::ng-deep div.swal2-html-container > textarea {
   width: 100%;
   height: 80px;
-  
+
   color: black;
   background: var(--Cinder-50, #F1F5FE);
   border: none;
@@ -317,13 +306,13 @@ table th {
 
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.50);
 
-} 
+}
 
 ::ng-deep .misCosas {
 
   margin-top: 40px;
   text-align: left;
-  
+
 }
 
 ::ng-deep .misCosas > label {

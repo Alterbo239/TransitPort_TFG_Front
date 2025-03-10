@@ -54,7 +54,7 @@ export class MonitorizarOrdenComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-        
+
         if (rowElement) {
           this.renderer.listen(rowElement, 'click', () => {
             this.mostrarAlerta(data);
@@ -80,7 +80,7 @@ export class MonitorizarOrdenComponent implements OnInit{
         <br>
         <h3>Estado</h3>
         <input class="${data.estado}" type="text" value="${data.estado}" disabled>
-      `,      
+      `,
       confirmButtonText: 'Actualizar',
       cancelButtonText: 'Cerrar',
 
@@ -91,16 +91,16 @@ export class MonitorizarOrdenComponent implements OnInit{
           title: 'Actualizar',
           html: `
             <h3>ID Grua</h3>
-            <input id="id_grua" style="border: solid 1px black" type="text" value="${data.id_grua}">
+            <input class="infoInput" id="id_grua" style="border: solid 1px black" type="text" value="${data.id_grua}">
             <br>
             <h3>ID Buque</h3>
-            <input id="id_buque" style="border: solid 1px black" type="text" value="${data.id_buque}">
+            <input class="infoInput" id="id_buque" style="border: solid 1px black" type="text" value="${data.id_buque}">
             <br>
             <h3>ID Zona</h3>
-            <input id="id_zona" style="border: solid 1px black" type="text" value="${data.id_zona}">
+            <input class="infoInput" id="id_zona" style="border: solid 1px black" type="text" value="${data.id_zona}">
             <br>
             <h3>ID Operador</h3>
-            <input id="id_operador" style="border: solid 1px black" type="text" value="${data.id_operador}">
+            <input class="infoInput" id="id_operador" style="border: solid 1px black" type="text" value="${data.id_operador}">
           `,
           preConfirm: () => {
             let grua = (document.getElementById('id_grua') as HTMLInputElement).value;
@@ -173,7 +173,7 @@ export class MonitorizarOrdenComponent implements OnInit{
         `,
 
         confirmButtonText: "Buscar",
-        showCloseButton: true, 
+        showCloseButton: true,
         customClass: {
           popup: "mi-popup2",
           title: "mi-titulo2",
@@ -196,19 +196,19 @@ export class MonitorizarOrdenComponent implements OnInit{
 
     filtrarOrdenes(tipo: string, estado: string) {
       const table = $('.dataTable').DataTable();
-    
+
       if (tipo) {
         table.column(1).search(`^${tipo}$`, true, false);
       } else {
         table.column(1).search('');
       }
-    
+
       if (estado) {
         table.column(2).search(`^${estado}$`, true, false);
       } else {
         table.column(2).search(''); //limpia el filtro si elegimos todos
       }
-    
+
       table.draw(); //Refresca la tabla con los filtros
     }
   }
