@@ -17,6 +17,7 @@ export class OrdenComponent implements OnInit {
   ordenSeleccionada: any;
   usuario: any;
   usuarioId: any;
+  contenedorOrden: any;
 
   constructor(
     private suppliersService: OrdenService,
@@ -61,7 +62,25 @@ export class OrdenComponent implements OnInit {
         titulo.innerHTML = 'Orden ' + this.ordenSeleccionada.buque.nombre;
       }
 
-      this.actualizarInformacionDestino();
+      this.contenedorService.getContenedores().subscribe({
+
+        next: (response) => {
+
+          if (response)
+          console.log('Contenedores:', response);
+          console.log('Contenedor:', this.ordenSeleccionada);
+          this.contenedorOrden = response.find((contenedor: any) => this.ordenSeleccionada.tiene.id_contenedor);
+          console.log('Contenedor de la orden:', this.contenedorOrden.parcela);
+
+          this.actualizarInformacionDestino();
+        },
+        error: (error) => {
+          console.error('Error al cargar los contenedores:', error);
+        }
+
+      });
+
+
 
       this.colorBotones();
 
@@ -75,23 +94,14 @@ export class OrdenComponent implements OnInit {
     let ubiDestino = document.getElementById('ubi-destino');
     let zonaDestino = document.getElementById('zona-destino');
 
-    this.contenedorService.getSuppliersList().subscribe({
 
-      next: (response) => {
 
-        if (response)
-        console.log('Contenedores:', response);
-      },
-      error: (error) => {
-        console.error('Error al cargar los contenedores:', error);
-      }
-
-    });
+    console.log('Contenedor de la orden parcela:', this.contenedorOrden);
 
     if (ubiProcedencia && zonaProcedencia && ubiDestino && zonaDestino) {
       if (this.ordenSeleccionada.tipo === 'carga') {
 
-        ubiProcedencia.textContent = 'Zona ' + this.ordenSeleccionada.tiene.ubicacion;
+        ubiProcedencia.textContent = 'Parcela ' + this.contenedorOrden.parcela;
         zonaProcedencia.textContent = this.ordenSeleccionada.zona.ubicacion;
         ubiDestino.textContent = this.ordenSeleccionada.buque.nombre;
         zonaDestino.textContent = 'Amarre ' + this.ordenSeleccionada.buque.amarre;

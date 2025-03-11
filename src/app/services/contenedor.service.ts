@@ -7,12 +7,19 @@ import { Observable, of } from 'rxjs';
 })
 export class ContenedorService {
   private apiUrl = 'http://localhost/api/tiene';
+  private apiUrlContenedor = 'http://localhost/api/contenedor';
 
   constructor(private http: HttpClient){}
 
   getSuppliersList(): Observable<any[]> {
 
     return this.http.get<any[]>(this.apiUrl);
+
+  }
+
+  getContenedores(): Observable<any[]> {
+
+    return this.http.get<any[]>(this.apiUrlContenedor);
 
   }
 }
