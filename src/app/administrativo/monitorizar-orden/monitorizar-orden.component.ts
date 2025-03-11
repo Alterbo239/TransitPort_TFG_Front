@@ -54,7 +54,7 @@ export class MonitorizarOrdenComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-        
+
         if (rowElement) {
           this.renderer.listen(rowElement, 'click', () => {
             this.mostrarAlerta(data);
@@ -80,7 +80,7 @@ export class MonitorizarOrdenComponent implements OnInit{
         <br>
         <h3>Estado</h3>
         <input class="${data.estado}" type="text" value="${data.estado}" disabled>
-      `,      
+      `,
       confirmButtonText: 'Actualizar',
       cancelButtonText: 'Cerrar',
 
@@ -90,33 +90,28 @@ export class MonitorizarOrdenComponent implements OnInit{
         Swal.fire({
           title: 'Actualizar',
           html: `
-            <h3>ID Grua</h3>
-            <input id="id_grua" style="border: solid 1px black" type="text" value="${data.id_grua}">
-            <br>
             <h3>ID Buque</h3>
-            <input id="id_buque" style="border: solid 1px black" type="text" value="${data.id_buque}">
+            <input class="infoInput" id="id_buque" style="border: solid 1px black" type="text" value="${data.id_buque}">
             <br>
             <h3>ID Zona</h3>
-            <input id="id_zona" style="border: solid 1px black" type="text" value="${data.id_zona}">
+            <input class="infoInput" id="id_zona" style="border: solid 1px black" type="text" value="${data.id_zona}">
             <br>
             <h3>ID Operador</h3>
-            <input id="id_operador" style="border: solid 1px black" type="text" value="${data.id_operador}">
+            <input class="infoInput" id="id_operador" style="border: solid 1px black" type="text" value="${data.id_operador}">
           `,
           preConfirm: () => {
-            let grua = (document.getElementById('id_grua') as HTMLInputElement).value;
             let buque = (document.getElementById('id_buque') as HTMLInputElement).value;
             let zona = (document.getElementById('id_zona') as HTMLInputElement).value;
             let operador = (document.getElementById('id_operador') as HTMLInputElement).value;
 
             return Promise.all([
-              this.suppliersService.validarGrua(grua).toPromise(),
               this.suppliersService.validarBuque(buque).toPromise(),
               this.suppliersService.validarZona(zona).toPromise(),
               this.suppliersService.validarOperador(operador).toPromise()
-            ]).then(([gruaValida, buqueValido, zonaValida, operadorValido]) => {
-              console.log(gruaValida, buqueValido, zonaValida, operadorValido);
-              if (gruaValida && buqueValido && zonaValida && operadorValido) {
-                return { grua, buque, zona, operador };
+            ]).then(([buqueValido, zonaValida, operadorValido]) => {
+              console.log(buqueValido, zonaValida, operadorValido);
+              if (buqueValido && zonaValida && operadorValido) {
+                return { buque, zona, operador };
               } else {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
                 return false;
@@ -133,14 +128,13 @@ export class MonitorizarOrdenComponent implements OnInit{
               fecha_fin: data.fecha,
               estado: data.estado,
               id_administrativo: data.id_administrativo,
-              id_grua: result.value.grua,
               id_buque: result.value.buque,
               id_zona: result.value.zona,
               id_operador: result.value.operador,
             };
             this.suppliersService.actualizarOrdenes(updatedData).subscribe(
               (response) => {
-                Swal.fire('Exito', 'Orden actualizada correctamente', 'success')
+                Swal.fire('Orden actualizada correctamente', `Codigo orden ${updatedData.id}`, 'success')
                 .then(() => {
                   window.location.reload();
                 });
@@ -173,7 +167,7 @@ export class MonitorizarOrdenComponent implements OnInit{
         `,
 
         confirmButtonText: "Buscar",
-        showCloseButton: true, 
+        showCloseButton: true,
         customClass: {
           popup: "mi-popup2",
           title: "mi-titulo2",
@@ -196,19 +190,19 @@ export class MonitorizarOrdenComponent implements OnInit{
 
     filtrarOrdenes(tipo: string, estado: string) {
       const table = $('.dataTable').DataTable();
-    
+
       if (tipo) {
         table.column(1).search(`^${tipo}$`, true, false);
       } else {
         table.column(1).search('');
       }
-    
+
       if (estado) {
         table.column(2).search(`^${estado}$`, true, false);
       } else {
         table.column(2).search(''); //limpia el filtro si elegimos todos
       }
-    
+
       table.draw(); //Refresca la tabla con los filtros
     }
   }

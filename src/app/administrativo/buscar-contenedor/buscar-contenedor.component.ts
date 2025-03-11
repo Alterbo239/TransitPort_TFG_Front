@@ -106,19 +106,12 @@ export class BuscarContenedorComponent implements OnInit{
         Swal.fire({
           title: 'Filtrar',
           html: `
-            <lable for="selectOrden">Orden</lable><br>
-            <select id="selectOrden" class="swal2-select">
-              <option value="">Todos</option>
-              <option value="carga">Carga</option>
-              <option value="descarga">Descarga</option>
-            </select><br><br>
-
-            <lable for="selectUbicacion">Ubicacion</lable><br>
+            <label for="selectUbicacion">Ubicacion</label><br>
             <select id="selectUbicacion" class="swal2-select">
               ${ubicaciones}
             </select><br><br>
 
-            <lable for="selectDestino">Destino</lable><br>
+            <label for="selectDestino">Destino</label><br>
             <select id="selectDestino" class="swal2-select">
               ${detinos}
             </select><br><br>
@@ -141,31 +134,29 @@ export class BuscarContenedorComponent implements OnInit{
             htmlContainer: "misCosas"
           },
           preConfirm: () => {
-            const orden = (document.getElementById("selectOrden") as HTMLSelectElement).value;
             const ubicacion = (document.getElementById("selectUbicacion") as HTMLSelectElement).value;
             const destino = (document.getElementById("selectDestino") as HTMLSelectElement).value;
             const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
-            return { orden, ubicacion, destino, estado };
+            return { ubicacion, destino, estado };
           }
         }).then((result) => {
           if (result.isConfirmed) {
-            this.filtrarIncidencia(result.value.orden, result.value.ubicacion, result.value.destino, result.value.estado);
+            this.filtrarIncidencia(result.value.ubicacion, result.value.destino, result.value.estado);
           }
         });
       });
     }
   
-    filtrarIncidencia(orden: string, ubicacion: string, destino: string, estado: string) {
+    filtrarIncidencia(ubicacion: string, destino: string, estado: string) {
       // Volvemos a coger los datos de la base de datos.
       this.suppliersService.getSuppliersList().subscribe(resp => {
         let datosFiltrados = resp.filter(datos => {
           // Filtramos los datos por cada columna, aunque no esté en la tabla.
-          const filtroOrden = orden ? datos.orden === orden : true;
           const filtroUbicacion = ubicacion ? datos.ubicacion === ubicacion : true;
           const filtroDestino = destino ? datos.destino === destino : true;
           const filtroEstado = estado ? datos.estado === estado : true;
     
-          return filtroOrden && filtroUbicacion && filtroDestino && filtroEstado;
+          return filtroUbicacion && filtroDestino && filtroEstado;
         });
     
         // Por ultimo, actualizamos la tabla con los datos filtrados.
