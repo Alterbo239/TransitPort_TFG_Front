@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Administrativo;
 use App\Models\Gestor;
 use App\Models\Operador;
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -129,15 +130,42 @@ class UsuarioSeeder extends Seeder {
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Andres Guzman',
+                'email' => 'aguzman@example.com',
+                'password' => bcrypt('1000'),
+                'estado' => 'Activo/a',
+                'usuario' => 'aguzman',
+                'cargo' => 'cliente',
+                'ciudad' => 'Madrid',
+                'telefono' => '777777777',
+                'codigoPostal' => '28001',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Pepito Guzman',
+                'email' => 'pguzman@example.com',
+                'password' => bcrypt('1500'),
+                'estado' => 'Inactivo/a',
+                'usuario' => 'pguzman',
+                'cargo' => 'cliente',
+                'ciudad' => 'Barcelona',
+                'telefono' => '777777778',
+                'codigoPostal' => '08005',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
 
         ];
 
         foreach ($users as $user) {
             $usuario = User::create($user);
+
             if ($user['cargo'] === 'operador') {
                 $grua = ['SC', 'STS'];
                 $random = rand(0, 1);
-                
+
                 Operador::create([
                     'id' => $usuario -> id,
                     'nombre' => $user['name'],
@@ -148,6 +176,20 @@ class UsuarioSeeder extends Seeder {
                     'tipo' => $grua[$random],
                     'id_gestor' => 1,
                     'id_turno' => 1,
+                ]);
+            } else if ($user['cargo'] === 'cliente') {
+                $autonomo = [ false, true ];
+                $random = rand(0, 1);
+
+                Cliente::create([
+                    'id' => $usuario -> id,
+                    'nombre' => $user['name'],
+                    'usuario' => $user['usuario'],
+                    'password' => $user['password'],
+                    'cargo' => $user['cargo'],
+                    'autonomo' => $autonomo[$random],
+                    'estado' => $user['estado'],
+                    'id_empresa' => $random + 1,
                 ]);
             }
         }

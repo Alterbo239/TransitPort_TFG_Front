@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder {
     public function run(): void {
         $this -> call([
             TurnoSeeder::class,
+            EmpresaSeeder::class,
             UsuarioSeeder::class,
             //GestorSeeder::class,
             //AdministrativoSeeder::class,
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder {
             TieneSeeder::class,
             OrdenSeeder::class,
             IncidenciaSeeder::class,
+            CitaSeeder::class,
         ]);
-    }    
+    }
 }

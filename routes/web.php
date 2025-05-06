@@ -68,6 +68,11 @@ Route::middleware('auth')->group(function () {
         Route::post('operador/logout', [AuthController::class, 'volver'])->name('operador.volver');
 
     });
+
+    Route::middleware(['cliente'])->group(function () {
+        Route::view('/verCitas', 'Cliente.verCitas') -> name('verCitas');
+
+    });
 });
 
 require __DIR__.'/auth.php';
