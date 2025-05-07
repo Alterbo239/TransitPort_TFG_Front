@@ -37,6 +37,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('crearOrden');
         } elseif ($user->cargo == 'operador') {
             return redirect()->route('ordenes');
+        } elseif ($user->cargo == 'cliente') {
+            return redirect()->route('pedirCitas');
         }
 
         return redirect()->intended(route('dashboard'));

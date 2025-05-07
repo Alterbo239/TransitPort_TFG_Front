@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create(table: 'buque', callback: function (Blueprint $table) {
             $table->id();
             $table->text('nombre');
+            $table->enum('tipo', [ 'buque', 'camion' ]) -> default('buque');
             $table->integer('amarre');
             $table->text(column: 'procedencia');
             $table->text(column: 'destino');
             $table->foreignId('id_administrativo')-> constrained('users') -> onDelete('cascade');
+            $table->foreignId('id_empresa')-> constrained('empresa') -> onDelete('cascade');
             $table->timestamps();
           });
     }

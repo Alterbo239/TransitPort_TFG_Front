@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Administrativo;
+use App\Models\Empresa;
 
 class Buque extends Model
 {
     protected $table = 'buque';
     protected $primaryKey = 'id';
-    protected $fillable = ['nombre', 'amarre', 'procedencia', 'destino', 'id_administrativo'];
+    protected $fillable = [ 'nombre', 'tipo', 'amarre', 'procedencia', 'destino', 'id_administrativo', 'id_empresa' ];
 
-    public function administrativos()
-    {
-        return $this->belongsToMany(Administrativo::class);
+    public function administrativos() {
+        return $this->belongsTo(Administrativo::class);
+    }
+    public function empresas() {
+        return $this->belongsTo(Empresa::class);
     }
 }

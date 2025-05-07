@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GruaController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\PatioController;
+use App\Http\Controllers\CitaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['administrativo'])->group(function () {
+
         Route::get('/crearOrden', [OrdenController::class, 'crearOpciones'])->name('crearOrden');
         Route::post('/guardarOrden', [OrdenController::class, 'guardarOrden'])->name('guardarOrden');
         Route::view('/crearTurno', 'Administrativo.crearTurno')->name('crearTurno');
@@ -61,6 +63,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['operador'])->group(function () {
+
         Route::get('operador/ordenes', [OrdenController::class, 'index'])->name('ordenes');
         Route::get('operador/perfil', [OperadorController::class, 'perfil'])->name('perfil');
         Route::get('operador/verNotificaciones', [OperadorController::class, 'verNotificaciones'])->name('verNotificaciones');
@@ -70,8 +73,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['cliente'])->group(function () {
-        Route::view('/verCitas', 'Cliente.verCitas') -> name('verCitas');
 
+        Route::get('/pedirCitas', [CitaController::class, 'getBuques']) -> name('pedirCitas');
+        Route::post('/storePedirCitas', [CitaController::class, 'storePedida']) -> name('storePedirCitas');
+
+        Route::view('/menu', 'Client.menu') -> name('menu');
     });
 });
 

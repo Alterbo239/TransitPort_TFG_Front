@@ -6,6 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\GestorMiddleware;
 use App\Http\Middleware\AdministrativoMiddleware;
 use App\Http\Middleware\OperadorMiddleware;
+use App\Http\Middleware\ClienteMiddleware;
 use Illuminate\Http\Middleware\HandleCors;
 
 
@@ -19,8 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'gestor' => GestorMiddleware::class,
-            'administrativo' => AdministrativoMiddleware::class,    
+            'administrativo' => AdministrativoMiddleware::class,
             'operador' => OperadorMiddleware::class,
+            'cliente' => ClienteMiddleware::class,
         ]);
         $middleware->append(HandleCors::class);
     })
