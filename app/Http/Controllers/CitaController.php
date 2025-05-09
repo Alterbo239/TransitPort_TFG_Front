@@ -104,7 +104,7 @@ class CitaController extends Controller {
 
         $task = Buque::where('id_empresa', $empresaId) -> get();
 
-        return view('Client.pedirCitas', ['buques' => $task]);
+        return view('Client.pedirCitasView', ['buques' => $task]);
     }
 
     public function storePedida(Request $request) {
@@ -131,7 +131,10 @@ class CitaController extends Controller {
                 "id_zona" => null,
             ]);
 
-            return redirect() -> route('pedirCitas');
+            return redirect() -> route('exitoCliente') -> with([
+                'cabecera' => "Pedir cita",
+                'mensaje' => "¡Cita pedida con exito!"
+            ]);
 
             return response()->json([
                 'message' => 'Cita creada con éxito.',

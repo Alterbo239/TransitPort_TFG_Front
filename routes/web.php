@@ -12,11 +12,15 @@ use App\Http\Controllers\GruaController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\PatioController;
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\BuqueController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
+
+Route::view('/loginCliente', 'Client.LoginCliente') -> name('loginCliente');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -63,7 +67,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['operador'])->group(function () {
-
         Route::get('operador/ordenes', [OrdenController::class, 'index'])->name('ordenes');
         Route::get('operador/perfil', [OperadorController::class, 'perfil'])->name('perfil');
         Route::get('operador/verNotificaciones', [OperadorController::class, 'verNotificaciones'])->name('verNotificaciones');
@@ -73,12 +76,20 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['cliente'])->group(function () {
+        Route::get('/registrar', [UsuarioController::class, 'registro']) -> name('registrar');
+        Route::post('/registrar_P2', [UsuarioController::class, 'validarRegistro1']) -> name('registrar_P2');
+        Route::view('/registrar_P2b', 'Client.Registro.Registro_p2') -> name('registrar_P2b');
+        Route::post('/registrar_P3', [UsuarioController::class, 'validarRegistro2']) -> name('registrar_P3');
 
         Route::get('/pedirCitas', [CitaController::class, 'getBuques']) -> name('pedirCitas');
         Route::post('/storePedirCitas', [CitaController::class, 'storePedida']) -> name('storePedirCitas');
 
-        Route::view('/menu', 'Client.menu') -> name('menu');
+        Route::get('/registrarVehiculo', [EmpresaController::class, 'getEmpresas']) -> name('registrarVehiculo');
+        Route::post('/storeVehiculo', [BuqueController::class, 'storeVehiculo']) -> name('storeVehiculo');
+
+        Route::view('/exitoCliente', 'Client/Pantallas.exito') -> name('exitoCliente');
     });
+
 });
 
 require __DIR__.'/auth.php';

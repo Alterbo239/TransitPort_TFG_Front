@@ -1,0 +1,232 @@
+/* FUENTE */
+@font-face {
+    font-family: Monoton;
+    src: url("./../../public/assets/Monoton/Monoton-Regular.ttf")
+        format("truetype");
+}
+
+/* DIVS PRINCIPALES */
+
+#bloqueInicio {
+    background-image: url("./../../public/assets/Login/FondoLogIn.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenidoLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#bloqueLogin {
+    width: 90.5%;
+    height: 40%;
+    flex-shrink: 0;
+    padding: 22px 36px 22px 38px;
+    background: var(--Cinder-900, #152d65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+/* IMAGENES FONDO */
+.container-image {
+    height: 700px;
+    margin-bottom: -150px;
+    background: var(--Cinder-900, #152d65);
+}
+
+#imagenInicio {
+    width: 800px;
+    height: 480px;
+}
+
+#imagenIni {
+    width: 100%;
+    height: 100%;
+}
+
+/* LOGO */
+p > span.transit,
+p > span.guion,
+p > span.port {
+    font-family: Monoton;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.88px;
+}
+
+p > span.transit {
+    color: #c0d2f7;
+
+    margin-left: -40px;
+}
+
+p > span.guion {
+    color: var(--Cinder-950, #040813);
+}
+
+p > span.port {
+    color: var(--Cinder-100, #e3e9fb);
+}
+
+#logo {
+    width: 135px;
+    height: 140px;
+    float: left;
+    margin-bottom: 40px;
+}
+
+.bloqueLogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    margin-top: -100px;
+}
+
+p {
+    width: 510px;
+    color: var(--Cinder-50, #f1f5fe);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 25px;
+}
+
+/* HR LÍNEA SEPARADORA*/
+
+hr {
+    height: 3px;
+    background-color: #f1f5fe;
+    border: none;
+    width: 95%;
+    margin: 40px auto;
+    margin-top: 20px;
+}
+
+/* FORMULARIO */
+
+form {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    width: 82%;
+    height: 110px;
+
+    padding: 0px 28px;
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: -2px;
+
+    border-radius: 50px;
+}
+
+#password {
+    margin-top: 47px;
+}
+
+.icono-ojo {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 18.5%;
+    margin-left: 46%;
+    width: 6%;
+}
+
+/* RECORDAR USUARIO */
+
+.form-check {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-check-input {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: none;
+    border-width: 3px;
+    border-color: #ccc;
+    border-style: solid;
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-check-input:checked::before {
+    content: "✓";
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.recordarUser {
+    margin-top: 10px;
+    margin-left: 5px;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--Cinder-50, #f1f5fe);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.recordarForm {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin-left: 165px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+/* BOTON */
+
+.botonLogin {
+    border-radius: 40px;
+    color: var(--Cinder-200, #c0d2f7);
+
+    width: 70%;
+    height: 100px;
+
+    padding: 20px 50px;
+
+    font-size: 40px;
+
+    color: var(--Cinder-50, #f1f5fe);
+    background-color: var(--Cinder-950, #040813);
+
+    margin: 20px 0px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.botonRegist {
+    width: 56%;
+}
