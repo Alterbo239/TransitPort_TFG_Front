@@ -11,30 +11,46 @@
     </head>
     <body>
         <h1 class="titulo"><img src="assets/Gestor/UsuariosCrear.svg">  Registro</h1>
-        <form action="{{ route('registrar_P3') }}" method="post">
+        <form action="{{ route('registroFinal') }}" method="post" enctype="multipart/form-data">
             @csrf
-
-            {{ session('registro_datos2.nombre_empresa') }}
 
             <div class="container">
                 <div class="div div1">
                     <h2 class="num">4</h2>
-                    <h2>Password</h2>
+                    <h2>Documentacion</h2>
                     <div class="movile">
-                        <p>Contraseña</p>
-                        <input type="password" id="pass" name="password" required>
-                        <input type="password" id="pass2" name="repeat-password" required>
+                        <input type="file" accept="application/pdf" id="file1" name="document" style="display: none;" onchange="updateFileName()" required>
+
+                        <label class="subirArchivo btn" for="file1">Subir Documentación</label>
+
+                        <div class="files">
+                            <p id="file-name">Ningún archivo PDF seleccionado.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button class="crear btn">Siguiente</button>
+            <button class="crear boton btn">Siguiente</button>
         </form>
         <form action="{{ route('registrar_P2b') }}" method="get">
-            <button class="cancelar btn">Volver</button>
+            <button class="cancelar boton btn">Volver</button>
         </form>
     </body>
 </html>
+
+<script>
+
+    function updateFileName() {
+        const fileInput = document.getElementById('file1');
+        const fileName = document.getElementById('file-name');
+
+        if (fileInput.files.length > 0) {
+            fileName.textContent = fileInput.files[0].name;
+        } else {
+            fileName.textContent = 'Ningún archivo seleccionado.';
+        }
+    }
+</script>
 
 <style>
     html, body {
@@ -100,9 +116,14 @@
         margin-right: 3%;
     }
 
-    input {
+    .files {
         background: var(--Cinder-100, #E3E9FB);
+        border: solid 1px #1448B5;
 
+        height: 400px;
+        padding: 3px 6px;
+    }
+    input {
         border: none;
 
         font-size: 1.2rem;
@@ -114,7 +135,8 @@
         height: 2rem;
         align-items: center;
     }
-    input:readonly {
+    input[type='file'] {
+        content: 'Subir documentacion';
         background: var(--Cinder-50, #F1F5FE);
     }
 
@@ -138,18 +160,35 @@
     .div1 {
         top: 8%;
     }
-    .div2 {
-        top: 32%;
-    }
 
     .movile {
         position: relative;
 
         margin: 15px 0px;
-        right: 8%;
+        right: 5%;
+    }
+    .subirArchivo {
+        color: var(--Cinder-50, #F1F5FE);
+        background: var(--Cinder-900, #152D65);
+
+        font-size: 1.3rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        width: 78%;
+        height: 50px;
+
+        border-radius: 12px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 20px auto;
     }
 
-    .btn {
+    .boton {
         font-size: 1.5rem;
         font-style: normal;
         font-weight: 700;

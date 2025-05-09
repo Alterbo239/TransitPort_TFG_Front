@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Documento;
 use App\Models\Empresa;
 
 class Cliente extends Model {
@@ -13,5 +14,8 @@ class Cliente extends Model {
 
     public function empresas() {
         return $this -> belongsTo(Empresa::class, 'id_empresa');
+    }
+    public function documento() {
+        return $this -> hasOne(Documento::class);
     }
 }

@@ -76,4 +76,16 @@ class UsuarioController extends Controller {
         return view('Client.Registro.Registro_p3');
     }
 
+    public function subirRegistro(Request $request) {
+        $task = $request -> validate([
+            'document' => 'mimes:pdf',
+        ]);
+
+        $pdf = $request -> file('document');
+
+        $path = $pdf -> store('uploads', 'public');
+
+        return redirect() -> route('loginCliente');
+    }
+
 }

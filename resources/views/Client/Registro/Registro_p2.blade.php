@@ -63,7 +63,7 @@
 
             <button class="crear btn">Siguiente</button>
         </form>
-        <form action="{{ route('registrar') }}" method="get">
+        <form action="{{ route('registrar_P1') }}" method="get">
             <button class="cancelar btn">Volver</button>
         </form>
     </body>

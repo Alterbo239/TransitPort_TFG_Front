@@ -76,11 +76,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['cliente'])->group(function () {
-        Route::get('/registrar', [UsuarioController::class, 'registro']) -> name('registrar');
-        Route::post('/registrar_P2', [UsuarioController::class, 'validarRegistro1']) -> name('registrar_P2');
-        Route::view('/registrar_P2b', 'Client.Registro.Registro_p2') -> name('registrar_P2b');
-        Route::post('/registrar_P3', [UsuarioController::class, 'validarRegistro2']) -> name('registrar_P3');
-
         Route::get('/pedirCitas', [CitaController::class, 'getBuques']) -> name('pedirCitas');
         Route::post('/storePedirCitas', [CitaController::class, 'storePedida']) -> name('storePedirCitas');
 
@@ -89,6 +84,16 @@ Route::middleware('auth')->group(function () {
 
         Route::view('/exitoCliente', 'Client/Pantallas.exito') -> name('exitoCliente');
     });
+
+    Route::get('/registrar', [UsuarioController::class, 'registro']) -> name('registrar');
+
+    Route::view('/registrar_P1', 'Client.Registro.Registro_p1') -> name('registrar_P1');
+    Route::post('/registrar_P2', [UsuarioController::class, 'validarRegistro1']) -> name('registrar_P2');
+
+    Route::view('/registrar_P2b', 'Client.Registro.Registro_p2') -> name('registrar_P2b');
+    Route::post('/registrar_P3', [UsuarioController::class, 'validarRegistro2']) -> name('registrar_P3');
+
+    Route::post('/registroFinal', [UsuarioController::class, 'subirRegistro']) -> name('registroFinal');
 
 });
 
