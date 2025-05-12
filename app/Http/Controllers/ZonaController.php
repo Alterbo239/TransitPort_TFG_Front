@@ -5,12 +5,14 @@ use Illuminate\Http\Request;
 use App\Models\Zona;
 use App\Models\Patio;
 
-class ZonaController extends Controller
-{
-    public function index()
-    {
+class ZonaController extends Controller {
+    public function index() {
         $zonas = Zona::all();
         return response()->json($zonas);
+    }
+    public function getZonas() {
+        $zonas = Zona::all();
+        return view('Administrativo.gestionarCitas', compact('zonas'));
     }
 
     public function show(Request $request)

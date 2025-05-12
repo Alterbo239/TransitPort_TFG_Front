@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Administrativo;
 use App\Models\Gestor;
 use App\Models\Operador;
-use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -176,20 +175,6 @@ class UsuarioSeeder extends Seeder {
                     'tipo' => $grua[$random],
                     'id_gestor' => 1,
                     'id_turno' => 1,
-                ]);
-            } else if ($user['cargo'] === 'cliente') {
-                $autonomo = [ false, true ];
-                $random = rand(0, 1);
-
-                Cliente::create([
-                    'id' => $usuario -> id,
-                    'nombre' => $user['name'],
-                    'usuario' => $user['usuario'],
-                    'password' => $user['password'],
-                    'cargo' => $user['cargo'],
-                    'autonomo' => $autonomo[$random],
-                    'estado' => $user['estado'],
-                    'id_empresa' => $random + 1,
                 ]);
             }
         }

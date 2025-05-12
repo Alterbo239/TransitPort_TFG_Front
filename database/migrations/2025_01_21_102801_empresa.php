@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('codigo_postal');
             $table->text('cif');
             $table->text('email');
-            // $table->foreignId('id_gestor') -> constrained('users') -> onDelete('cascade');
+            $table->foreignId('id_gestor') -> constrained('users') -> onDelete('cascade');
             $table->timestamps();
           });
     }

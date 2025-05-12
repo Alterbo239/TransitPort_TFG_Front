@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gestor;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Gestor;
+use App\Models\Empresa;
+use App\Models\Cliente;
 
 class GestorController extends Controller {
 
     public function index(Request $request) {
         $task = User::all();
         return $task;
-       
+
     }
 
     public function show(Request $request)
@@ -64,8 +67,9 @@ class GestorController extends Controller {
 
     //me lleva a la vista para crear usuarios  nuevos
     public function crearUsuario(){
+        $empresas = Empresa::all();
 
-        return view('Gestor.crearUsuario');
+        return view('Gestor.crearUsuario', compact('empresas'));
 
     }
 
@@ -80,12 +84,34 @@ class GestorController extends Controller {
             'ciudad' => 'string',
             'codigoPostal' => 'string',
             'password' => 'string',
-            'cargo' => 'string|in:gestor,administrativo,operador',
+            'cargo' => 'string|in:gestor,administrativo,operador,cliente',
+        ]);
+
+        $cliente = $request -> validate([
+            'empresa' => 'string',
+            'autonomo' => 'nullable|boolean',
         ]);
 
         try {
             $user['password'] = bcrypt($user['password']);
-            User::create($user);
+            $userModel = User::create($user);
+
+            if ($user['cargo'] === 'cliente') {
+                $id_gestor = Auth::user() -> id;
+
+                $autonomo = $cliente['autonomo'] ?? 0;
+
+                Cliente::create([
+                    'id' => $userModel -> id,
+                    'nombre' => $userModel -> name,
+                    'usuario' => $userModel -> usuario,
+                    'password' => $userModel -> password,
+                    'cargo' => $userModel -> cargo,
+                    'autonomo' => $autonomo,
+                    'id_empresa' => $cliente['empresa'],
+                    'id_gestor' => $id_gestor,
+                ]);
+            }
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Error al crear el usuario.',
@@ -93,14 +119,17 @@ class GestorController extends Controller {
             ], 500);
         }
 
-        return view('Gestor.crearUsuario');
+        return redirect() -> route('exito') -> with([
+            'cabecera' => "Crear usuario",
+            'mensaje' => "Usuario creado con éxito!"
+        ]);
 
     }
-    
 
-    
 
-    
+
+
+
 
     }
 

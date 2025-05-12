@@ -33,7 +33,7 @@
             if (thisPage === itemId) {
                 item.classList.add('selected');
             }
-        })
+        });
     }
 </script>
 

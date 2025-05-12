@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void {
         Schema::create('cliente', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id') -> primary();
             $table->text('nombre');
             $table->text(column: 'usuario');
             $table->text(column: 'password');
             $table->enum('cargo', ['cliente']);
-            $table->boolean('autonomo');
-            $table->string('estado');
-            $table->foreignId('id_empresa')-> constrained('empresa') -> onDelete('cascade');
-            // $table->foreignId('id_gestor') -> constrained('users') -> onDelete('cascade');
+            $table->boolean('autonomo') -> nullable();
+            $table->string('estado') -> default('Activo/a');
+            $table->foreignId('id_empresa') -> nullable() -> constrained('empresa') -> onDelete('cascade');
+            $table->foreignId('id_gestor') -> constrained('users') -> onDelete('cascade');
             $table->timestamps();
           });
     }

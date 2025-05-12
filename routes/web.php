@@ -22,12 +22,23 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])
 
 Route::view('/loginCliente', 'Client.LoginCliente') -> name('loginCliente');
 
+
+Route::get('/registrar', [UsuarioController::class, 'registro']) -> name('registrar');
+
+Route::view('/registrar_P1', 'Client.Registro.Registro_p1') -> name('registrar_P1');
+Route::post('/registrar_P2', [UsuarioController::class, 'validarRegistro1']) -> name('registrar_P2');
+
+Route::post('/registroFinal', [UsuarioController::class, 'subirRegistro']) -> name('registroFinal');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 //una vez autentificado mediante auth
 Route::middleware('auth')->group(function () {
+
+    Route::view('/exito', 'Administrativo.exito') -> name('exito');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -38,6 +49,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/crearUsuario', [GestorController::class, 'crearUsuario'])->name('crearUsuario');
         Route::post('/guardarUsuario', [GestorController::class, 'guardarUsuario'])->name('guardarUsuario');
+
+        Route::view('/crearEmpresa', 'Gestor.crearEmpresa')->name('crearEmpresa');
+        Route::post('/guardarEmpresa', [EmpresaController::class, 'store'])->name('guardarEmpresa');
+
         Route::get('/crearPatio', [PatioController::class, 'crearPatio'])->name('crearPatio');
         Route::get('/crearGrua', [GruaController::class, 'crearGrua'])->name('crearGrua');
         Route::post('/guardarGrua', [GruaController::class, 'guardarGrua'])->name('guardarGrua');
@@ -59,11 +74,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/asignarTurno', [TurnoController::class, 'crearOpciones'])->name('asignarTurno');
         Route::post('/actualziarTurno', [TurnoController::class, 'actualizarTurno']) -> name('actualizarTurno');
 
-        Route::view('/exito', 'Administrativo.exito') -> name('exito');
 
         Route::view('/verAuditoria', 'Administrativo.Auditorias.verAuditoria') -> name('verAuditoria');
         Route::get('/recogerAuditoria', [OrdenController::class, 'visualizarAuditoria']) -> name('recogerAuditoria');
         Route::get('/verAuditoria/{id}', [OrdenController::class, 'mostrarUno']) -> name('mostrarAuditoria');
+
+        Route::get('/gestionarCitas', [ZonaController::class, 'getZonas']) -> name('gestionarCitas');
     });
 
     Route::middleware(['operador'])->group(function () {
@@ -84,16 +100,6 @@ Route::middleware('auth')->group(function () {
 
         Route::view('/exitoCliente', 'Client/Pantallas.exito') -> name('exitoCliente');
     });
-
-    Route::get('/registrar', [UsuarioController::class, 'registro']) -> name('registrar');
-
-    Route::view('/registrar_P1', 'Client.Registro.Registro_p1') -> name('registrar_P1');
-    Route::post('/registrar_P2', [UsuarioController::class, 'validarRegistro1']) -> name('registrar_P2');
-
-    Route::view('/registrar_P2b', 'Client.Registro.Registro_p2') -> name('registrar_P2b');
-    Route::post('/registrar_P3', [UsuarioController::class, 'validarRegistro2']) -> name('registrar_P3');
-
-    Route::post('/registroFinal', [UsuarioController::class, 'subirRegistro']) -> name('registroFinal');
 
 });
 

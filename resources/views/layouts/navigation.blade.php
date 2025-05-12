@@ -184,6 +184,12 @@
                         <img src="assets/Administrativo/incidencias.svg">
                         <span>Incidencias</span>
                     </div>
+                    <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('gestionarCitas')" :active="request()->routeIs('gestionarCitas')">
+                            <img src="assets/Administrativo/GestionarCitasVer.svg">
+                            <span>Gestionar citas</span>
+                        </x-nav-link>
+                    </div>
                 @endif
                 @if (auth() -> user()->cargo === 'gestor')
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
@@ -214,6 +220,12 @@
                         <x-nav-link>
                             <img src="assets/Gestor/gestionarGrua.png">
                             <span>Gestionar Gruas</span>
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden link ">
+                        <x-nav-link :href="route('crearEmpresa')" :active="request()->routeIs('crearEmpresa')">
+                            <img src="assets/Gestor/CrearEmpresa.svg">
+                            <span>Crear Empresa</span>
                         </x-nav-link>
                     </div>
                 @endif

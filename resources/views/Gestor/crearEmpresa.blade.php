@@ -13,6 +13,7 @@
 
             <style>
                 h1 {
+                    margin-top: 1%;
                     margin-left: 8%;
                 }
                 h2 {
@@ -43,6 +44,9 @@
                     position: relative;
                     right: 10%;
                     bottom: -45px;
+                }
+                .icono {
+                    filter: brightness(0) invert(0);
                 }
 
                 select {
@@ -82,16 +86,6 @@
                     margin-bottom: 3%;
 
                 }
-                .checking {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-
-                input[type="checkbox"] {
-                    margin: 0px;
-                    width: 20px;
-                }
 
                 #email{
 
@@ -104,29 +98,11 @@
                     left: 10%;
                     top: 10%;
                 }
-                .div2 {
-                    position: absolute;
-                    left: 10%;
-                    top: 40%;
-                    margin-top:140px;
-                }
-                .div5 {
-                    position: absolute;
-                    left: 36%;
-                    top: 45.5%;
-                    margin-top:170px;
-                }
-
                 .div4 {
                     position: absolute;
-                    left: 36%;
-                    top: 19.3%;
+                    left: 34.5%;
+                    top: 28.5%;
                     margin-right:70px;
-                }
-                .div3 {
-                    position: absolute;
-                    left: 70%;
-                    top: 10%;
                 }
 
                 .crear {
@@ -175,68 +151,28 @@
         </head>
 
         <body>
-            <h1><img src="assets/Gestor/usuariosCrear.svg">  Crear Usuario</h1>
-            <form action="{{ route('guardarUsuario') }}" method="post">
+            <h1><img src="assets/Gestor/CrearEmpresa.svg" class="icono">  Crear Empresa</h1>
+            <form action="{{ route('guardarEmpresa') }}" method="post">
                 @csrf
 
                 <div class="div1">
                     <h2 class="num">1</h2>
                     <h2>Datos</h2>
-                    <label for="name">Nombre y apellidos</label>
-                    <input type="text" id="name" name="name">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
                     <label for="ciudad">Ciudad</label>
                     <input type="text" id="ciudad" name="ciudad">
+                    <label for="cif">Cif</label>
+                    <input type="text" id="cif" name="cif">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email">
-
                 </div>
 
                 <div class="div4">
 
-                    <label for="telf">Número de teléfono</label>
-                    <input type="tel" id="telf" name="telefono">
                     <label for="postal">Código Postal</label>
-                    <input type="text" id="postal" name="codigoPostal">
+                    <input type="text" id="postal" name="codigo_postal">
 
-                </div>
-
-                <div class="div3">
-                    <h2 class="num">2</h2>
-                    <h2>Contraseña</h2>
-                    <label for="contrasenya">Contraseña</label>
-                    <input type="password" name="password" id="contrasenya">
-                    <label for="contrasenya2">Confirma la contraseña</label>
-                    <input type="password" name="password_confirmation" id="contrasenya2">
-
-                </div>
-
-                <div class="div2">
-                    <h2 class="num">3</h2>
-                    <h2>Roles</h2>
-                    <p>Tipo de usuario</p>
-                    <select name="cargo" id="cargo" onchange="mostrarSelectEmpresa()">
-                        <option value="gestor">Gestor</option>
-                        <option value="administrativo">Administrativo</option>
-                        <option value="operador">Operador</option>
-                        <option value="cliente">Cliente</option>
-                    </select>
-                </div>
-
-                <div class="div5" id="empresa" style="display: none">
-                    <p>Empresa</p>
-                    <select name="empresa">
-                        @forelse ($empresas as $empresa)
-                            <option value="{{ $empresa -> id }}"> {{ $empresa -> nombre }} </option>
-                        @empty
-                            <p>No hay empresas.</p>
-                        @endforelse
-                    </select>
-                    <div class="checking">
-                        <input type="checkbox" id="autonomo" name="autonomo" value="1" autocomplete="off">
-                        <label for="autonomo"> Autonomo </label>
-                    </div>
                 </div>
 
                 <button class="crear btn btn-primary">Crear</button>
@@ -246,17 +182,4 @@
 
         </body>
     </html>
-
-    <script>
-        function mostrarSelectEmpresa() {
-            const rol = document.getElementById('cargo').value;
-            const select = document.getElementById('empresa');
-
-            if (rol === 'cliente') {
-                select.style.display = 'block';
-            } else {
-                select.style.display = 'none';
-            }
-        }
-    </script>
 </x-app-layout>

@@ -15,7 +15,7 @@ class BuqueSeeder extends Seeder {
             [
                 'nombre' => 'Santa Maria',
                 'tipo' => 'buque',
-                'id_cliente' => '10',
+                'id_administrativo' => '5',
                 'id_empresa' => '1',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -23,7 +23,7 @@ class BuqueSeeder extends Seeder {
             [
                 'nombre' => 'Titanic',
                 'tipo' => 'buque',
-                'id_cliente' => '10',
+                'id_administrativo' => '5',
                 'id_empresa' => '1',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -31,7 +31,7 @@ class BuqueSeeder extends Seeder {
             [
                 'nombre' => 'Poseidón',
                 'tipo' => 'buque',
-                'id_cliente' => '11',
+                'id_administrativo' => '6',
                 'id_empresa' => '2',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -39,7 +39,7 @@ class BuqueSeeder extends Seeder {
             [
                 'nombre' => 'Ocean Spirit',
                 'tipo' => 'trailer',
-                'id_cliente' => '10',
+                'id_administrativo' => '5',
                 'id_empresa' => '2',
                 'created_at' => now(),
                 'updated_at' => now(),

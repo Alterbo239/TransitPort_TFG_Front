@@ -43,7 +43,11 @@
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.history.back();
+                        @if (session('cabecera') !== 'Registro')
+                            window.history.back();
+                        @else
+                            window.location.href = "{{ route('loginCliente')}}";
+                        @endif
                     }
                 });
             });
