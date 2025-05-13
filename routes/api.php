@@ -15,6 +15,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GruaController;
 use App\Http\Controllers\BuqueController;
 use App\Http\Controllers\ZonaController;
+use App\Http\Controllers\CitaController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -107,3 +108,10 @@ Route::get('/operador/show/{id}', [OperadorController::class, 'show']);
 Route::get('/grua', [GruaController::class, 'index']);
 Route::get('/zona', [ZonaController::class, 'index']);
 Route::post('/asignar-grua', [GruaController::class, 'asignarGrua']);
+
+
+//Citas
+Route::get('/citas', [CitaController::class, 'index']);
+Route::get('/citas/show/{id}', [CitaController::class, 'show']);
+
+Route::put('/citas/update/{id}', [CitaController::class, 'update']);

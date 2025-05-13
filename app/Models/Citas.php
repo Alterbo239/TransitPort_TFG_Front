@@ -27,6 +27,6 @@ class Citas extends Model {
     }
 
     public function zonas() {
-        return $this -> belongsTo(Zona::class, 'id_zonas');
+        return $this -> belongsTo(Zona::class, 'id_zona');
     }
 }

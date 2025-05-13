@@ -10,7 +10,7 @@ use App\Models\Buque;
 
 class CitaController extends Controller {
     public function index(Request $request) {
-        $task = Cita::all();
+        $task = Citas::with(['buques', 'zonas']) -> get();
         return $task;
     }
 
