@@ -17,11 +17,10 @@ class BuqueController extends Controller {
             'nombre' => 'string',
             'tipo' => 'string',
             'empresa' => 'string',
-            'id_empresa' => 'int',
         ]);
 
         try {
-            $cliente = Auth::user();
+            $administrativo = Auth::user();
 
             $tipo = strtolower($vehicle['tipo']);
 
@@ -30,11 +29,11 @@ class BuqueController extends Controller {
                 "id" => null,
                 "nombre" => $vehicle['nombre'],
                 "tipo" => $tipo,
-                "id_cliente" => $cliente -> id,
-                "id_empresa" => $vehicle['id_empresa'],
+                "id_administrativo" => $administrativo -> id,
+                "id_empresa" => $vehicle['empresa'],
             ]);
 
-            return redirect() -> route('exitoCliente') -> with([
+            return redirect() -> route('exito') -> with([
                 'cabecera' => "Registrar vahiculo",
                 'mensaje' => "¡Vehiculo " . $vehicle['nombre'] . " creado con exito!"
             ]);

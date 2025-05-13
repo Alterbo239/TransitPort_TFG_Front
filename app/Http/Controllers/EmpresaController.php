@@ -10,12 +10,9 @@ use App\Models\Empresa;
 
 class EmpresaController extends Controller {
     public function getEmpresas(Request $request) {
-        $user = Auth::user();
-        $cliente = Cliente::findOrFail( $user -> id );
+        $empresas = Empresa::all() -> keyBy('id');
 
-        $empresa = Empresa::findOrFail( $cliente -> id_empresa );
-
-        return view('Client.registroVehiculoView', ['empresa' => $empresa]);
+        return view('Administrativo.crearTransporte', ['empresas' => $empresas]);
     }
 
     public function store(Request $request) {

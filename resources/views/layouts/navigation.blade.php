@@ -74,8 +74,8 @@
     }
 
     div.link img {
-        width: 60px;
-        height: 60px;
+        width: 35px;
+        height: 35px;
         flex-shrink: 0;
         margin-left:10px;
     }
@@ -160,71 +160,77 @@
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('crearTurno')" :active="request()->routeIs('crearTurno')">
-                            <img src="assets/Administrativo/crearTurno.svg">
+                            <img class="menu_image" src="assets/Administrativo/crearTurno.svg">
                             <span>Crear Turno</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('asignarTurno')" :active="request()->routeIs('asignarTurno')">
-                            <img src="assets/Administrativo/buscarContenedor.svg">
+                            <img class="menu_image" src="assets/Administrativo/buscarContenedor.svg">
                             <span>Asignar turnos</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
-                        <img src="assets/Administrativo/buscarContenedor.svg">
+                        <img class="menu_image" src="assets/Administrativo/buscarContenedor.svg">
                         <span>Buscar contenedores</span>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('verAuditoria')" :active="request()->routeIs('verAuditoria')">
-                            <img src="assets/Administrativo/realizarAuditoria.svg">
+                            <img class="menu_image" src="assets/Administrativo/realizarAuditoria.svg">
                             <span>Realizar auditorias</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
-                        <img src="assets/Administrativo/incidencias.svg">
+                        <img class="menu_image" src="assets/Administrativo/incidencias.svg">
                         <span>Incidencias</span>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('gestionarCitas')" :active="request()->routeIs('gestionarCitas')">
-                            <img src="assets/Administrativo/GestionarCitasVer.svg">
+                            <img class="menu_image" src="assets/Administrativo/GestionarCitasVer.svg">
                             <span>Gestionar citas</span>
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('registrarTransporte')" :active="request()->routeIs('registrarTransporte')">
+                            <img class="menu_image" src="assets/Client/RegistrarVehiculo.svg">
+                            <span>Registrar Vehiculo</span>
                         </x-nav-link>
                     </div>
                 @endif
                 @if (auth() -> user()->cargo === 'gestor')
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('crearUsuario')" :active="request()->routeIs('crearUsuario')">
-                            <img src="assets/Gestor/usuariosCrearVer.svg">
+                            <img class="menu_image" src="assets/Gestor/usuariosCrearVer.svg">
                             <span>Crear Usuario</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link >
-                            <img src="assets/Gestor/usuarios.svg">
+                            <img class="menu_image" src="assets/Gestor/usuarios.svg">
                             <span>Ver usuarios</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('crearGrua')" :active="request()->routeIs('crearGrua')">
-                            <img src="assets/Gestor/gruas.png">
+                            <img class="menu_image" src="assets/Gestor/gruas.png">
                             <span>Crear Grua</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('crearPatio')" :active="request()->routeIs('crearPatio')">
-                            <img src="assets/Gestor/crearPatio.png">
+                            <img class="menu_image" src="assets/Gestor/crearPatio.png">
                             <span>Crear Patio</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link ">
                         <x-nav-link>
-                            <img src="assets/Gestor/gestionarGrua.png">
+                            <img class="menu_image" src="assets/Gestor/gestionarGrua.png">
                             <span>Gestionar Gruas</span>
                         </x-nav-link>
                     </div>
                     <div class="hidden link ">
                         <x-nav-link :href="route('crearEmpresa')" :active="request()->routeIs('crearEmpresa')">
-                            <img src="assets/Gestor/CrearEmpresa.svg">
+                            <img class="menu_image" src="assets/Gestor/CrearEmpresa.svg">
                             <span>Crear Empresa</span>
                         </x-nav-link>
                     </div>
@@ -233,7 +239,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" style="border: none; background: none; padding: 0;">
-                            <img src="assets/Gestor/home.svg" alt="Cerrar sesión">
+                            <img class="menu_image" src="assets/Gestor/home.svg" alt="Cerrar sesión">
                         </button>
                     </form>
                 </div>

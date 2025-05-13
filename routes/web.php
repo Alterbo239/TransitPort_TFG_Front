@@ -79,7 +79,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/recogerAuditoria', [OrdenController::class, 'visualizarAuditoria']) -> name('recogerAuditoria');
         Route::get('/verAuditoria/{id}', [OrdenController::class, 'mostrarUno']) -> name('mostrarAuditoria');
 
+        Route::get('/registrarTransporte', [EmpresaController::class, 'getEmpresas']) -> name('registrarTransporte');
+        Route::post('/storeVehiculo', [BuqueController::class, 'storeVehiculo']) -> name('storeVehiculo');
+
         Route::get('/gestionarCitas', [ZonaController::class, 'getZonas']) -> name('gestionarCitas');
+        Route::get('/storeCitas', [CitaController::class, 'sotreCitas']) -> name('storeCitas');
     });
 
     Route::middleware(['operador'])->group(function () {
@@ -96,7 +100,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/storePedirCitas', [CitaController::class, 'storePedida']) -> name('storePedirCitas');
 
         Route::get('/registrarVehiculo', [EmpresaController::class, 'getEmpresas']) -> name('registrarVehiculo');
-        Route::post('/storeVehiculo', [BuqueController::class, 'storeVehiculo']) -> name('storeVehiculo');
 
         Route::view('/exitoCliente', 'Client/Pantallas.exito') -> name('exitoCliente');
     });
