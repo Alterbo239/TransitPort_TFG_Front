@@ -46,7 +46,7 @@ export class BuscarContenedorComponent implements OnInit{
         { title: 'Estado', data: 'estado' },
       ],
       columnDefs: [
-        { 
+        {
           targets: 0,
           render: function(data) {
           return `ID del contenedor ${data}`;
@@ -56,7 +56,7 @@ export class BuscarContenedorComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
-        
+
         if (rowElement) {
           this.renderer.listen(rowElement, 'click', () => {
             this.mostrarAlerta(data);
@@ -82,7 +82,7 @@ export class BuscarContenedorComponent implements OnInit{
           <br>
           <h3>Estado</h3>
           <input class="${data.estado}" type="text" value="${data.estado}" disabled>
-        `,      
+        `,
         confirmButtonText: 'Aceptar',
       })
     }
@@ -122,10 +122,10 @@ export class BuscarContenedorComponent implements OnInit{
               <option value="Por empezar">Por empezar</option>
               <option value="En curso">En curso</option>
               <option value="Finalizada">Finalizada</option>
-            </select><br><br>                
-          `, 
+            </select><br><br>
+          `,
           confirmButtonText: "Buscar",
-          showCloseButton: true, 
+          showCloseButton: true,
           customClass: {
             popup: "mi-popup2",
             title: "mi-titulo2",
@@ -146,7 +146,7 @@ export class BuscarContenedorComponent implements OnInit{
         });
       });
     }
-  
+
     filtrarIncidencia(ubicacion: string, destino: string, estado: string) {
       // Volvemos a coger los datos de la base de datos.
       this.suppliersService.getSuppliersList().subscribe(resp => {
@@ -155,10 +155,10 @@ export class BuscarContenedorComponent implements OnInit{
           const filtroUbicacion = ubicacion ? datos.ubicacion === ubicacion : true;
           const filtroDestino = destino ? datos.destino === destino : true;
           const filtroEstado = estado ? datos.estado === estado : true;
-    
+
           return filtroUbicacion && filtroDestino && filtroEstado;
         });
-    
+
         // Por ultimo, actualizamos la tabla con los datos filtrados.
         const tabla = $('.dataTable').DataTable();
         tabla.clear();

@@ -23,6 +23,8 @@ import { IncidenciaComponent } from './operador/ordenes/incidencia/incidencia.co
 import { isLoggedIn } from './auth/guards/is-logged-in.guard';
 import { hasRole } from './auth/guards/has-role.guard'
 import { RenderMode, ServerRoute, PrerenderFallback } from '@angular/ssr';
+import { VehiculosComponent } from './administrativo/vehiculos/vehiculos.component';
+import { CitasComponent } from './administrativo/citas/citas.component';
 
 
 export const routes: Routes = [
@@ -64,6 +66,14 @@ export const routes: Routes = [
             {
                 path: 'incidencias',
                 component: IncidenciasComponent
+            },
+            {
+                path: 'citas',
+                component: CitasComponent
+            },
+            {
+                path: 'vehiculos',
+                component: VehiculosComponent
             },
         ]
     },{
