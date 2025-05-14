@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Buque;
 
 class BuqueController extends Controller {
+    public function index() {
+        $task = Buque::with('empresas') -> get();
+        return $task;
+    }
+
     public function show(Request $request) {
         $task = Buque::findOrFail($request->id);
         return $task;
@@ -50,5 +55,39 @@ class BuqueController extends Controller {
                 'error' => $e->getMessage(),
             ], 500);
         }
+    }
+
+    public function update(Request $request) {
+        $validatedData = $request->validate([
+            'id' => 'int',
+            'nombre' => 'string',
+            'tipo' => 'string',
+            'id_administrativo' => 'int',
+            'id_empresa' => 'int',
+        ]);
+
+        try {
+            $task = Buque::findOrFail($validatedData["id"]);
+
+            // Usar fill() en lugar de update() para mayor control
+            $task->fill($validatedData);
+
+        if ($task->isDirty()) { // Verifica si hay cambios antes de guardar
+            $task->save();
+        }
+
+            return response()->json([
+                'message' => 'Cita actualizada con éxito en la base de datos.',
+                'task' => $validatedData,
+            ], 200);
+
+        } catch (\Exception $e) {
+
+            return response()->json([
+                'message' => 'Error al actualizar la cita.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
     }
 }

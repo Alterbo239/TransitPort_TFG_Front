@@ -16,6 +16,7 @@ use App\Http\Controllers\GruaController;
 use App\Http\Controllers\BuqueController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\EmpresaController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -115,3 +116,12 @@ Route::get('/citas', [CitaController::class, 'index']);
 Route::get('/citas/show/{id}', [CitaController::class, 'show']);
 
 Route::put('/citas/update/{id}', [CitaController::class, 'update']);
+
+//Transportes
+Route::get('/buques', [BuqueController::class, 'index']);
+Route::put('/buques/update/{id}', [BuqueController::class, 'update']);
+
+Route::get('/empresas', [EmpresaController::class, 'index']);
+Route::get('/empresas/show/{id}', [EmpresaController::class, 'show']);
+Route::put('/empresas/update/{id}', [EmpresaController::class, 'update']);
+Route::get('/ciudades', [EmpresaController::class, 'getCiudades']);

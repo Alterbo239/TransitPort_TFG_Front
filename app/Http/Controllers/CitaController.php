@@ -52,6 +52,7 @@ class CitaController extends Controller {
 
     public function update(Request $request) {
         $validatedData = $request->validate([
+            'id' => 'int',
             'tipo' => 'string',
             'fecha_pedida' => 'date_format:Y-m-d',
             'fecha_asignada' => 'date_format:Y-m-d',
@@ -66,8 +67,8 @@ class CitaController extends Controller {
         try {
             $task = Citas::findOrFail($validatedData["id"]);
 
-        // Usar fill() en lugar de update() para mayor control
-        $task->fill($validatedData);
+            // Usar fill() en lugar de update() para mayor control
+            $task->fill($validatedData);
 
         if ($task->isDirty()) { // Verifica si hay cambios antes de guardar
             $task->save();

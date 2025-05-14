@@ -16,6 +16,6 @@ class Buque extends Model
         return $this->belongsTo(Administrativo::class);
     }
     public function empresas() {
-        return $this->belongsTo(Empresa::class);
+        return $this->belongsTo(Empresa::class, 'id_empresa', 'id');
     }
 }
