@@ -1,0 +1,38 @@
+.titulo {
+  margin: 3%;
+
+  display: flex;
+  align-items: center;
+}
+.titulo img {
+  width: 30px;
+}
+.titulo h1 {
+  margin-left: 2%;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  line-height: 1;
+}
+
+::ng-deep .dt-container {
+  width: 350px;
+
+  margin-left: 12px;
+}
+::ng-deep .dt-container thead > tr > th  {
+  background-color: #133379;
+  color: white;
+
+  font-size: 1.2rem;
+  text-align: center;
+}
+::ng-deep .dt-container tbody > tr > td {
+  font-size: 1.2rem;
+  text-align: center;
+}
+::ng-deep .dt-container tbody > tr > td.completada {
+  background-color: #B8FFB5;
+}
+::ng-deep .dt-container tbody > tr > td.enrevision {
+  background-color: #FACD84;
+}
