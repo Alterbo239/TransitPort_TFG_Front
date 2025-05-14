@@ -41,11 +41,12 @@ export class AuthService {
   }
 
   //Guardamos el rol del usuario para usarlo con el menu.
-  setRol(rol: string): void {
-    localStorage.setItem('user', rol);
-  }
-  getRol(): string {
-    return localStorage.getItem('user') || '';
+  getRol(): string |null {
+    const userData = localStorage.getItem('user');
+    if (!userData) return null;
+
+    const user = JSON.parse(userData);
+    return user.cargo;
   }
 
   logout() {

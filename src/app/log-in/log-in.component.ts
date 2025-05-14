@@ -57,9 +57,6 @@ export class LogInComponent {
           this.usuarioService.setUsuario(response.user);
           console.log('Usuario recibido en login:', response.user);
 
-          //Guardamos el rol del usuario en AuthService.
-          const rol = response.user.cargo;
-          this.authService.setRol(rol);
           this.authService.logIn.next(true); //Actualizamos el "logIn".
 
           if (response.user.estado != 'Inactivo/a') {
@@ -67,12 +64,14 @@ export class LogInComponent {
               this.router.navigate(['/operador/ordenes']);
             } else if(response.user.cargo == "administrativo") {
               this.router.navigate(['/administrativo/monitorizar-orden']);
+            } else if(response.user.cargo == "cliente") {
+              this.router.navigate(['/cliente/ver-citas']);
             } else {
               this.router.navigate(['/gestor/usuarios']);
             }
           } else {
             this.router.navigate(['/']);
-          }          
+          }
         },
         error: (err) => {
           console.error('Error al iniciar sesión:', err);

@@ -25,6 +25,11 @@ import { hasRole } from './auth/guards/has-role.guard'
 import { RenderMode, ServerRoute, PrerenderFallback } from '@angular/ssr';
 import { VehiculosComponent } from './administrativo/vehiculos/vehiculos.component';
 import { CitasComponent } from './administrativo/citas/citas.component';
+import { EmpresasComponent } from './gestor/empresas/empresas.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { CitasClienteComponent } from './cliente/citas-cliente/citas-cliente.component';
+import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.component';
+import { TransportesClienteComponent } from './cliente/transportes-cliente/transportes-cliente.component';
 
 
 export const routes: Routes = [
@@ -76,12 +81,39 @@ export const routes: Routes = [
                 component: VehiculosComponent
             },
         ]
-    },{
+    },
+
+    {
+      path: 'cliente',
+      canActivate:[hasRole],
+      data: {
+
+        allowedRoles: ['cliente']
+
+      },
+      component: ClienteComponent,
+      children: [
+          {
+              path: 'ver-citas',
+              component: CitasClienteComponent
+          },
+          {
+              path: 'ver-transportes',
+              component: TransportesClienteComponent
+          },
+          {
+              path: 'perfil-cliente',
+              component: PerfilClienteComponent
+          },
+      ]
+    },
+
+    {
         path: 'gestor',
         canActivate:[hasRole],
         data: {
 
-          allowedRoles: ['gestor']
+          allowedRoles: ['gestor', 'cliente']
 
         },
         component: GestorComponent,
@@ -105,9 +137,15 @@ export const routes: Routes = [
             {
               path: 'crear-usuario',
               component: CrearUsuarioComponent
-          },
+            },
+            {
+                path: 'empresas',
+                component: EmpresasComponent
+            },
         ]
-    },{
+    },
+
+    {
       path: 'operador',
       canActivate:[hasRole],
       data: {
@@ -148,5 +186,6 @@ export const routes: Routes = [
               component: PerfilComponent
           },
       ]
-  }
+  },
+
 ];

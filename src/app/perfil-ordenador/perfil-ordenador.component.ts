@@ -15,7 +15,7 @@ import { MenuComponent } from '../menu/menu.component';
 })
 export class PerfilOrdenadorComponent implements OnInit{
   usuario!: Usuario;//le paso los datos de la interfaz Usuario, y con ! le digo que no es nulo
-  rol: string = '';
+  rol: string | null = '';
 
   constructor (
     private usuarioService: UsuarioService,

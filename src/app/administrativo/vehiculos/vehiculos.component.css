@@ -1,0 +1,400 @@
+div.titulo {
+  margin-left: 80px;
+}
+.titulo img {
+  filter: brightness(0) invert(0);
+}
+.usuarios-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.tituloSecc {
+  width: 390px;
+  height: 58px;
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-top: 60px;
+}
+
+.imgPag {
+  width: 49.074px;
+  height: 53.535px;
+  margin-left: 85px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+.contenedor-tabla {
+  max-height: 600px;
+  margin: 0 auto;
+  margin-left: 450px;
+  width: 1200px;
+  margin-top: 5.4%;
+}
+
+.dataTables_scrollBody thead tr {
+  visibility: collapse;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+::ng-deep .dataTables_scrollBody thead tr {
+  visibility: collapse;
+}
+
+::ng-deep ::ng-deep .dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+::ng-deep div.dt-search {
+  width: 270px !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  font-size: 1em !important;
+  margin-top: -8px;
+  margin-right: 130px;
+  /* border: 2px solid #000; */
+
+}
+
+::ng-deep div.dt-search input {
+  width: 100% !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  font-size: 20px !important;
+  border: 2px solid #000 !important;
+  height: 36px !important;
+  font-weight: 700;
+  color: #000 !important;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  background-image: url('/assets/lupa.svg') !important;
+  background-repeat: no-repeat;
+  background-position: left 10px center !important; /* Adjust the position of the icon */
+}
+
+::ng-deep .dt-search label {
+  display: none;
+}
+::ng-deep input#dt-search-0.dt-input {
+  text-align: center;
+}
+
+.dt-layout {
+  text-align: center;
+}
+
+.dataTables_scrollBody {
+  margin-top: -10px;
+}
+
+.crearNuevo {
+  display: flex;
+  margin-left: 460px;
+  margin-bottom: -125px;
+  margin-top: 6%;
+}
+
+.botonFiltrar{
+
+  display: flex;
+  margin-bottom: 7.7%;
+  margin-left: 1020px;
+  padding-left: 39px;
+  align-items: center;
+
+  width: 110px;
+  height: 35px;
+
+  border-radius: 4px;
+  border: 2px solid #000;
+  color: #000;
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+
+  z-index: 1;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+}
+
+.botonFiltrar:hover {
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background: rgba(217, 217, 217, 0);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.botonImagen2 {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  margin-top: 9px;
+  margin-left: -100px;
+}
+
+::ng-deep .dt-container {
+  margin-top: -18%;
+  margin-left: -5%;
+  width: 1200px;
+}
+::ng-deep .dt-scroll-head > .dt-scroll-headInner > table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+::ng-deep .dt-scroll-head > .dt-scroll-headInner > table > thead > tr > th {
+  background-color: #152d65;
+  height: 80px;
+  color: var(--Cinder-50, #f1f5fe);
+  text-align: center;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 20px;
+  position: sticky;
+}
+
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td {
+  text-align: center;
+  font-size: 20px;
+  border-bottom: solid 10px var(--Cinder-50, #f1f5fe);
+  padding: 25px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
+  text-align: left;
+  padding: 25px;
+  margin-left: -200px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(2) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+  padding-right: 56px;
+}
+
+.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(3) {
+  text-align: center;
+  padding: 25px;
+  padding-left: 0px;
+}
+
+/* Modales */
+::ng-deep div.swal2-popup {
+  border-radius: 32px;
+  border: 2px solid #000;
+
+  background: #FFFCFC;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.50);
+}
+
+::ng-deep h2.swal2-title {
+  color: var(--Cinder-950, #040813);
+  border-bottom: solid 2px black;
+
+  padding-bottom: 4%;
+  margin-bottom: -4%;
+
+  text-align: left;
+}
+
+::ng-deep div.swal2-html-container > h3 {
+  color: var(--Cinder-900, #152D65);
+
+  text-align: left;
+  margin-top: 4%;
+  margin-left: 1%;
+}
+::ng-deep div.swal2-html-container > p {
+  text-align: left;
+  margin-top: -1%;
+  margin-left: 1%;
+}
+::ng-deep div.swal2-html-container > input,
+::ng-deep div.swal2-html-container > select {
+  color: black;
+  background: var(--Cinder-50, #F1F5FE);
+  border: none;
+
+  padding-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+::ng-deep div.swal2-html-container > input {
+  width: 40%;
+}
+::ng-deep div.swal2-html-container > select#tipo {
+  width: 20%;
+}
+::ng-deep div.swal2-html-container > select#id_empresa {
+  width: 32%;
+}
+
+::ng-deep div.swal2-html-container > textarea {
+  width: 100%;
+  height: 80px;
+
+  color: black;
+  background: var(--Cinder-50, #F1F5FE);
+  border: none;
+
+  padding-left: 0px;
+  resize: none;
+}
+
+::ng-deep .swal2-confirm {
+  width: 400px;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Cinder-900, #152D65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+::ng-deep div.swal2-html-container > input.Por.empezar {
+  background-color: var(--Rojo, #FF6F6F);;
+}
+::ng-deep div.swal2-html-container > input.En.curso {
+  background-color: var(--Amarillo-3, #FACD84);;
+}
+::ng-deep div.swal2-html-container > input.Completada {
+  background-color: var(--Verde, #B8FFB5);;
+}
+
+
+
+/* Filtro */
+::ng-deep .mi-popup2 {
+
+  border-radius: 32px;
+  border: 2px solid #000;
+  width: 500px;
+  background: #FFFCFC;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.50);
+
+}
+
+::ng-deep .misCosas {
+
+  margin-top: 40px;
+  text-align: left;
+
+}
+
+::ng-deep .misCosas > label {
+
+  color:  var(--Cinder-900, #152D65) ;
+  margin-left: 40px;
+  color: var(--Cinder-900, #152D65);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+}
+::ng-deep .misCosas > .swal2-select,
+::ng-deep .misCosas > input[type='date'] {
+  border: none;
+  font-size: 1.2rem;
+  display: flex;
+  width: 227px;
+  height: 49px;
+  padding-left: 2%;
+  align-items: center;
+  flex-shrink: 0;
+}
+::ng-deep .misCosas > .swal2-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('/assets/flecha.svg') no-repeat calc(100% - 3%) var(--Cinder-100, #E3E9FB) !important;
+    justify-content: flex-end;
+}
+::ng-deep .misCosas > input[type='date'] {
+  background-color: var(--Cinder-100, #E3E9FB) !important;
+  margin-top: 4%;
+  margin-left: 9%;
+  justify-content: space-between;
+}
+::ng-deep .misCosas > input[type='date']::-webkit-calendar-picker-indicator {
+  position: relative;
+  left: 46px;
+  cursor: pointer;
+}
+
+::ng-deep .swal2-styled {
+  width: 200px;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Amarillo, #E59506);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+::ng-deep .swal2-confirm {
+  background: var(--Cinder-900, #152D65);
+}
+
+::ng-deep .mi-titulo2 {
+  color: var(--Cinder-950, #040813);
+  border-bottom: solid 2px black;
+
+  padding-bottom: 4%;
+  margin-bottom: -4%;
+
+  text-align: left;
+}
+
+::ng-deep .mi-boton2 {
+  width: 370px;
+
+  border-radius: 4px;
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Cinder-900, #152D65);
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: var(--Cinder-50, #F1F5FE);
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+::ng-deep .mi-cruz{
+
+  color: #040813;
+  margin-right: 40px;
+  padding-top: 27px;
+
+}

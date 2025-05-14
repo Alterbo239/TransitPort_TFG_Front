@@ -126,7 +126,7 @@ export class CitasComponent implements OnInit{
           preConfirm: () => {
             let fecha = (document.getElementById('fecha') as HTMLInputElement).value;
             let hora = (document.getElementById('hora') as HTMLInputElement).value;
-            let zona = (document.getElementById('id_zona') as HTMLInputElement).value;
+            let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value);
 
             return Promise.all([
               this.suppliersService.validarZona(zona).toPromise()
@@ -142,6 +142,8 @@ export class CitasComponent implements OnInit{
           }
         }).then((result) => {
           if (result.isConfirmed && result.value) {
+            let id_administrativo = this.usuario.getUserID();
+
             let updatedData = {
               id: data.id,
               tipo: data.tipo,
@@ -149,11 +151,12 @@ export class CitasComponent implements OnInit{
               fecha_asignada: result.value.fecha,
               hora: result.value.hora,
               estado: 'Completada',
-              id_administrativo: data,
+              id_administrativo: id_administrativo || null,
               id_cliente: data.id_cliente,
               id_buque: data.id_buque,
               id_zona: result.value.zona,
             };
+            console.log(updatedData);
             this.suppliersService.actualizarCita(updatedData).subscribe(
               (response) => {
                 Swal.fire('Orden actualizada correctamente', `Codigo orden ${updatedData.id}`, 'success')
@@ -187,23 +190,25 @@ export class CitasComponent implements OnInit{
       Swal.fire({
         title: 'Filtrar',
         html: `
-          <label for="selectUbicacion">Ubicacion</label><br>
-          <select id="selectUbicacion" class="swal2-select">
-            ${ubicaciones}
-          </select><br><br>
+        <label for="selectEstado">Estado</label><br>
+        <select id="selectEstado" class="swal2-select">
+          <option value="">Todos</option>
+          <option value="En revision">En revision</option>
+          <option value="Completada">Completada</option>
+        </select>
+        <br><br>
 
-          <label for="selectDestino">Destino</label><br>
-          <select id="selectDestino" class="swal2-select">
-            ${detinos}
-          </select><br><br>
+        <label for="selectTipo">Tipo</label><br>
+        <select id="selectTipo" class="swal2-select">
+          <option value="">Todos</option>
+          <option value="carga">carga</option>
+          <option value="descarga">descarga</option>
+        </select>
+        <br><br>
 
-          <label for="selectEstado">Estado</label><br>
-          <select id="selectEstado" class="swal2-select">
-            <option value="">Todos</option>
-            <option value="Por empezar">Por empezar</option>
-            <option value="En curso">En curso</option>
-            <option value="Finalizada">Finalizada</option>
-          </select><br><br>
+        <label for="selectFecha">Fecha asignada</label><br>
+        <input id="selectFecha" type="date">
+        <br><br>
         `,
         confirmButtonText: "Buscar",
         showCloseButton: true,
@@ -215,36 +220,43 @@ export class CitasComponent implements OnInit{
           htmlContainer: "misCosas"
         },
         preConfirm: () => {
-          const ubicacion = (document.getElementById("selectUbicacion") as HTMLSelectElement).value;
-          const destino = (document.getElementById("selectDestino") as HTMLSelectElement).value;
           const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
-          return { ubicacion, destino, estado };
+          const tipo = (document.getElementById("selectTipo") as HTMLSelectElement).value;
+          const fecha = (document.getElementById("selectFecha") as HTMLSelectElement).value;
+          return { estado, tipo, fecha };
         }
       }).then((result) => {
         if (result.isConfirmed) {
-          this.filtrarIncidencia(result.value.ubicacion, result.value.destino, result.value.estado);
+          this.filtrarIncidencia(result.value.estado, result.value.tipo, result.value.fecha);
         }
       });
     });
   }
 
-  filtrarIncidencia(ubicacion: string, destino: string, estado: string) {
+  filtrarIncidencia(estado: string, tipo: string, fecha: string) {
     // Volvemos a coger los datos de la base de datos.
     this.suppliersService.getSuppliersList().subscribe(resp => {
       let datosFiltrados = resp.filter(datos => {
         // Filtramos los datos por cada columna, aunque no esté en la tabla.
-        const filtroUbicacion = ubicacion ? datos.ubicacion === ubicacion : true;
-        const filtroDestino = destino ? datos.destino === destino : true;
         const filtroEstado = estado ? datos.estado === estado : true;
 
-        return filtroUbicacion && filtroDestino && filtroEstado;
+        const filtroFecha = fecha ? datos.fecha_asignada >= fecha : true;
+
+        return filtroEstado && filtroFecha;
       });
 
       // Por ultimo, actualizamos la tabla con los datos filtrados.
-      const tabla = $('.dataTable').DataTable();
-      tabla.clear();
-      tabla.rows.add(datosFiltrados);
-      tabla.draw();
+      const table = $('.dataTable').DataTable();
+      table.clear();
+      table.rows.add(datosFiltrados);
+
+      if (tipo) {
+        table.column(1).search(`^${tipo}$`, true, false);
+      } else {
+        table.column(1).search('');
+      }
+
+      table.draw();
     });
   }
 }

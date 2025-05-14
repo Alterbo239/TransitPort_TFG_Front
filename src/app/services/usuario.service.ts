@@ -25,6 +25,7 @@ export class UsuarioService {
         this.usuario = JSON.parse(usuarioGuardado);
       }
     }
+
     return this.usuario;
   }
 
@@ -48,8 +49,5 @@ export class UsuarioService {
     };
 
     return this.http.put<any>(`${this.apiUrl}/modificar-estado/${id}`, body);
-}
-
-
-
+  }
 }

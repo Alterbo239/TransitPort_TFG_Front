@@ -50,7 +50,7 @@ export class UsuariosComponent implements OnInit{
         infoFiltered: '(filtrado de _MAX_ usuarios totales)',
         paginate: {
           first: 'Primero',
-          last: 'Último', 
+          last: 'Último',
           next: 'Siguiente',
           previous: 'Anterior'
         },
@@ -59,9 +59,9 @@ export class UsuariosComponent implements OnInit{
 
       //tipos de columnas y sus nombres
       columns: [
-        { 
-          title: 'Cargo', 
-          data: 'cargo', 
+        {
+          title: 'Cargo',
+          data: 'cargo',
           render: function (data, type, row) {
             return `<input type="checkbox" class="select-checkbox" data-id="${row.id}"> ${data}`;
           }
@@ -72,7 +72,7 @@ export class UsuariosComponent implements OnInit{
       rowCallback: (row: Node, data: any, index: number) => {
         const rowElement = row as HTMLElement;
         const checkbox = rowElement.querySelector('.select-checkbox') as HTMLInputElement;
-      
+
         // Evento para seleccionar el checkbox
         if (checkbox) {
           this.renderer.listen(checkbox, 'click', (event) => {
@@ -84,17 +84,17 @@ export class UsuariosComponent implements OnInit{
             }
           });
         }
-      
+
         // Evento para mostrar los detalles del usuario, pero solo si NO se hace clic en el checkbox
         this.renderer.listen(rowElement, 'click', (event) => {
           if (!(event.target as HTMLElement).classList.contains('select-checkbox')) {
             this.mostrarDetallesUsuario(data);
           }
         });
-      
+
         return row;
       }
-      
+
 
     };
 
@@ -131,8 +131,8 @@ export class UsuariosComponent implements OnInit{
         <input id="estado" class="swal2-input" type="text" value="${usuario.estado}" readonly>
         </div>
       `,
-      confirmButtonText: "Cerrar", 
-      showCloseButton: true, 
+      confirmButtonText: "Cerrar",
+      showCloseButton: true,
       customClass: {
         popup: "mi-popup",
         title: "mi-titulo",
@@ -142,24 +142,24 @@ export class UsuariosComponent implements OnInit{
       }
     });
   }
-  
-  
+
+
 
   filtrarUsuarios(cargo: string, estado: string) {
     const table = $('.dataTable').DataTable();
-  
+
     if (cargo) {
       table.column(0).search(cargo, false, false);
     } else {
       table.column(0).search('');
     }
-  
+
     if (estado) {
       table.column(2).search(`^${estado}$`, true, false);
     } else {
       table.column(2).search(''); //limpia el filtro si elegimos todos
     }
-  
+
     table.draw(); //Refresca la tabla con los filtros
   }
 
@@ -173,8 +173,9 @@ export class UsuariosComponent implements OnInit{
           <option value="gestor">Gestor</option>
           <option value="administrativo">Administrativo</option>
           <option value="operador">Operador</option>
+          <option value="cliente">Cliente</option>
         </select><br><br>
-  
+
         <label for="selectEstado" style="margin-top:10px;">Estado</label><br>
         <select id="selectEstado" class="swal2-select">
           <option value="">Todos</option>
@@ -183,7 +184,7 @@ export class UsuariosComponent implements OnInit{
         </select><br><br>
       `,
       confirmButtonText: "Buscar",
-      showCloseButton: true, 
+      showCloseButton: true,
       customClass: {
         popup: "mi-popup2",
         title: "mi-titulo2",
@@ -202,7 +203,7 @@ export class UsuariosComponent implements OnInit{
       }
     });
   }
-  
+
 
   modificarEstado() {
 
@@ -210,7 +211,7 @@ export class UsuariosComponent implements OnInit{
       Swal.fire("Selecciona al menos un usuario", "", "warning");
       return;
     }
-  
+
     Swal.fire({
       title: "Modificar Estado",
       text: "Selecciona el nuevo estado:",
@@ -221,7 +222,7 @@ export class UsuariosComponent implements OnInit{
       },
       inputPlaceholder: "Selecciona un estado",
       confirmButtonText: "Modificar",
-      showCloseButton: true, 
+      showCloseButton: true,
       customClass: {
         popup: "mi-popup3",
         title: "mi-titulo3",
@@ -252,12 +253,12 @@ export class UsuariosComponent implements OnInit{
       });
       return;
     }
-  
+
     //array de usuarios seleccionados
-    const updateRequests = this.selectedUsers.map(id => 
+    const updateRequests = this.selectedUsers.map(id =>
       this.usuarioService.modificarEstadoUsuario(id, estado).toPromise()
     );
-  
+
     //procesamos varios usuarios a la vez
     Promise.all(updateRequests)
       .then(() => {
@@ -279,13 +280,13 @@ export class UsuariosComponent implements OnInit{
         Swal.fire("Error al actualizar estados", "", "error");
       });
   }
-  
+
   //permite recargar la tabla al actualizar los usuarios
   recargarTabla() {
     $('.dataTable').DataTable().ajax.reload(undefined, false);
   }
-  
-  
-  
+
+
+
 
 }

@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent implements OnInit {
-    rol: string = '';
+    rol: string | null = '';
 
     constructor (
       private authService: AuthService,
@@ -24,6 +24,6 @@ export class MenuComponent implements OnInit {
 
       this.authService.logout()
       this.router.navigate(['/']);
-  
+
     }
 }

@@ -1,7 +1,7 @@
 export interface Buque {
     id: number;
-    amarre: string;
-    procedencia: string;
-    destino: string;
-    id_administrativo: number;
+    nombre: string;
+    tipo: string;
+    id_administrativo: number | null;
+    id_empresa: number;
 }
