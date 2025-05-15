@@ -1,0 +1,61 @@
+.titulo {
+  display: flex;
+  align-items: center;
+
+  padding-top: 20px;
+  padding-left: 20px;
+}
+h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 375px;
+}
+div.info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px 0px;
+}
+img.perfil {
+  width: 120px;
+  margin-top: 30px;
+}
+
+label {
+  margin: -10px 0px;
+
+  font-size: 1.3rem;
+  margin-top: 5px;
+}
+input {
+  background-color: #E3E9FB;
+  border: none;
+
+  width: 250px;
+  height: 40px;
+}
+
+button {
+  width: 220px;
+  height: 60px;
+
+  font-size: 1.8rem;
+  margin-top: 25px;
+  padding: 0px;
+
+  border-radius: 4px;
+  font-weight: bold;
+
+  border: 2px solid var(--Cinder-900, #152D65);
+  background: var(--Cinder-900, #040813);
+  color: white;
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

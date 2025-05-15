@@ -14,9 +14,12 @@ export class BuquesService {
   getSuppliersList(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+  getBuquesFiltrados(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
+  }
 
   actualizarBuque(buque: Buque): Observable<Buque> {
-    return this.http.put<Buque>(`http://127.0.0.1:8000/api/buques/update/${buque.id}`, buque);
+    return this.http.put<Buque>(`${this.apiUrl}/update/${buque.id}`, buque);
   }
   validarEmpresa(id: any): Observable<boolean> {
     return this.http.get(`http://127.0.0.1:8000/api/empresas/show/${id}`).pipe(

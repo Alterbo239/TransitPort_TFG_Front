@@ -1,1 +1,32 @@
-<p>perfil-cliente works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="titulo">
+      <img src="assets/Client/IconoPerfil.png" alt="icono-perfil">
+      <h1>Perfil</h1>
+    </div>
+    <div class="contenido">
+      <div>
+        <img class="perfil" src="assets/Client/FotoCliente.png" alt="perfil-cliente">
+      </div>
+      <div class="info">
+        <label>Nombre</label>
+        <input type="text" value="{{ nombre }}" readonly>
+        <label>Usuario</label>
+        <input type="text" value="{{ usuario }}" readonly>
+        <label>Email</label>
+        <input type="text" value="{{ email }}" readonly>
+        <label>Telefono</label>
+        <input type="text" value="{{ telefono }}" readonly>
+      </div>
+      <div>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </body>
+</html>
