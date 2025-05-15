@@ -120,8 +120,10 @@ Route::put('/citas/update/{id}', [CitaController::class, 'update']);
 //Transportes
 Route::get('/buques', [BuqueController::class, 'index']);
 Route::put('/buques/update/{id}', [BuqueController::class, 'update']);
+Route::get('/buques/{id}', [BuqueController::class, 'getBuquesCliente']);
 
 Route::get('/empresas', [EmpresaController::class, 'index']);
 Route::get('/empresas/show/{id}', [EmpresaController::class, 'show']);
 Route::put('/empresas/update/{id}', [EmpresaController::class, 'update']);
 Route::get('/ciudades', [EmpresaController::class, 'getCiudades']);
+

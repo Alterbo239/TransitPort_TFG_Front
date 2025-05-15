@@ -1,23 +1,22 @@
 <div class="menu-cliente-container">
-    <div class="menu-cliente-item">
-        <img src="assets/Client/Citas.png" alt="Ver citas">
-        <p>Ver citas</p>
-    </div>
     <x-nav-link :href="route('pedirCitas')" :active="request()->routeIs('pedirCitas')">
         <div class="menu-cliente-item" id="pedirCitas">
-            <img src="assets/Administrativo/crearTurno.png" alt="Pedir citas">
+            <img src="assets/Client/Citas.png" alt="Ver citas">
             <p>Pedir citas</p>
         </div>
     </x-nav-link>
-    <x-nav-link :href="route('registrarVehiculo')" :active="request()->routeIs('registrarVehiculo')">
-        <div class="menu-cliente-item" id="registrarVehiculo">
-            <img src="assets/Client/RegistrarVehiculo.svg" alt="RegistrarVehiculo">
-            <p>Transporte</p>
-        </div>
-    </x-nav-link>
-    <div class="menu-cliente-item" id="perfilCliente">
-        <img src="assets/Client/Perfil.png" alt="Perfil">
-        <p>Perfil</p>
+    <div class="menu-cliente-item" id="registrarVehiculo">
+        <img src="assets/Client/RegistrarVehiculo.svg" alt="RegistrarVehiculo">
+        <p>Transporte</p>
+    </div>
+    <div class="menu-cliente-item">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" style="border: none; background: none; padding: 0;">
+                <img src="assets/Client/Perfil.png" alt="Perfil">
+                <p>Perfil</p>
+            </button>
+        </form>
     </div>
 </div>
 
@@ -76,6 +75,9 @@
         margin-bottom: 5px;
     }
 
+    button {
+        color: white;
+    }
     .menu-cliente-item p, .menu-cliente-item a p {
         font-size: 1rem; /* Ajusta el tamaño de la fuente */
         text-align: center;

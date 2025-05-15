@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Buque;
+use App\Models\Cliente;
 
 class BuqueController extends Controller {
     public function index() {
         $task = Buque::with('empresas') -> get();
+        return $task;
+    }
+    public function getBuquesCliente($id) {
+        $cliente = Cliente::findOrFail($id);
+        $task = Buque::where('id_empresa', $cliente -> id_empresa)
+        -> with('empresas')
+        -> get();
         return $task;
     }
 

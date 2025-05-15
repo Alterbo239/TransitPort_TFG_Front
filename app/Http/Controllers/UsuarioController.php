@@ -36,6 +36,11 @@ class UsuarioController extends Controller {
         ]);
     }
 
+    public function getEmpresaCliente($id) {
+        $cliente = Cliente::findOrFail($id);
+        return $cliente -> id_empresa;
+    }
+
     public function registro() {
         $this -> eraseSessions();
 

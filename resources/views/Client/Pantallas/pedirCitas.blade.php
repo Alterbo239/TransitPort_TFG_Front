@@ -22,8 +22,8 @@
             <div id='fondo' style="visibility: hidden;">
                 <div id='calendario'></div>
                 <div class="botones-calendar">
-                    <button type="button" id="confirm" class="crear btn" disabled>Confirmar</button>
-                    <button type="button" id="cancel" class="cancelar btn">Cancelar</button>
+                    <button type="button" id="confirm" class="crear2 btn" disabled>Confirmar</button>
+                    <button type="button" id="cancel" class="cancelar2 btn">Cancelar</button>
                 </div>
             </div>
 
@@ -425,7 +425,7 @@
 
         display: flex;
 
-        right: 6%;
+        left: 6%;
     }
     .cancelar {
         color: var(--Cinder-800, #133379);
@@ -437,6 +437,26 @@
 
         display: inline-flex;
 
-        left: 6%;
+        right: 6%;
+    }
+
+    .crear2 {
+        color: var(--Cinder-50, #F1F5FE);
+
+        background: var(--Cinder-900, #152D65);
+
+        display: flex;
+        left: 12%;
+    }
+    .cancelar2 {
+        color: var(--Cinder-800, #133379);
+
+        border-radius: 4px;
+        border: 2px solid var(--Cinder-900, #152D65);
+        background: var(--Amarillo, #E59506);
+        box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+        display: flex;
+        right: 18%;
     }
 </style>
