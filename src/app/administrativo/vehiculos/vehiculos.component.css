@@ -189,6 +189,13 @@ div.titulo {
   padding: 25px;
 }
 
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.activo {
+  background-color: #B8FFB5;
+}
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.inactivo {
+  background-color: #FACD84;
+}
+
 .dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
   text-align: left;
   padding: 25px;
@@ -392,9 +399,7 @@ div.titulo {
 }
 
 ::ng-deep .mi-cruz{
-
   color: #040813;
   margin-right: 40px;
   padding-top: 27px;
-
 }

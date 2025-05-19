@@ -47,6 +47,15 @@ export class VehiculosComponent implements OnInit{
         { title: 'Nombre', data: 'nombre' },
         { title: 'Tipo', data: 'tipo' },
         { title: 'Empresa', data: 'empresas.nombre' },
+        { title: 'Estado', data: 'estado' },
+      ],
+      columnDefs: [
+        {
+          target: 3,
+          createdCell: function(td, cellData) {
+            $(td).addClass(cellData);
+          },
+        }
       ],
 
       rowCallback: (row: Node, data: any, index: number) => {
@@ -78,6 +87,10 @@ export class VehiculosComponent implements OnInit{
         <h3>Empresa</h3>
         <p>Empresa a la que pertenece</p>
         <input type="text" value="${data.empresas?.nombre || ''}" disabled>
+        <br>
+        <h3>Estado</h3>
+        <p>Estado del transporte</p>
+        <input type="text" class="${data.estado}" value="${data.estado || ''}" disabled>
       `,
       confirmButtonText: 'Actualizar',
       cancelButtonText: 'Cerrar',
@@ -111,18 +124,25 @@ export class VehiculosComponent implements OnInit{
             <select class="infoInput" id="id_empresa">
               ${opcionesEmpresas || 'No hay zonas disponibles'}
             </select>
+            <br>
+            <h3>Estado</h3>
+            <select id="estado">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
           `,
           preConfirm: () => {
             let nombre = (document.getElementById('nombre') as HTMLInputElement).value;
             let tipo = (document.getElementById('tipo') as HTMLInputElement).value;
             let empresa = parseInt((document.getElementById('id_empresa') as HTMLInputElement).value);
+            let estado = (document.getElementById('estado') as HTMLInputElement).value;
 
             return Promise.all([
               this.suppliersService.validarEmpresa(empresa).toPromise()
             ]).then(([ empresaValida ]) => {
               console.log( empresaValida );
               if ( empresaValida ) {
-                return { nombre, tipo, empresa };
+                return { nombre, tipo, empresa, estado };
               } else {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
                 return false;
@@ -137,6 +157,7 @@ export class VehiculosComponent implements OnInit{
               id: data.id,
               nombre: result.value.nombre,
               tipo: result.value.tipo,
+              estado: result.value.estado,
               id_administrativo: id_administrativo,
               id_empresa: result.value.empresa,
             };
