@@ -10,7 +10,7 @@ class Buque extends Model
 {
     protected $table = 'buque';
     protected $primaryKey = 'id';
-    protected $fillable = [ 'nombre', 'tipo', 'id_administrativo', 'id_empresa' ];
+    protected $fillable = [ 'nombre', 'tipo', 'estado', 'id_administrativo', 'id_empresa' ];
 
     public function administrativos() {
         return $this->belongsTo(Administrativo::class);

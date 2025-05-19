@@ -15,6 +15,7 @@ class BuqueController extends Controller {
     public function getBuquesCliente($id) {
         $cliente = Cliente::findOrFail($id);
         $task = Buque::where('id_empresa', $cliente -> id_empresa)
+        -> where('estado', 'activo')
         -> with('empresas')
         -> get();
         return $task;
@@ -70,6 +71,7 @@ class BuqueController extends Controller {
             'id' => 'int',
             'nombre' => 'string',
             'tipo' => 'string',
+            'estado' => 'string',
             'id_administrativo' => 'int',
             'id_empresa' => 'int',
         ]);

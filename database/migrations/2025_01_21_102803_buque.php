@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('nombre');
             $table->enum('tipo', [ 'buque', 'trailer' ]) -> default('buque');
+            $table->enum('estado', [ 'activo', 'inactivo' ]) -> default('activo');
             $table->foreignId('id_administrativo') -> constrained('users') -> onDelete('cascade');
             $table->foreignId('id_empresa') -> constrained('empresa') -> onDelete('cascade');
             $table->timestamps();
