@@ -28,9 +28,9 @@ class EmpresaController extends Controller {
         $empresa = $request -> validate([
             'nombre' => 'string',
             'ciudad' => 'string',
-            'cif' => 'string',
+            'cif' => 'regex:/^[0-9]{8}[A-Za-z]$/',
             'email' => 'string',
-            'codigo_postal' => 'string',
+            'codigo_postal' => 'regex:/^\d{5}$/',
         ]);
 
         $empresa['id_gestor'] = Auth::user() -> id;

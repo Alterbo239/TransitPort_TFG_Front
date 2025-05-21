@@ -40,11 +40,6 @@
                         INICIAR SESIÓN
                     </button>
                 </form>
-                <form action="{{ route('registrar') }}" method="get">
-                    <button type="submit" class="px-10 py-3 mt-6 text-lg font-bold text-white transition bg-gray-900 rounded-lg shadow-md botonLogin botonRegist hover:bg-gray-800">
-                        REGISTRAR
-                    </button>
-                </form>
             </div>
         </div>
     </div>

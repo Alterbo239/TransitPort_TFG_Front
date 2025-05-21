@@ -17,7 +17,7 @@ class CitaController extends Controller {
     public function store(Request $request) {
        $validatedData = $request->validate([
             'tipo' => 'string',
-            'fecha_pedida' => 'date_format:Y-m-d',
+            'fecha_pedida' => 'date_format:Y-m-d|after:today',
             'fecha_asignada' => 'date_format:Y-m-d',
             'hora' => 'date_format:H:i',
             'estado' => 'string',
@@ -56,7 +56,7 @@ class CitaController extends Controller {
             'tipo' => 'string',
             'fecha_pedida' => 'date_format:Y-m-d',
             'fecha_asignada' => 'date_format:Y-m-d',
-            'hora' => 'date_format:H:i',
+            'hora' => 'date_format:H:i:s',
             'estado' => 'nullable|string|in:En revision,Completada',
             'id_administrativo' => 'int',
             'id_cliente' => 'int',
