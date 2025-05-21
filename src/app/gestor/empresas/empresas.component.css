@@ -270,26 +270,8 @@ input#dt-search-0.dt-input {
   text-align: center;
   font-size: 20px;
   border-bottom: solid 10px var(--Cinder-50, #f1f5fe);
-  padding: 25px;
-}
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
-  text-align: left;
-  padding: 25px;
-  margin-left: -200px;
-}
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(2) {
-  text-align: center;
-  padding: 25px;
-  padding-left: 0px;
-  padding-right: 56px;
-}
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(3) {
-  text-align: center;
-  padding: 25px;
-  padding-left: 0px;
+  padding: 25px 0px;
+  white-space: nowrap;
 }
 
 .dt-scroll > .dt-scroll-body > table > tbody > tr > td > .select-checkbox {

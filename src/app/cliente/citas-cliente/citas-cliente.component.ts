@@ -6,7 +6,6 @@ import { DataTablesModule  } from 'angular-datatables';
 import Swal from 'sweetalert2';
 import { ZonasService } from '../../services/zonas.service';
 import { AuthService } from '../../services/auth.service';
-import { get } from 'node:http';
 
 @Component({
   selector: 'app-citas-cliente',
@@ -19,8 +18,6 @@ export class CitasClienteComponent implements OnInit{
 
   constructor(
     private suppliersService: CitasService,
-    private zonasService: ZonasService,
-    private usuario: AuthService,
     private renderer: Renderer2
   ){}
 
@@ -43,6 +40,7 @@ export class CitasClienteComponent implements OnInit{
       paging: false,
       ordering: false,
       searching: false,
+      info: false,
 
       //Ubicacions de columnas y sus nombres
       columns: [
@@ -61,19 +59,26 @@ export class CitasClienteComponent implements OnInit{
         {
           targets: 2,
           render: function(data) {
-          return data ? data : '----/--/--';
-        } }
+            return data ? data : '----/--/--';
+          }
+        },
       ],
 
       rowCallback: (row: Node, data: any, index: number) => {
 
         const rowElement = row as HTMLElement;
 
-        if (rowElement) {
+        const today = new Date();
+        const date = new Date(data.fecha_asignada);
+
+        if (date < today && data.fecha_asignada !== null) {
+          $(rowElement).addClass('d-none');
+        } else if (rowElement) {
           this.renderer.listen(rowElement, 'click', () => {
             this.mostrarAlerta(data);
           });
         }
+
         return row;
       }
     };

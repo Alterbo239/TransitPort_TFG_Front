@@ -189,11 +189,25 @@ div.titulo {
   padding: 25px;
 }
 
-::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.activo {
-  background-color: #B8FFB5;
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.activo::before,
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.inactivo::before {
+  content: '';
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
 }
-::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.inactivo {
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.activo::before {
+  background-color: #B8FFB5;
+  margin-right: 10%;
+  margin-left: -25%;
+}
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.inactivo::before {
   background-color: #FACD84;
+  margin-right: 10%;
+  margin-left: -17.5%;
 }
 
 .dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {

@@ -46,6 +46,7 @@ export class TransportesClienteComponent  implements OnInit{
       paging: false,
       searching: false,
       ordering: false,
+      info: false,
 
       //Ubicacions de columnas y sus nombres
       columns: [
