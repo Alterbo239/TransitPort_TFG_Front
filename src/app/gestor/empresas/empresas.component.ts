@@ -4,6 +4,7 @@ import { EmpresasService } from '../../services/empresas.service';
 import { Config } from 'datatables.net';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
+import { text } from 'node:stream/consumers';
 
 @Component({
   selector: 'app-empresas',
@@ -194,7 +195,14 @@ export class EmpresasComponent implements OnInit{
                 console.log(updatedData);
                 this.empresaService.actualizarEmpresa(updatedData).subscribe(
                   (response) => {
-                    Swal.fire('Empresa actualizada correctamente', `Empresa ${updatedData.id}: ${updatedData.nombre}`, 'success')
+                    Swal.fire({
+                      title: 'Empresa actualizada correctamente',
+                      text: `Empresa ${updatedData.id}: ${updatedData.nombre}`,
+                      icon: 'success',
+                      customClass: {
+                        confirmButton: 'ok-success',
+                      }
+                    })
                     .then(() => {
                       window.location.reload();
                     });

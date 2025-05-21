@@ -183,23 +183,25 @@ div.titulo {
   padding: 25px;
 }
 
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(1) {
-  text-align: left;
-  padding: 25px;
-  margin-left: -200px;
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.completada::before,
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.enrevision::before {
+  content: '';
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
 }
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(2) {
-  text-align: center;
-  padding: 25px;
-  padding-left: 0px;
-  padding-right: 56px;
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.completada::before {
+  background-color: #B8FFB5;
+  margin-right: 10%;
+  margin-left: -25%;
 }
-
-.dt-scroll > .dt-scroll-body > table > tbody > tr > td:nth-child(3) {
-  text-align: center;
-  padding: 25px;
-  padding-left: 0px;
+::ng-deep .dt-scroll > .dt-scroll-body > table > tbody > tr > td.enrevision::before {
+  background-color: #FACD84;
+  margin-right: 10%;
+  margin-left: -17.5%;
 }
 
 /* Modales */

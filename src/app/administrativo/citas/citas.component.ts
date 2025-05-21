@@ -52,10 +52,18 @@ export class CitasComponent implements OnInit{
       ],
       columnDefs: [
         {
+          targets: 4,
+          createdCell: function(td, cellData) {
+            const estado = cellData.toLowerCase().replace(/\s+/g, '');
+            $(td).addClass(estado);
+          },
+        },
+        {
           targets: 3,
           render: function(data) {
-          return data ? data : '----/--/--';
-        } }
+            return data ? data : '----/--/--';
+          }
+        }
       ],
 
       rowCallback: (row: Node, data: any, index: number) => {
@@ -128,15 +136,17 @@ export class CitasComponent implements OnInit{
             let hora = (document.getElementById('hora') as HTMLInputElement).value;
             let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value);
 
+            const fecha_ingresada = new Date(fecha);
+            const today = new Date();
+
             return Promise.all([
               this.suppliersService.validarZona(zona).toPromise()
             ]).then(([ zonaValida ]) => {
-              console.log( zonaValida );
-              if ( zonaValida ) {
-                return { fecha, hora, zona };
-              } else {
+              if ( !zonaValida || fecha_ingresada <= today) {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
                 return false;
+              } else {
+                return { fecha, hora, zona };
               }
             });
           }
@@ -156,7 +166,6 @@ export class CitasComponent implements OnInit{
               id_buque: data.id_buque,
               id_zona: result.value.zona,
             };
-            console.log(updatedData);
             this.suppliersService.actualizarCita(updatedData).subscribe(
               (response) => {
                 Swal.fire('Orden actualizada correctamente', `Codigo orden ${updatedData.id}`, 'success')

@@ -140,8 +140,7 @@ export class VehiculosComponent implements OnInit{
             return Promise.all([
               this.suppliersService.validarEmpresa(empresa).toPromise()
             ]).then(([ empresaValida ]) => {
-              console.log( empresaValida );
-              if ( empresaValida ) {
+              if ( empresaValida && nombre.length > 3 ) {
                 return { nombre, tipo, empresa, estado };
               } else {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
