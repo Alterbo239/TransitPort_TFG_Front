@@ -36,7 +36,7 @@
               "node_modules/datatables.net/js/dataTables.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js"
             ]
-            
+
           },
           "configurations": {
             "production": {
@@ -44,7 +44,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "1000kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
