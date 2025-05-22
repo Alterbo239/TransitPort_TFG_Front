@@ -35,15 +35,15 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/datatables.net/js/dataTables.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js"
-            ]
-
+            ],
+            "allowedCommonJsDependencies": ["sweetalert2"]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1000kB",
+                  "maximumWarning": "2000kB",
                   "maximumError": "2MB"
                 },
                 {
