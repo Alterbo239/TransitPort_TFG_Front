@@ -115,6 +115,8 @@ Route::post('/asignar-grua', [GruaController::class, 'asignarGrua']);
 Route::get('/citas', [CitaController::class, 'index']);
 Route::get('/citas/show/{id}', [CitaController::class, 'show']);
 
+Route::get('/citas/{id}', [CitaController::class, 'getCitasCliente']);
+
 Route::put('/citas/update/{id}', [CitaController::class, 'update']);
 
 //Transportes

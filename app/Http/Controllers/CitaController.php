@@ -9,8 +9,15 @@ use App\Models\Cliente;
 use App\Models\Buque;
 
 class CitaController extends Controller {
-    public function index(Request $request) {
+    public function index() {
         $task = Citas::with(['buques', 'zonas']) -> get();
+        return $task;
+    }
+    public function getCitasCliente($id) {
+        $cliente = Cliente::findOrFail($id);
+        $task = Citas::where('id_cliente', $cliente -> id)
+        -> with(['buques', 'zonas'])
+        -> get();
         return $task;
     }
 

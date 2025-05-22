@@ -82,16 +82,6 @@
                     margin-bottom: 3%;
 
                 }
-                .checking {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-
-                input[type="checkbox"] {
-                    margin: 0px;
-                    width: 20px;
-                }
 
                 #email{
 
@@ -233,10 +223,6 @@
                             <p>No hay empresas.</p>
                         @endforelse
                     </select>
-                    <div class="checking">
-                        <input type="checkbox" id="autonomo" name="autonomo" value="1" autocomplete="off">
-                        <label for="autonomo"> Autonomo </label>
-                    </div>
                 </div>
 
                 <button class="crear btn btn-primary">Crear</button>
