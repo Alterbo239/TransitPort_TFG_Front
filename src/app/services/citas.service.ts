@@ -14,6 +14,9 @@ export class CitasService {
   getSuppliersList(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+  getCitasCliente(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
+  }
 
   actualizarCita(cita: Cita): Observable<Cita> {
     return this.http.put<Cita>(`http://127.0.0.1:8000/api/citas/update/${cita.id}`, cita);

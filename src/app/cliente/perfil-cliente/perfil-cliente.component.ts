@@ -33,5 +33,6 @@ export class PerfilClienteComponent {
   logout() {
     this.authService.logout()
     this.router.navigate(['/']);
+    localStorage.removeItem("rutaCliente");
   }
 }

@@ -21,6 +21,7 @@
   margin-left: 12px;
 }
 ::ng-deep .dt-container thead > tr > th  {
+  width: 33%;
   background-color: #133379;
   color: white;
 
@@ -29,6 +30,7 @@
 }
 ::ng-deep .dt-container tbody > tr > td {
   height: 60px;
+  width: 33%;
   font-size: 1.1rem;
   text-align: center;
   vertical-align: middle;

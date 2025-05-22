@@ -6,6 +6,7 @@ import { DataTablesModule  } from 'angular-datatables';
 import Swal from 'sweetalert2';
 import { ZonasService } from '../../services/zonas.service';
 import { AuthService } from '../../services/auth.service';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-citas-cliente',
@@ -18,13 +19,15 @@ export class CitasClienteComponent implements OnInit{
 
   constructor(
     private suppliersService: CitasService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private user: UsuarioService
   ){}
 
   ngOnInit(): void {
     this.dtOptions = {
       ajax: (dataTablesParameters: any, callback) => {
-        this.suppliersService.getSuppliersList().subscribe(resp => {
+        const user = this.user.getUsuario();
+        this.suppliersService.getCitasCliente(user.id).subscribe(resp => {
           callback({
             data: resp
           });

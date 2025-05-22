@@ -133,7 +133,7 @@ export class CitasComponent implements OnInit{
           `,
           preConfirm: () => {
             let fecha = (document.getElementById('fecha') as HTMLInputElement).value;
-            let hora = (document.getElementById('hora') as HTMLInputElement).value;
+            let hora = (document.getElementById('hora') as HTMLInputElement).value + ":00";
             let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value);
 
             const fecha_ingresada = new Date(fecha);
