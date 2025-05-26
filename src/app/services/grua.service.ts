@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GruaService {
-  private apiUrl = 'https://34.227.117.124/api';
+  private apiUrl = 'http://34.227.117.124/api';
 
   constructor(private http: HttpClient) {}
 
