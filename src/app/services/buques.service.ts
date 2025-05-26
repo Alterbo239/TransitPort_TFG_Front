@@ -7,7 +7,7 @@ import { Buque } from '../models/buque';
   providedIn: 'root'
 })
 export class BuquesService {
-  private apiUrl = 'http://127.0.0.1:8000/api/buques';
+  private apiUrl = 'http://34.227.117.124/api/buques';
 
   constructor(private http: HttpClient){}
 

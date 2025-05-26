@@ -7,7 +7,7 @@ import { Cita } from '../models/cita';
   providedIn: 'root'
 })
 export class CitasService {
-  private apiUrl = 'http://127.0.0.1:8000/api/citas';
+  private apiUrl = 'http://34.227.117.124/api/citas';
 
   constructor(private http: HttpClient){}
 
