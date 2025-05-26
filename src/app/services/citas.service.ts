@@ -7,7 +7,7 @@ import { Cita } from '../models/cita';
   providedIn: 'root'
 })
 export class CitasService {
-  private apiUrl = 'http://34.227.117.124/api/citas';
+  private apiUrl = 'https://34.227.117.124/api/citas';
 
   constructor(private http: HttpClient){}
 
@@ -19,10 +19,10 @@ export class CitasService {
   }
 
   actualizarCita(cita: Cita): Observable<Cita> {
-    return this.http.put<Cita>(`http://34.227.117.124/api/citas/update/${cita.id}`, cita);
+    return this.http.put<Cita>(`https://34.227.117.124/api/citas/update/${cita.id}`, cita);
   }
   validarZona(id: any): Observable<boolean> {
-    return this.http.get(`http://34.227.117.124/api/zona/show/${id}`).pipe(
+    return this.http.get(`https://34.227.117.124/api/zona/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );

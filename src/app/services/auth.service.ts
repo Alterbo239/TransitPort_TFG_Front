@@ -9,7 +9,7 @@ import { response } from 'express';
 
 export class AuthService {
 
-  private apiUrl = 'http://34.227.117.124/api';
+  private apiUrl = 'https://34.227.117.124/api';
 
   public logIn = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.logIn.asObservable();
