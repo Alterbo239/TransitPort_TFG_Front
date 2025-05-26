@@ -19,10 +19,10 @@ export class CitasService {
   }
 
   actualizarCita(cita: Cita): Observable<Cita> {
-    return this.http.put<Cita>(`http://127.0.0.1:8000/api/citas/update/${cita.id}`, cita);
+    return this.http.put<Cita>(`http://34.227.117.124/api/citas/update/${cita.id}`, cita);
   }
   validarZona(id: any): Observable<boolean> {
-    return this.http.get(`http://127.0.0.1:8000/api/zona/show/${id}`).pipe(
+    return this.http.get(`http://34.227.117.124/api/zona/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );

@@ -22,7 +22,7 @@ export class BuquesService {
     return this.http.put<Buque>(`${this.apiUrl}/update/${buque.id}`, buque);
   }
   validarEmpresa(id: any): Observable<boolean> {
-    return this.http.get(`http://127.0.0.1:8000/api/empresas/show/${id}`).pipe(
+    return this.http.get(`http://34.227.117.124/api/empresas/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );
