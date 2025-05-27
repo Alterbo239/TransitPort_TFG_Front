@@ -6,7 +6,7 @@ import { catchError, map, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ZonasService {
-  private apiUrl = 'http://127.0.0.1/api/zona';
+  private apiUrl = 'http://127.0.0.1:8000/api/zona';
 
   constructor(private http: HttpClient){}
 

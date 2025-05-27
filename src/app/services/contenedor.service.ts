@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ContenedorService {
-  private apiUrl = 'http://127.0.0.1:8000/api/tiene';
-  private apiUrlContenedor = 'http://127.0.0.1:8000/api/contenedor';
+  private apiUrl = 'http://127.0.0.1:8000:8000/api/tiene';
+  private apiUrlContenedor = 'http://127.0.0.1:8000:8000/api/contenedor';
 
   constructor(private http: HttpClient){}
 
