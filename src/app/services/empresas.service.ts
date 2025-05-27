@@ -7,18 +7,31 @@ import { Empresa } from '../models/empresa';
   providedIn: 'root'
 })
 export class EmpresasService {
-  private apiUrl = 'https://34.227.117.124/api';
+  private apiUrl = 'http://127.0.0.1:8000/api'; // Url base.
 
   constructor(private http: HttpClient){}
 
+  /**
+   * Funcion para recoger los datos de las empresas de la BD.
+   * @returns Lista de empresas.
+   */
   getSuppliersList(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl + '/empresas');
   }
+  /**
+   * Funcion que recoge las ciudades de la BD. (Distinct, osea filtrando para mostrar solo 1 ciudad).
+   * @returns Lista de ciudades.
+   */
   getCiudades(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl + '/ciudades');
   }
 
+  /**
+   * Funcion para actualizar la empresa.
+   * @param empresa Empresa a actualizar.
+   * @returns Empresa actualizada.
+   */
   actualizarEmpresa(empresa: Empresa): Observable<Empresa> {
-    return this.http.put<Empresa>(`https://34.227.117.124/api/empresas/update/${empresa.id}`, empresa);
+    return this.http.put<Empresa>(`http://127.0.0.1:8000/api/empresas/update/${empresa.id}`, empresa);
   }
 }

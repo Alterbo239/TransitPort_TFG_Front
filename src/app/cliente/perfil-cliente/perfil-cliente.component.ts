@@ -22,6 +22,7 @@ export class PerfilClienteComponent {
   ){}
 
   ngOnInit(): void {
+    // Asociamos los datos del cliente a los inputs para mostrar.
     const user = this.user.getUsuario();
 
     this.nombre = user.name;
@@ -30,6 +31,9 @@ export class PerfilClienteComponent {
     this.email = user.email;
   }
 
+  /**
+   * Funcion para cerrar sesion.
+   */
   logout() {
     this.authService.logout()
     this.router.navigate(['/']);

@@ -62,7 +62,7 @@ export class CitasClienteComponent implements OnInit{
         {
           targets: 2,
           render: function(data) {
-            return data ? data : '----/--/--';
+            return data ? data : '----/--/--'; // Si data es "nulo", se muestra ese String.
           }
         },
       ],
@@ -75,7 +75,7 @@ export class CitasClienteComponent implements OnInit{
         const date = new Date(data.fecha_asignada);
 
         if (date < today && data.fecha_asignada !== null) {
-          $(rowElement).addClass('d-none');
+          $(rowElement).addClass('d-none'); // Si la fecha es anterior a la de hoy, no se muestra en la lista.
         } else if (rowElement) {
           this.renderer.listen(rowElement, 'click', () => {
             this.mostrarAlerta(data);
@@ -88,7 +88,7 @@ export class CitasClienteComponent implements OnInit{
   }
 
   mostrarAlerta(data: any) {
-    let claseEstado = data.estado.toLowerCase().replace(/\s+/g, '');
+    let claseEstado = data.estado.toLowerCase().replace(/\s+/g, ''); //Filtramos los estados para que esten en minuscula y juntos para el nombre de la clase.
     Swal.fire({
       title: 'Detalles',
       html: `
@@ -114,19 +114,6 @@ export class CitasClienteComponent implements OnInit{
   abrirFiltro() {
     //Cogemos la consulta de la base de datos.
     this.suppliersService.getSuppliersList().subscribe((resp: any[]) => {
-      const ubis = [...new Set(resp.map(datos => datos.ubicacion))]; //Creamos un map para evitar que se repitan datos.
-      let ubicaciones = `<option value="">Todos</option>`; //Creamos el select con las ubicaciones.
-      ubis.forEach(ubicacion => {
-        ubicaciones += `<option value="${ubicacion}">${ubicacion}</option>`; //Agregamos las opciones de ubicaciones.
-      });
-
-      //Lo mismo pero con los destinos.
-      const dest = [...new Set(resp.map(datos => datos.destino))];
-      let detinos = `<option value="">Todos</option>`;
-      dest.forEach(destino => {
-        detinos += `<option value="${destino}">${destino}</option>`;
-      });
-
       Swal.fire({
         title: 'Filtrar',
         html: `
@@ -163,7 +150,7 @@ export class CitasClienteComponent implements OnInit{
           const estado = (document.getElementById("selectEstado") as HTMLSelectElement).value;
           const tipo = (document.getElementById("selectTipo") as HTMLSelectElement).value;
           const fecha = (document.getElementById("selectFecha") as HTMLSelectElement).value;
-          return { estado, tipo, fecha };
+          return { estado, tipo, fecha }; // Como son selects de datos validos, no los validamos antes de mandarlos.
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -177,7 +164,7 @@ export class CitasClienteComponent implements OnInit{
     // Volvemos a coger los datos de la base de datos.
     this.suppliersService.getSuppliersList().subscribe(resp => {
       let datosFiltrados = resp.filter(datos => {
-        // Filtramos los datos por cada columna, aunque no esté en la tabla.
+        // Filtramos los datos por cada columna, aunque no esté en la tabla. (true = mostrarlo).
         const filtroEstado = estado ? datos.estado === estado : true;
 
         const filtroTipo = tipo ? datos.tipo === tipo : true;

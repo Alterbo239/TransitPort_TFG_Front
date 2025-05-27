@@ -119,16 +119,6 @@ export class EmpresasComponent implements OnInit{
       }
     }).then(async (result) => {
           if (result.isConfirmed) {
-            const empresas = await this.empresaService.getSuppliersList().toPromise();
-
-            let opcionesEmpresas;
-
-            if (empresas) {
-              opcionesEmpresas = empresas.map(empresa => `
-                <option value="${empresa.id}"> ${empresa.nombre} </option>
-              `).join('');
-            }
-
             Swal.fire({
               title: 'Actualizar',
               html: `
@@ -164,10 +154,12 @@ export class EmpresasComponent implements OnInit{
 
                 let dataValida = false;
 
+                // Comprobamos que estos datos cumplen los requisitos.
                 const codigoPostalValido = /^\d{5}$/.test(codigo_postal);
                 const cifValido = /^\d{8}[A-Za-z]$/.test(cif);
                 const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+                // Validando los datos -> .
                 if ( nombre && ciudad && codigoPostalValido && cifValido && emailValido ) {
                   dataValida = true;
                 }

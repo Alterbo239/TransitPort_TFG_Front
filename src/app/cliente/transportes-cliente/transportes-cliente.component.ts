@@ -99,16 +99,6 @@ export class TransportesClienteComponent  implements OnInit{
   abrirFiltro() {
     //Cogemos la consulta de la base de datos.
     this.suppliersService.getSuppliersList().subscribe(async (resp: any[]) => {
-      const empresas = await this.empresaService.getSuppliersList().toPromise();
-
-      let opcionesEmpresas;
-
-      if (empresas) {
-        opcionesEmpresas = empresas.map(empresa => `
-          <option value="${empresa.nombre}"> ${empresa.nombre} </option>
-        `).join('');
-      }
-
       Swal.fire({
         title: 'Filtrar',
         html: `
@@ -155,7 +145,6 @@ export class TransportesClienteComponent  implements OnInit{
       table.clear();
       table.rows.add(datosFiltrados);
       table.draw();
-
     });
   }
 }

@@ -7,22 +7,41 @@ import { Cita } from '../models/cita';
   providedIn: 'root'
 })
 export class CitasService {
-  private apiUrl = 'https://34.227.117.124/api/citas';
+  private apiUrl = 'http://127.0.0.1:8000/api/citas'; // Url base.
 
   constructor(private http: HttpClient){}
 
+  /**
+   * Metodo para buscar las citas de la BD.
+   * @returns Lista de citas.
+   */
   getSuppliersList(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+  /**
+   * Mismo metodo pero filtrando por cliente.
+   * @param id Id del cliente.
+   * @returns Lista de citas filtradas.
+   */
   getCitasCliente(id: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
+  /**
+   * Metodo para actualizar las citas en la BD.
+   * @param cita Cita a actualziar.
+   * @returns Cita actualziada.
+   */
   actualizarCita(cita: Cita): Observable<Cita> {
-    return this.http.put<Cita>(`https://34.227.117.124/api/citas/update/${cita.id}`, cita);
+    return this.http.put<Cita>(`http://127.0.0.1:8000/api/citas/update/${cita.id}`, cita);
   }
+  /**
+   * Metodo para validar si la zona seleccionada existe en la BD.
+   * @param id Id de la zona.
+   * @returns Booleano de confirmacion.
+   */
   validarZona(id: any): Observable<boolean> {
-    return this.http.get(`https://34.227.117.124/api/zona/show/${id}`).pipe(
+    return this.http.get(`http://127.0.0.1:8000/api/zona/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );

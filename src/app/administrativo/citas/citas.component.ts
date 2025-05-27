@@ -54,20 +54,20 @@ export class CitasComponent implements OnInit{
         {
           targets: 4,
           createdCell: function(td, cellData) {
+            // Filtramos las citas para que esten en minusculas y sin espacios.
             const estado = cellData.toLowerCase().replace(/\s+/g, '');
-            $(td).addClass(estado);
+            $(td).addClass(estado); //Agregamos el estado a la clase.
           },
         },
         {
           targets: 3,
           render: function(data) {
-            return data ? data : '----/--/--';
+            return data ? data : '----/--/--'; // Si la fecha asignada es nula, mostramos este String.
           }
         }
       ],
 
       rowCallback: (row: Node, data: any, index: number) => {
-
         const rowElement = row as HTMLElement;
 
         if (rowElement) {
@@ -107,6 +107,7 @@ export class CitasComponent implements OnInit{
       if (result.isConfirmed) {
         const zonas = await this.zonasService.getSuppliersList().toPromise();
 
+        // Creamos las opciones para el Select de Zona.
         let opcionesZonas;
 
         if (zonas) {
@@ -133,8 +134,8 @@ export class CitasComponent implements OnInit{
           `,
           preConfirm: () => {
             let fecha = (document.getElementById('fecha') as HTMLInputElement).value;
-            let hora = (document.getElementById('hora') as HTMLInputElement).value + ":00";
-            let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value);
+            let hora = (document.getElementById('hora') as HTMLInputElement).value + ":00"; // Agregamos segundos "00" para que no falle.
+            let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value); // Volvemos un "int" el id seleccionado.
 
             const fecha_ingresada = new Date(fecha);
             const today = new Date();
@@ -142,6 +143,7 @@ export class CitasComponent implements OnInit{
             return Promise.all([
               this.suppliersService.validarZona(zona).toPromise()
             ]).then(([ zonaValida ]) => {
+              // La fecha introducida no puede ser ni antes ni justo la de hoy.
               if ( !zonaValida || fecha_ingresada <= today) {
                 Swal.showValidationMessage('Uno o más campos no son válidos, asegúrate de que los datos sean correctos');
                 return false;
@@ -154,6 +156,7 @@ export class CitasComponent implements OnInit{
           if (result.isConfirmed && result.value) {
             let id_administrativo = this.usuario.getUserID();
 
+            // Datos para actualziar.
             let updatedData = {
               id: data.id,
               tipo: data.tipo,

@@ -53,7 +53,7 @@ export class VehiculosComponent implements OnInit{
         {
           target: 3,
           createdCell: function(td, cellData) {
-            $(td).addClass(cellData);
+            $(td).addClass(cellData); // Agregamos el estado a la clase.
           },
         }
       ],
@@ -102,6 +102,7 @@ export class VehiculosComponent implements OnInit{
 
         let opcionesEmpresas;
 
+        //Creamos las opciones para el select de empresas.
         if (empresas) {
           opcionesEmpresas = empresas.map(empresa => `
             <option value="${empresa.id}"> ${empresa.nombre} </option>
@@ -140,6 +141,7 @@ export class VehiculosComponent implements OnInit{
             return Promise.all([
               this.suppliersService.validarEmpresa(empresa).toPromise()
             ]).then(([ empresaValida ]) => {
+              // Validamos los datos.
               if ( empresaValida && nombre.length > 3 ) {
                 return { nombre, tipo, empresa, estado };
               } else {
@@ -231,9 +233,9 @@ export class VehiculosComponent implements OnInit{
     if (empresa) {
       table.column(2).search(`^${empresa}$`, true, false);
     } else {
-      table.column(2).search(''); //limpia el filtro si elegimos todos
+      table.column(2).search(''); //limpia el filtro si elegimos todos.
     }
 
-    table.draw(); //Refresca la tabla con los filtros
+    table.draw(); //Refresca la tabla con los filtros.
   }
 }
