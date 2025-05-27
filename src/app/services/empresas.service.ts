@@ -7,7 +7,7 @@ import { Empresa } from '../models/empresa';
   providedIn: 'root'
 })
 export class EmpresasService {
-  private apiUrl = 'http://127.0.0.1:8000:8000/api'; // Url base.
+  private apiUrl = 'http://127.0.0.1:8000/api'; // Url base.
 
   constructor(private http: HttpClient){}
 
@@ -32,6 +32,6 @@ export class EmpresasService {
    * @returns Empresa actualizada.
    */
   actualizarEmpresa(empresa: Empresa): Observable<Empresa> {
-    return this.http.put<Empresa>(`http://127.0.0.1:8000:8000/api/empresas/update/${empresa.id}`, empresa);
+    return this.http.put<Empresa>(`http://127.0.0.1:8000/api/empresas/update/${empresa.id}`, empresa);
   }
 }

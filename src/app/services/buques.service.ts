@@ -7,7 +7,7 @@ import { Buque } from '../models/buque';
   providedIn: 'root'
 })
 export class BuquesService {
-  private apiUrl = 'http://127.0.0.1:8000:8000/api/buques'; //Url base para el resto de peticiones.
+  private apiUrl = 'http://127.0.0.1:8000/api/buques'; //Url base para el resto de peticiones.
 
   constructor(private http: HttpClient){}
 
@@ -42,7 +42,7 @@ export class BuquesService {
    * @returns Booleano de validacion.
    */
   validarEmpresa(id: any): Observable<boolean> {
-    return this.http.get(`http://127.0.0.1:8000:8000/api/empresas/show/${id}`).pipe(
+    return this.http.get(`http://127.0.0.1:8000/api/empresas/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );

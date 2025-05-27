@@ -7,7 +7,7 @@ import { Cita } from '../models/cita';
   providedIn: 'root'
 })
 export class CitasService {
-  private apiUrl = 'http://127.0.0.1:8000:8000/api/citas'; // Url base.
+  private apiUrl = 'http://127.0.0.1:8000/api/citas'; // Url base.
 
   constructor(private http: HttpClient){}
 
@@ -33,7 +33,7 @@ export class CitasService {
    * @returns Cita actualziada.
    */
   actualizarCita(cita: Cita): Observable<Cita> {
-    return this.http.put<Cita>(`http://127.0.0.1:8000:8000/api/citas/update/${cita.id}`, cita);
+    return this.http.put<Cita>(`http://127.0.0.1:8000/api/citas/update/${cita.id}`, cita);
   }
   /**
    * Metodo para validar si la zona seleccionada existe en la BD.
@@ -41,7 +41,7 @@ export class CitasService {
    * @returns Booleano de confirmacion.
    */
   validarZona(id: any): Observable<boolean> {
-    return this.http.get(`http://127.0.0.1:8000:8000/api/zona/show/${id}`).pipe(
+    return this.http.get(`http://127.0.0.1:8000/api/zona/show/${id}`).pipe(
       map(() => true),
       catchError(() => of(false))
     );
