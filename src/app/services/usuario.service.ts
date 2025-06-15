@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { StoreUsuario } from '../models/storeUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,9 @@ export class UsuarioService {
     };
 
     return this.http.put<any>(`${this.apiUrl}/modificar-estado/${id}`, body);
+  }
+
+  crearUsuario(usuario: StoreUsuario): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/storeUsuario`, usuario);
   }
 }
