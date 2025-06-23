@@ -28,6 +28,15 @@ export class CitasService {
   }
 
   /**
+   * Metodo para crear una cita en la BD.
+   * @param cita Cita a crear.
+   * @returns Cita creada.
+   */
+  crearCita(cita: Cita): Observable<Cita> {
+    return this.http.post<Cita>(`${this.apiUrl}/store`, cita);
+  }
+
+  /**
    * Metodo para actualizar las citas en la BD.
    * @param cita Cita a actualziar.
    * @returns Cita actualziada.

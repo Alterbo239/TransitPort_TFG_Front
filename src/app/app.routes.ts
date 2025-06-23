@@ -30,6 +30,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { CitasClienteComponent } from './cliente/citas-cliente/citas-cliente.component';
 import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.component';
 import { TransportesClienteComponent } from './cliente/transportes-cliente/transportes-cliente.component';
+import { PedirCitaComponent } from './cliente/pedir-cita/pedir-cita.component';
 
 
 export const routes: Routes = [
@@ -96,6 +97,10 @@ export const routes: Routes = [
           {
               path: 'ver-citas',
               component: CitasClienteComponent
+          },
+          {
+              path: 'pedir-citas',
+              component: PedirCitaComponent
           },
           {
               path: 'ver-transportes',
