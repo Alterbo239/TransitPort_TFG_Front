@@ -134,7 +134,10 @@ export class CitasComponent implements OnInit{
           `,
           preConfirm: () => {
             let fecha = (document.getElementById('fecha') as HTMLInputElement).value;
-            let hora = (document.getElementById('hora') as HTMLInputElement).value + ":00"; // Agregamos segundos "00" para que no falle.
+            let hora = (document.getElementById('hora') as HTMLInputElement).value; // Recojemos la hora.
+            if (data.estado !== "Completada") {
+              hora = (document.getElementById('hora') as HTMLInputElement).value + ":00"; // Si la cita está en revisión, agregamos segundos "00" para que no falle.
+            }
             let zona = parseInt((document.getElementById('id_zona') as HTMLInputElement).value); // Volvemos un "int" el id seleccionado.
 
             const fecha_ingresada = new Date(fecha);

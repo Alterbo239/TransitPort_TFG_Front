@@ -26,6 +26,7 @@
     "@fullcalendar/core": "^6.1.17",
     "@fullcalendar/daygrid": "^6.1.17",
     "@fullcalendar/interaction": "^6.1.17",
+    "@fullcalendar/timegrid": "^6.1.17",
     "@popperjs/core": "^2.11.8",
     "angular-datatables": "^19.0.0",
     "bootstrap": "^5.3.3",

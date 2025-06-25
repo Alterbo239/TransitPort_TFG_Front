@@ -11,6 +11,7 @@ import { BuquesService } from '../../services/buques.service';
 import { Buque } from '../../models/buque';
 import { AuthService } from '../../services/auth.service';
 import { CitasService } from '../../services/citas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedir-cita',
@@ -36,6 +37,7 @@ export class PedirCitaComponent {
     private citas: CitasService,
     private buque: BuquesService,
     private auth: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -131,6 +133,7 @@ export class PedirCitaComponent {
         }).then(() => {
           this.form.reset();
           this.mostrarCalendario = false;
+          this.router.navigate(["/cliente/ver-citas"]);
         });
       },
       error: (error) => {
